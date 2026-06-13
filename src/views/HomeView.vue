@@ -871,6 +871,10 @@ const trust = [
 }
 .cta-section .btn-google:hover { border-color: white; }
 
+.contact-cta {
+  align-self: center;
+}
+
 /* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }

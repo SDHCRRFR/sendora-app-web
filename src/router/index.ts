@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import TermsView from '../views/TermsView.vue'
 import CGUView from '../views/CGUView.vue'
 import PrivacyView from '@/views/PrivacyView.vue'
+import ContactView from '@/views/ContactView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +18,7 @@ const router = createRouter({
       component: PrivacyView,
       meta: { title: 'Politique de confidentialité — Sendora' },
     },
+    { path: '/contact', component: ContactView, meta: { title: 'Contact — Sendora' } },
     { path: '/cgu', component: CGUView, meta: { title: 'CGU — Sendora' } },
   ],
 })

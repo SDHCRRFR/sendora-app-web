@@ -269,9 +269,14 @@ select {
 
 .toc-link {
   display: block;
+  width: 100%;
+  text-align: left;
   padding: 0.6rem 0.75rem;
   border-radius: 12px;
   color: var(--text-secondary);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
   transition: background-color var(--transition), color var(--transition);
 }
 
@@ -386,6 +391,21 @@ select {
   flex-wrap: wrap;
   border-top: 1px solid var(--border);
   padding-top: 1.25rem;
+}
+
+.site-footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-footer-links a {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.site-footer-links a:hover {
+  color: var(--brand-700);
 }
 
 @media (max-width: 960px) {

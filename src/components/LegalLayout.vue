@@ -7,14 +7,15 @@
         <div class="surface toc-card">
           <p class="toc-title">Sommaire</p>
           <div class="toc-list">
-            <a
+            <button
               v-for="item in toc"
               :key="item.id"
+              type="button"
               class="toc-link"
-              :href="`#${item.id}`"
+              @click="scrollToSection(item.id)"
             >
               {{ item.label }}
-            </a>
+            </button>
           </div>
         </div>
       </aside>
@@ -51,4 +52,9 @@ defineProps<{
   date: string
   toc: TocItem[]
 }>()
+
+function scrollToSection(id: string) {
+  const target = document.getElementById(id)
+  target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 </script>

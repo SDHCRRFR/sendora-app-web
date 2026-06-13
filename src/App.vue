@@ -9,6 +9,7 @@
 
         <nav class="nav-links" aria-label="Navigation principale">
           <RouterLink to="/" class="nav-link">Accueil</RouterLink>
+          <RouterLink to="/contact" class="nav-link">Contact</RouterLink>
           <RouterLink to="/terms" class="nav-link">CGU</RouterLink>
           <RouterLink to="/privacy" class="nav-link">Confidentialité</RouterLink>
           <RouterLink to="/cgu" class="nav-link">Mentions</RouterLink>
@@ -25,7 +26,10 @@
     <footer class="site-footer">
       <div class="container site-footer-inner">
         <span>© 2026 Sendora</span>
-        <span>Envoyer, transporter, gagner - simplement.</span>
+        <div class="site-footer-links">
+          <RouterLink to="/contact">Contact</RouterLink>
+          <RouterLink to="/privacy">Confidentialité</RouterLink>
+        </div>
       </div>
     </footer>
   </div>
