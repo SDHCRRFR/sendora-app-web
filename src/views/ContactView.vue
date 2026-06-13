@@ -1,174 +1,138 @@
 <template>
   <main class="contact-page">
+
     <section class="contact-hero">
-      <div class="container contact-hero-inner">
+      <div class="container contact-inner">
         <div class="contact-intro">
           <span class="chip">Contact</span>
-          <h1 class="page-title">Une question ? On vous répond.</h1>
-          <p class="page-subtitle">
-            Cette page de contact est séparée des autres contenus pour rester
-            claire, simple et compatible avec les exigences de validation.
+          <h1 class="page-title">Une question ?<br><em>On vous répond.</em></h1>
+          <p class="page-subtitle contact-lead">
+            L'équipe Sendora est disponible par email pour toute question liée à l'application,
+            à votre compte, aux paiements ou à la confidentialité de vos données.
+            Nous nous engageons à répondre dans les meilleurs délais.
           </p>
         </div>
 
         <div class="surface contact-card">
-          <div class="contact-item">
-            <p class="contact-label">Support email</p>
-            <a class="contact-link" href="mailto:contact@sendora.app">contact@sendora.app</a>
-            <p class="contact-note">Pour l’assistance, les retours et les demandes liées au compte.</p>
+          <div class="contact-row">
+            <div class="cr-label">Support général</div>
+            <a class="cr-email" href="mailto:contact@sendora.app">contact@sendora.app</a>
+            <p class="cr-note">Pour l'aide, les retours, et les demandes liées à votre compte.</p>
           </div>
-
-          <div class="contact-item">
-            <p class="contact-label">Disponibilité</p>
-            <p class="contact-value">Réponse dès que possible pendant les horaires ouvrés.</p>
+          <div class="contact-row">
+            <div class="cr-label">Données personnelles</div>
+            <a class="cr-email" href="mailto:privacy@sendora.app">privacy@sendora.app</a>
+            <p class="cr-note">Exercice de vos droits RGPD, suppression de compte, export de données.</p>
           </div>
-
-          <div class="contact-item contact-actions">
-            <RouterLink to="/" class="btn btn-secondary">Retour à l’accueil</RouterLink>
-            <a class="btn btn-primary" href="mailto:contact@sendora.app?subject=Contact%20Sendora">
-              Écrire un email
-            </a>
+          <div class="contact-row">
+            <div class="cr-label">Questions légales</div>
+            <a class="cr-email" href="mailto:legal@sendora.app">legal@sendora.app</a>
+            <p class="cr-note">CGU, mentions légales, signalement de contenu.</p>
+          </div>
+          <div class="contact-actions">
+            <RouterLink to="/" class="btn btn-secondary">← Retour à l'accueil</RouterLink>
+            <a class="btn btn-primary" href="mailto:contact@sendora.app?subject=Contact%20Sendora">Écrire un email</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contact-details">
+    <section class="contact-topics">
       <div class="container contact-grid">
-        <article class="surface contact-panel">
-          <span class="contact-icon">📦</span>
-          <h2>Support utilisateur</h2>
-          <p>
-            Pour toute question sur l’envoi, le transport, les paiements ou la vérification d’identité.
-          </p>
-        </article>
-
-        <article class="surface contact-panel">
-          <span class="contact-icon">🔒</span>
-          <h2>Confidentialité</h2>
-          <p>
-            Pour les demandes relatives aux données personnelles et aux informations de compte.
-          </p>
-        </article>
-
-        <article class="surface contact-panel">
-          <span class="contact-icon">⚡</span>
-          <h2>Réclamations</h2>
-          <p>
-            Pour signaler un bug, un comportement bloquant ou un incident sur la plateforme.
-          </p>
+        <article class="surface topic-panel" v-for="topic in topics" :key="topic.title">
+          <span class="topic-icon">{{ topic.icon }}</span>
+          <h2>{{ topic.title }}</h2>
+          <p>{{ topic.desc }}</p>
         </article>
       </div>
     </section>
+
   </main>
 </template>
 
 <script lang="ts" setup>
+const topics = [
+  {
+    icon: '📦',
+    title: 'Support utilisateur',
+    desc: 'Questions sur l\'envoi de colis, le matching, les transporteurs disponibles, ou la confirmation de livraison.',
+  },
+  {
+    icon: '💳',
+    title: 'Paiements & remboursements',
+    desc: 'Problème de paiement Stripe, remboursement, virement Stripe Connect, ou litige sur une mission.',
+  },
+  {
+    icon: '🔐',
+    title: 'Compte & identité',
+    desc: 'Connexion, vérification KYC, modification des informations personnelles, ou suppression de compte.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Confidentialité & RGPD',
+    desc: 'Accès à vos données, droit à l\'oubli, portabilité, ou réclamation auprès de la CNIL.',
+  },
+  {
+    icon: '⚡',
+    title: 'Signaler un problème',
+    desc: 'Bug dans l\'application, comportement bloquant, ou incident à signaler à l\'équipe technique.',
+  },
+  {
+    icon: '🤝',
+    title: 'Partenariats',
+    desc: 'Intégration, presse, collaboration institutionnelle ou question business. On est à l\'écoute.',
+  },
+]
 </script>
 
 <style scoped>
-.contact-page {
-  padding: 2rem 0 4rem;
+.contact-page   { padding: 2rem 0 5rem; }
+.contact-hero   { padding: 1.5rem 0 2.5rem; }
+.contact-inner  {
+  display: grid; grid-template-columns: 1fr 420px;
+  gap: 2rem; align-items: start;
 }
+.contact-intro  { display: grid; gap: 1.1rem; align-content: start; padding-top: .75rem; }
+.contact-intro .page-title { font-family: var(--font-display); letter-spacing: -.03em; }
+.contact-intro .page-title em { font-style: italic; color: var(--verdant); }
+.contact-lead   { font-size: .95rem; }
 
-.contact-hero {
-  padding: 1.5rem 0 2rem;
-}
-
-.contact-hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 420px;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-.contact-intro {
-  display: grid;
-  gap: 1rem;
-  align-content: start;
-  padding-top: 1rem;
-}
-
-.contact-card {
-  padding: 1.25rem;
-  display: grid;
-  gap: 1rem;
-}
-
-.contact-item {
-  padding: 1rem;
-  border-radius: var(--radius);
-  background: var(--surface-soft);
+.contact-card { padding: 1.5rem; display: grid; gap: 1px; overflow: hidden; }
+.contact-row {
+  padding: 1.1rem;
+  background: var(--cream); border-radius: var(--radius);
   border: 1px solid var(--border);
 }
-
-.contact-label {
-  margin: 0 0 0.35rem;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 800;
+.cr-label {
+  font-size: .72rem; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: .4rem;
 }
-
-.contact-link {
-  display: inline-block;
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--brand-700);
+.cr-email {
+  display: inline-block; font-size: 1rem; font-weight: 800;
+  color: var(--verdant); margin-bottom: .35rem;
 }
-
-.contact-note,
-.contact-value {
-  margin: 0.55rem 0 0;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
+.cr-note { font-size: .85rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
 .contact-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  background: transparent;
-  border: 0;
-  padding-inline: 0;
+  display: flex; gap: .75rem; flex-wrap: wrap;
+  padding-top: .5rem;
 }
 
-.contact-details {
-  padding-top: 1rem;
-}
-
+.contact-topics { padding-top: 1rem; }
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+.topic-panel { padding: 1.5rem; display: grid; gap: .7rem; }
+.topic-icon  { font-size: 1.6rem; }
+.topic-panel h2 { margin: 0; font-size: 1rem; font-weight: 800; }
+.topic-panel p  { margin: 0; font-size: .88rem; color: var(--text-secondary); line-height: 1.65; }
 
-.contact-panel {
-  padding: 1.25rem;
-  display: grid;
-  gap: 0.8rem;
+@media (max-width: 900px) {
+  .contact-inner { grid-template-columns: 1fr; }
+  .contact-grid  { grid-template-columns: repeat(2, 1fr); }
 }
-
-.contact-icon {
-  font-size: 1.5rem;
-}
-
-.contact-panel h2 {
-  margin: 0;
-  font-size: 1.15rem;
-}
-
-.contact-panel p {
-  margin: 0;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-@media (max-width: 960px) {
-  .contact-hero-inner,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 560px) {
+  .contact-grid  { grid-template-columns: 1fr; }
 }
 </style>
