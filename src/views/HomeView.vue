@@ -829,7 +829,7 @@ const trust = [
 .trust-card {
   background:var(--white);border:1.5px solid var(--border);
   border-radius:var(--radius-lg);padding:1.5rem;
-  max-width:340px;width:100%;box-shadow:var(--shadow-lg);
+  max-width:345px;width:100%;box-shadow:var(--shadow-lg);
 }
 .tc-header {
   display:flex;align-items:center;gap:12px;margin-bottom:1rem;
