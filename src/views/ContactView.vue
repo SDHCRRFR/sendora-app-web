@@ -1,16 +1,14 @@
 <template>
   <main class="contact-page">
-
     <section class="contact-hero">
       <div class="container contact-inner">
-
         <!-- Intro -->
         <div class="contact-intro">
           <span class="chip">Contact</span>
-          <h1 class="contact-title">Une question ?<br><em>On vous répond.</em></h1>
+          <h1 class="contact-title">Une question ?<br /><em>On vous répond.</em></h1>
           <p class="contact-lead">
-            L'équipe Sendora est disponible par email pour toute question liée à l'application,
-            à votre compte, aux paiements ou à la confidentialité de vos données.
+            L'équipe Sendora est disponible par email pour toute question liée à l'application, à
+            votre compte, aux paiements ou à la confidentialité de vos données.
           </p>
 
           <div class="contact-emails">
@@ -40,12 +38,14 @@
 
         <!-- Formulaire -->
         <div class="surface form-card">
-
           <!-- Succès -->
           <div v-if="sent" class="form-success">
             <div class="success-icon">✅</div>
             <h2>Message envoyé !</h2>
-            <p>Merci de nous avoir contactés. Nous répondrons à <strong>{{ form.email }}</strong> dans les meilleurs délais.</p>
+            <p>
+              Merci de nous avoir contactés. Nous répondrons à
+              <strong>{{ form.email }}</strong> dans les meilleurs délais.
+            </p>
             <button class="btn btn-primary" @click="reset">Envoyer un autre message</button>
           </div>
 
@@ -57,7 +57,6 @@
             </div>
 
             <div class="form-body">
-
               <!-- Sujet -->
               <div class="field">
                 <label class="field-label">Sujet <span class="req">*</span></label>
@@ -81,7 +80,9 @@
                 <div class="field">
                   <label class="field-label" for="f-name">Nom <span class="req">*</span></label>
                   <input
-                    id="f-name" type="text" class="field-input"
+                    id="f-name"
+                    type="text"
+                    class="field-input"
                     placeholder="Jean Dupont"
                     v-model="form.name"
                     :class="{ error: errors.name }"
@@ -92,7 +93,9 @@
                 <div class="field">
                   <label class="field-label" for="f-email">Email <span class="req">*</span></label>
                   <input
-                    id="f-email" type="email" class="field-input"
+                    id="f-email"
+                    type="email"
+                    class="field-input"
                     placeholder="jean@exemple.fr"
                     v-model="form.email"
                     :class="{ error: errors.email }"
@@ -106,7 +109,8 @@
               <div class="field">
                 <label class="field-label" for="f-msg">Message <span class="req">*</span></label>
                 <textarea
-                  id="f-msg" class="field-input field-textarea"
+                  id="f-msg"
+                  class="field-input field-textarea"
                   placeholder="Décrivez votre demande en quelques lignes…"
                   rows="5"
                   v-model="form.message"
@@ -125,7 +129,9 @@
               <div class="field" v-if="form.subject === 'partnership'">
                 <label class="field-label" for="f-company">Société / Organisation</label>
                 <input
-                  id="f-company" type="text" class="field-input"
+                  id="f-company"
+                  type="text"
+                  class="field-input"
                   placeholder="Nom de votre entreprise"
                   v-model="form.company"
                 />
@@ -148,14 +154,11 @@
               <div v-if="globalError" class="form-global-error">
                 {{ globalError }}
               </div>
-
             </div>
           </template>
         </div>
-
       </div>
     </section>
-
   </main>
 </template>
 
@@ -164,11 +167,11 @@ import { reactive, ref } from 'vue'
 
 /* ── Sujets ── */
 const subjects = [
-  { value: 'support',     icon: '📦', label: 'Support' },
-  { value: 'payment',     icon: '💳', label: 'Paiement' },
-  { value: 'account',     icon: '👤', label: 'Mon compte' },
-  { value: 'privacy',     icon: '🔒', label: 'Confidentialité' },
-  { value: 'bug',         icon: '⚡', label: 'Bug' },
+  { value: 'support', icon: '📦', label: 'Support' },
+  { value: 'payment', icon: '💳', label: 'Paiement' },
+  { value: 'account', icon: '👤', label: 'Mon compte' },
+  { value: 'privacy', icon: '🔒', label: 'Confidentialité' },
+  { value: 'bug', icon: '⚡', label: 'Bug' },
   { value: 'partnership', icon: '🤝', label: 'Partenariat' },
 ]
 
@@ -181,9 +184,9 @@ const form = reactive({
   company: '',
 })
 
-const errors    = reactive({ name: '', email: '', message: '' })
+const errors = reactive({ name: '', email: '', message: '' })
 const submitting = ref(false)
-const sent       = ref(false)
+const sent = ref(false)
 const globalError = ref('')
 
 /* ── Validation ── */
@@ -197,14 +200,16 @@ function validate(field: 'name' | 'email' | 'message') {
   }
   if (field === 'message') {
     const l = form.message.trim().length
-    if (l < 10)   errors.message = 'Votre message est trop court (min. 10 caractères).'
+    if (l < 10) errors.message = 'Votre message est trop court (min. 10 caractères).'
     else if (l > 1000) errors.message = 'Message trop long (max. 1000 caractères).'
-    else               errors.message = ''
+    else errors.message = ''
   }
 }
 
 function validateAll() {
-  validate('name'); validate('email'); validate('message')
+  validate('name')
+  validate('email')
+  validate('message')
   return !errors.name && !errors.email && !errors.message
 }
 
@@ -215,18 +220,20 @@ async function submit() {
 
   submitting.value = true
   // Simulate a brief loading then open mailto (backend à brancher plus tard)
-  await new Promise(r => setTimeout(r, 800))
+  await new Promise((r) => setTimeout(r, 800))
 
-  const subjectLabel = subjects.find(s => s.value === form.subject)?.label ?? form.subject
+  const subjectLabel = subjects.find((s) => s.value === form.subject)?.label ?? form.subject
   const body = [
     `Nom : ${form.name}`,
     form.company ? `Société : ${form.company}` : '',
     `Sujet : ${subjectLabel}`,
     '',
     form.message,
-  ].filter(Boolean).join('\n')
+  ]
+    .filter(Boolean)
+    .join('\n')
 
-  const mailto = `mailto:contact@sendora.app?subject=${encodeURIComponent('[Sendora] ' + subjectLabel)}&body=${encodeURIComponent(body)}`
+  const mailto = `mailto:powerdigital.fr@gmail.com?subject=${encodeURIComponent('[Sendora] ' + subjectLabel)}&body=${encodeURIComponent(body)}`
   window.location.href = mailto
 
   submitting.value = false
@@ -247,7 +254,9 @@ function reset() {
 </script>
 
 <style scoped>
-.contact-page { padding: 2.5rem 0 5rem; }
+.contact-page {
+  padding: 2.5rem 0 5rem;
+}
 
 /* ── Layout ── */
 .contact-inner {
@@ -258,159 +267,298 @@ function reset() {
 }
 
 /* ── Intro ── */
-.contact-intro { display: flex; flex-direction: column; gap: 1.25rem; padding-top: .5rem; }
+.contact-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+}
 .contact-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 2.9rem);
-  line-height: 1.1; letter-spacing: -.03em;
-  color: var(--ink); margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0;
 }
-.contact-title em { font-style: italic; color: var(--verdant); }
+.contact-title em {
+  font-style: italic;
+  color: var(--verdant);
+}
 .contact-lead {
-  font-size: .97rem; color: var(--text-secondary); line-height: 1.75; margin: 0;
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
 }
 
 /* Email rows */
-.contact-emails { display: flex; flex-direction: column; gap: .6rem; }
+.contact-emails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
 .contact-email-row {
-  display: flex; align-items: center; gap: .9rem;
-  padding: .9rem 1.1rem;
-  background: var(--cream-deep); border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--cream-deep);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 .contact-email-row:hover {
-  border-color: rgba(26,102,64,.3); box-shadow: var(--shadow-sm);
+  border-color: rgba(26, 102, 64, 0.3);
+  box-shadow: var(--shadow-sm);
 }
-.cer-icon  { font-size: 1.25rem; flex-shrink: 0; }
-.cer-label { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); }
-.cer-addr  { font-size: .92rem; font-weight: 800; color: var(--verdant); }
+.cer-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+.cer-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cer-addr {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--verdant);
+}
 
 /* ── Form card ── */
-.form-card { padding: clamp(1.5rem, 3vw, 2rem); }
+.form-card {
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
 
-.form-header { margin-bottom: 1.75rem; }
+.form-header {
+  margin-bottom: 1.75rem;
+}
 .form-header h2 {
   font-family: var(--font-display);
-  font-size: 1.5rem; letter-spacing: -.02em;
-  color: var(--ink); margin: 0 0 .4rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 0.4rem;
 }
-.form-header p { font-size: .9rem; color: var(--text-secondary); margin: 0; }
+.form-header p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
 
-.form-body { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
 
 /* ── Fields ── */
-.field { display: flex; flex-direction: column; gap: .4rem; }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
 
 .field-label {
-  font-size: .78rem; font-weight: 800; letter-spacing: .04em;
-  text-transform: uppercase; color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
-.req { color: var(--verdant); }
+.req {
+  color: var(--verdant);
+}
 
 .field-input {
-  width: 100%; padding: .7rem .9rem;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
   background: var(--cream);
-  font-size: .95rem; color: var(--ink);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  font-size: 0.95rem;
+  color: var(--ink);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
   outline: none;
   resize: none;
 }
-.field-input::placeholder { color: var(--text-muted); }
+.field-input::placeholder {
+  color: var(--text-muted);
+}
 .field-input:focus {
   border-color: var(--verdant);
-  box-shadow: 0 0 0 3px rgba(26,102,64,.12);
+  box-shadow: 0 0 0 3px rgba(26, 102, 64, 0.12);
 }
 .field-input.error {
   border-color: #d94f4f;
-  box-shadow: 0 0 0 3px rgba(217,79,79,.1);
+  box-shadow: 0 0 0 3px rgba(217, 79, 79, 0.1);
 }
-.field-textarea { min-height: 120px; }
+.field-textarea {
+  min-height: 120px;
+}
 
 .field-footer {
-  display: flex; justify-content: space-between; align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   min-height: 1.2rem;
 }
 .field-error {
-  font-size: .78rem; color: #d94f4f; font-weight: 600;
+  font-size: 0.78rem;
+  color: #d94f4f;
+  font-weight: 600;
 }
 .char-count {
-  font-size: .72rem; color: var(--text-muted); margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: auto;
 }
-.char-count.warn { color: #d94f4f; font-weight: 700; }
+.char-count.warn {
+  color: #d94f4f;
+  font-weight: 700;
+}
 
 /* ── Subject tabs ── */
 .subject-tabs {
-  display: flex; flex-wrap: wrap; gap: .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .subject-tab {
-  display: inline-flex; align-items: center; gap: .4rem;
-  padding: .45rem .85rem;
-  border: 1.5px solid var(--border); border-radius: var(--radius-xl);
-  background: var(--cream); color: var(--text-secondary);
-  font-size: .82rem; font-weight: 600; cursor: pointer;
-  transition: border-color var(--transition), background var(--transition), color var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--cream);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    color var(--transition);
 }
 .subject-tab:hover {
-  border-color: rgba(26,102,64,.3); color: var(--verdant);
+  border-color: rgba(26, 102, 64, 0.3);
+  color: var(--verdant);
 }
 .subject-tab.active {
-  background: rgba(26,102,64,.1);
+  background: rgba(26, 102, 64, 0.1);
   border-color: var(--verdant);
   color: var(--verdant);
   font-weight: 800;
 }
 
 /* ── Actions ── */
-.form-actions { display: flex; flex-direction: column; gap: .6rem; }
-.btn-submit {
-  width: 100%; justify-content: center;
-  padding: .85rem; font-size: 1rem;
-  border-radius: var(--radius);
-  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
-.btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none !important; }
-.form-note { font-size: .75rem; color: var(--text-muted); text-align: center; margin: 0; }
+.btn-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 0.85rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    opacity var(--transition);
+}
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+.form-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0;
+}
 
 .spinner {
   display: inline-block;
-  width: 16px; height: 16px;
-  border: 2px solid rgba(255,255,255,.4);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
   border-top-color: white;
   border-radius: 50%;
-  animation: spin .7s linear infinite;
+  animation: spin 0.7s linear infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .form-global-error {
-  padding: .75rem 1rem;
-  background: rgba(217,79,79,.08); border: 1px solid rgba(217,79,79,.2);
-  border-radius: var(--radius); color: #d94f4f;
-  font-size: .88rem; font-weight: 600;
+  padding: 0.75rem 1rem;
+  background: rgba(217, 79, 79, 0.08);
+  border: 1px solid rgba(217, 79, 79, 0.2);
+  border-radius: var(--radius);
+  color: #d94f4f;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 /* ── Success state ── */
 .form-success {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 1rem; text-align: center; padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem 1rem;
 }
-.success-icon { font-size: 3rem; }
+.success-icon {
+  font-size: 3rem;
+}
 .form-success h2 {
   font-family: var(--font-display);
-  font-size: 1.5rem; color: var(--ink); margin: 0;
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin: 0;
 }
-.form-success p { color: var(--text-secondary); line-height: 1.7; margin: 0; }
+.form-success p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-  .contact-inner { grid-template-columns: 1fr; }
-  .form-card { order: -1; }
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+  .form-card {
+    order: -1;
+  }
 }
 @media (max-width: 540px) {
-  .field-row { grid-template-columns: 1fr; }
-  .subject-tabs .subject-tab { font-size: .76rem; padding: .4rem .7rem; }
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+  .subject-tabs .subject-tab {
+    font-size: 0.76rem;
+    padding: 0.4rem 0.7rem;
+  }
 }
 </style>
