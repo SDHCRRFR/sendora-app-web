@@ -7,26 +7,26 @@
           <span class="chip">Contact</span>
           <h1 class="contact-title">Une question ?<br /><em>On vous répond.</em></h1>
           <p class="contact-lead">
-            L'équipe Sendora est disponible par email pour toute question liée à l'application, à
-            votre compte, aux paiements ou à la confidentialité de vos données.
+            L'équipe Sendora est disponible pour toute question liée à l'application, à votre
+            compte, aux paiements ou à la confidentialité de vos données.
           </p>
 
           <div class="contact-emails">
-            <a class="contact-email-row" href="mailto:contact@sendora.app">
+            <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
               <div class="cer-icon">📬</div>
               <div>
                 <div class="cer-label">Support général</div>
                 <div class="cer-addr">contact@sendora.app</div>
               </div>
             </a>
-            <a class="contact-email-row" href="mailto:privacy@sendora.app">
+            <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
               <div class="cer-icon">🔒</div>
               <div>
                 <div class="cer-label">Données & RGPD</div>
                 <div class="cer-addr">privacy@sendora.app</div>
               </div>
             </a>
-            <a class="contact-email-row" href="mailto:legal@sendora.app">
+            <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
               <div class="cer-icon">⚖️</div>
               <div>
                 <div class="cer-label">Questions légales</div>
@@ -38,22 +38,29 @@
 
         <!-- Formulaire -->
         <div class="surface form-card">
-          <!-- Succès -->
+          <!-- ✅ Succès -->
           <div v-if="sent" class="form-success">
             <div class="success-icon">✅</div>
             <h2>Message envoyé !</h2>
             <p>
-              Merci de nous avoir contactés. Nous répondrons à
-              <strong>{{ form.email }}</strong> dans les meilleurs délais.
+              Merci ! On reviendra vers <strong>{{ form.email }}</strong> dans les meilleurs délais.
             </p>
             <button class="btn btn-primary" @click="reset">Envoyer un autre message</button>
           </div>
 
-          <!-- Formulaire actif -->
+          <!-- ❌ Erreur Formspree -->
+          <div v-else-if="serverError" class="form-server-error">
+            <div class="success-icon">⚠️</div>
+            <h2>Oups, quelque chose a raté</h2>
+            <p>{{ serverError }}</p>
+            <button class="btn btn-secondary" @click="serverError = ''">Réessayer</button>
+          </div>
+
+          <!-- 📝 Formulaire actif -->
           <template v-else>
             <div class="form-header">
               <h2>Nous écrire</h2>
-              <p>Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
+              <p>Remplissez le formulaire, on vous répond rapidement.</p>
             </div>
 
             <div class="form-body">
@@ -105,6 +112,18 @@
                 </div>
               </div>
 
+              <!-- Société (partenariat uniquement) -->
+              <div class="field" v-if="form.subject === 'partnership'">
+                <label class="field-label" for="f-company">Société / Organisation</label>
+                <input
+                  id="f-company"
+                  type="text"
+                  class="field-input"
+                  placeholder="Nom de votre entreprise"
+                  v-model="form.company"
+                />
+              </div>
+
               <!-- Message -->
               <div class="field">
                 <label class="field-label" for="f-msg">Message <span class="req">*</span></label>
@@ -125,18 +144,6 @@
                 </div>
               </div>
 
-              <!-- Partenariat optionnel -->
-              <div class="field" v-if="form.subject === 'partnership'">
-                <label class="field-label" for="f-company">Société / Organisation</label>
-                <input
-                  id="f-company"
-                  type="text"
-                  class="field-input"
-                  placeholder="Nom de votre entreprise"
-                  v-model="form.company"
-                />
-              </div>
-
               <!-- Submit -->
               <div class="form-actions">
                 <button
@@ -148,11 +155,7 @@
                   <span v-if="submitting" class="spinner"></span>
                   <span v-else>Envoyer le message →</span>
                 </button>
-                <p class="form-note">* champs obligatoires — aucune donnée revendue</p>
-              </div>
-
-              <div v-if="globalError" class="form-global-error">
-                {{ globalError }}
+                <p class="form-note">* champs obligatoires - aucune donnée revendue</p>
               </div>
             </div>
           </template>
@@ -165,7 +168,11 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 
-/* ── Sujets ── */
+// ─── PATCH : remplace YOUR_FORMSPREE_ID par ton vrai ID Formspree ───
+// 1. Va sur https://formspree.io → "New Form" → copy l'ID (ex: xpwzgkqd)
+// 2. Remplace la valeur ci-dessous
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqeowyqo'
+
 const subjects = [
   { value: 'support', icon: '📦', label: 'Support' },
   { value: 'payment', icon: '💳', label: 'Paiement' },
@@ -175,7 +182,6 @@ const subjects = [
   { value: 'partnership', icon: '🤝', label: 'Partenariat' },
 ]
 
-/* ── State ── */
 const form = reactive({
   subject: 'support',
   name: '',
@@ -187,9 +193,8 @@ const form = reactive({
 const errors = reactive({ name: '', email: '', message: '' })
 const submitting = ref(false)
 const sent = ref(false)
-const globalError = ref('')
+const serverError = ref('')
 
-/* ── Validation ── */
 function validate(field: 'name' | 'email' | 'message') {
   if (field === 'name') {
     errors.name = form.name.trim().length < 2 ? 'Merci de renseigner votre nom.' : ''
@@ -213,31 +218,44 @@ function validateAll() {
   return !errors.name && !errors.email && !errors.message
 }
 
-/* ── Submit — mailto fallback simple ── */
 async function submit() {
-  globalError.value = ''
+  serverError.value = ''
   if (!validateAll()) return
 
   submitting.value = true
-  // Simulate a brief loading then open mailto (backend à brancher plus tard)
-  await new Promise((r) => setTimeout(r, 800))
 
   const subjectLabel = subjects.find((s) => s.value === form.subject)?.label ?? form.subject
-  const body = [
-    `Nom : ${form.name}`,
-    form.company ? `Société : ${form.company}` : '',
-    `Sujet : ${subjectLabel}`,
-    '',
-    form.message,
-  ]
-    .filter(Boolean)
-    .join('\n')
 
-  const mailto = `mailto:powerdigital.fr@gmail.com?subject=${encodeURIComponent('[Sendora] ' + subjectLabel)}&body=${encodeURIComponent(body)}`
-  window.location.href = mailto
+  try {
+    const payload: Record<string, string> = {
+      _subject: `[Sendora] ${subjectLabel} — ${form.name}`,
+      _replyto: form.email,
+      name: form.name,
+      email: form.email,
+      sujet: subjectLabel,
+      message: form.message,
+    }
+    if (form.company) payload.societe = form.company
 
-  submitting.value = false
-  sent.value = true
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    })
+
+    if (res.ok) {
+      sent.value = true
+    } else {
+      const data = await res.json().catch(() => ({}))
+      serverError.value =
+        (data as any)?.error ??
+        "L'envoi a échoué. Essayez d'écrire directement à contact@sendora.app"
+    }
+  } catch {
+    serverError.value = 'Problème réseau. Vérifiez votre connexion ou écrivez à contact@sendora.app'
+  } finally {
+    submitting.value = false
+  }
 }
 
 function reset() {
@@ -250,6 +268,7 @@ function reset() {
   errors.email = ''
   errors.message = ''
   sent.value = false
+  serverError.value = ''
 }
 </script>
 
@@ -258,7 +277,6 @@ function reset() {
   padding: 2.5rem 0 5rem;
 }
 
-/* ── Layout ── */
 .contact-inner {
   display: grid;
   grid-template-columns: 1fr 520px;
@@ -292,7 +310,6 @@ function reset() {
   margin: 0;
 }
 
-/* Email rows */
 .contact-emails {
   display: flex;
   flex-direction: column;
@@ -335,7 +352,6 @@ function reset() {
 .form-card {
   padding: clamp(1.5rem, 3vw, 2rem);
 }
-
 .form-header {
   margin-bottom: 1.75rem;
 }
@@ -351,7 +367,6 @@ function reset() {
   color: var(--text-secondary);
   margin: 0;
 }
-
 .form-body {
   display: flex;
   flex-direction: column;
@@ -369,7 +384,6 @@ function reset() {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
-
 .field-label {
   font-size: 0.78rem;
   font-weight: 800;
@@ -380,7 +394,6 @@ function reset() {
 .req {
   color: var(--verdant);
 }
-
 .field-input {
   width: 100%;
   padding: 0.7rem 0.9rem;
@@ -409,7 +422,6 @@ function reset() {
 .field-textarea {
   min-height: 120px;
 }
-
 .field-footer {
   display: flex;
   justify-content: space-between;
@@ -509,18 +521,9 @@ function reset() {
   }
 }
 
-.form-global-error {
-  padding: 0.75rem 1rem;
-  background: rgba(217, 79, 79, 0.08);
-  border: 1px solid rgba(217, 79, 79, 0.2);
-  border-radius: var(--radius);
-  color: #d94f4f;
-  font-size: 0.88rem;
-  font-weight: 600;
-}
-
-/* ── Success state ── */
-.form-success {
+/* ── Success / Error states ── */
+.form-success,
+.form-server-error {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -531,13 +534,15 @@ function reset() {
 .success-icon {
   font-size: 3rem;
 }
-.form-success h2 {
+.form-success h2,
+.form-server-error h2 {
   font-family: var(--font-display);
   font-size: 1.5rem;
   color: var(--ink);
   margin: 0;
 }
-.form-success p {
+.form-success p,
+.form-server-error p {
   color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
