@@ -11,15 +11,27 @@ const router = createRouter({
     return { top: 0, left: 0 }
   },
   routes: [
-    { path: '/', component: HomeView, meta: { title: 'Sendora — Expédiez malin, gagnez en chemin' } },
-    { path: '/terms', component: TermsView, meta: { title: "Conditions d'utilisation — Sendora" } },
+    { path: '/',
+      component: HomeView,
+      meta: { title: 'Sendora - Expédiez malin, gagnez en chemin' }
+    },
+    { path: '/terms',
+      component: TermsView,
+      meta: { title: "Conditions d'utilisation - Sendora" }
+    },
     {
       path: '/privacy',
       component: PrivacyView,
-      meta: { title: 'Politique de confidentialité — Sendora' },
+      meta: { title: 'Politique de confidentialité - Sendora' },
     },
-    { path: '/contact', component: ContactView, meta: { title: 'Contact — Sendora' } },
-    { path: '/cgu', component: CGUView, meta: { title: 'CGU — Sendora' } },
+    { path: '/contact', 
+      component: ContactView, 
+      meta: { title: 'Contact - Sendora' }
+    },
+    { path: '/cgu', 
+      component: CGUView, 
+      meta: { title: 'CGU - Sendora' }
+    },
   ],
 })
 
