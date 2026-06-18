@@ -359,7 +359,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════ DOWNLOAD CTA ═══════════════════ -->
     <section class="cta-section" id="download-section">
       <div class="cta-grain"></div>
       <div class="container cta-inner">
@@ -371,7 +370,7 @@
 
         <div class="cta-stores">
           <a
-            href="https://apps.apple.com/app/sendora"
+            href="https://apps.apple.com/fr/app/sendora/id6773115334"
             target="_blank"
             rel="noopener"
             class="store-btn store-apple-dark"
@@ -422,17 +421,17 @@ const stats = [
 
 const steps = [
   {
-    icon: '📝',
+    icon: '',
     title: 'Publiez votre annonce',
     desc: "Décrivez votre colis (dimensions, poids, fragilité), indiquez les villes de départ et d'arrivée, choisissez vos dates et fixez votre budget. Ça prend moins de 2 minutes.",
   },
   {
-    icon: '🤝',
+    icon: '',
     title: 'Choisissez un transporteur',
     desc: "Sendora vous suggère des transporteurs qui font déjà votre trajet. Consultez leurs profils vérifiés, leurs notes et leurs disponibilités, puis sélectionnez l'offre qui vous convient.",
   },
   {
-    icon: '✅',
+    icon: '',
     title: 'Livraison & paiement automatique',
     desc: "Le transporteur remet le colis. Vous confirmez la réception dans l'application et le paiement est libéré instantanément. Le transporteur reçoit ses fonds sous 2 à 7 jours ouvrés.",
   },
@@ -440,22 +439,22 @@ const steps = [
 
 const trust = [
   {
-    icon: '🔒',
+    icon: '',
     title: 'Vérification KYC via Didit',
     desc: 'Tous les transporteurs sont vérifiés par Didit, partenaire eIDAS de confiance.',
   },
   {
-    icon: '💰',
+    icon: '',
     title: 'Escrow Stripe',
     desc: "Paiement bloqué jusqu'à confirmation de livraison. Aucun risque de perte.",
   },
   {
-    icon: '🛡️',
+    icon: '',
     title: 'RGPD & données en Europe',
     desc: 'Données chiffrées, hébergées sur AWS EU. Conformité totale au RGPD.',
   },
   {
-    icon: '📱',
+    icon: '',
     title: 'Auth multifacteur',
     desc: 'Connexion via Apple ID, Google ou email avec vérification renforcée.',
   },
