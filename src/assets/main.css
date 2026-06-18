@@ -1,15 +1,9 @@
-/* ═══════════════════════════════════════════════════════════════
-   SENDORA — Design System v2
-   Palette: Ink / Verdant / Cream / Gold
-   Typography: Instrument Serif (display) + Inter (body)
-═══════════════════════════════════════════════════════════════ */
-
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
   color-scheme: light;
 
-  /* ── Palette ── */
+  /* Palette */
   --ink:        #0d1a12;
   --ink-soft:   #1e2d21;
   --verdant:    #1a6640;
@@ -21,7 +15,7 @@
   --gold-lt:    #f5c842;
   --white:      #ffffff;
 
-  /* ── Semantic ── */
+  /* Semantic */
   --bg:            var(--cream);
   --bg-card:       var(--white);
   --surface-soft:  var(--cream-deep);
@@ -33,7 +27,7 @@
   --text-muted:     #7a9082;
   --text-invert:    var(--white);
 
-  /* ── Brand aliases (for backward compat) ── */
+  /* Brand aliases (for backward compat) */
   --brand-50:  #edf7f2;
   --brand-100: #d4f0e1;
   --brand-200: #a8e0c3;
@@ -45,27 +39,27 @@
   --brand-800: #0f3d26;
   --accent:    var(--gold);
 
-  /* ── Shadows ── */
+  /* Shadows */
   --shadow-sm: 0 2px 12px rgba(13,26,18,.07);
   --shadow:    0 8px 32px rgba(13,26,18,.12);
   --shadow-lg: 0 24px 64px rgba(13,26,18,.18);
   --glow:      0 0 40px rgba(26,102,64,.25);
 
-  /* ── Shape ── */
+  /* Shape */
   --radius:    14px;
   --radius-lg: 24px;
   --radius-xl: 999px;
 
-  /* ── Layout ── */
+  /* Layout */
   --container: 1180px;
   --transition: 200ms cubic-bezier(.4,0,.2,1);
 
-  /* ── Typography ── */
+  /* Typography */
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
 }
 
-/* ── Reset ── */
+/* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html  { scroll-behavior: smooth; font-size: 16px; }
 body  {
@@ -81,7 +75,7 @@ img, svg { display: block; max-width: 100%; }
 button, input, textarea, select { font: inherit; }
 ::selection { background: rgba(26,102,64,.18); }
 
-/* ── Layout ── */
+/* Layout */
 .container {
   width: min(var(--container), calc(100% - 40px));
   margin-inline: auto;
@@ -91,7 +85,7 @@ button, input, textarea, select { font: inherit; }
   margin-inline: auto;
 }
 
-/* ── Surfaces ── */
+/* Surfaces */
 .surface {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -99,7 +93,7 @@ button, input, textarea, select { font: inherit; }
   box-shadow: var(--shadow-sm);
 }
 
-/* ── Buttons ── */
+/* Buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   gap: .6rem;
@@ -116,7 +110,7 @@ button, input, textarea, select { font: inherit; }
 .btn-primary:hover { background: var(--verdant-mid); }
 .btn-secondary { background: var(--white); color: var(--ink); border-color: var(--border-strong); }
 
-/* ── Chips / tags ── */
+/* Chips / tags */
 .chip {
   display: inline-flex; align-items: center; gap: .45rem;
   padding: .35rem .85rem;
@@ -126,7 +120,7 @@ button, input, textarea, select { font: inherit; }
   font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
 }
 
-/* ── Type scale ── */
+/* Type scale */
 .page-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -135,7 +129,7 @@ button, input, textarea, select { font: inherit; }
 }
 .page-subtitle { color: var(--text-secondary); line-height: 1.75; }
 
-/* ── Prose ── */
+/* Prose */
 .prose { color: var(--text-secondary); line-height: 1.8; font-size: 1rem; }
 .prose h2, .prose h3,
 .legal-content h2, .legal-content h3 {
@@ -153,7 +147,7 @@ button, input, textarea, select { font: inherit; }
 .prose ul { margin: 0 0 1rem; padding-left: 1.25rem; }
 .prose li + li { margin-top: .5rem; }
 
-/* ── Highlight box ── */
+/* Highlight box */
 .highlight-box {
   margin: 1.25rem 0; padding: 1rem 1.1rem;
   border-radius: var(--radius);
@@ -162,9 +156,6 @@ button, input, textarea, select { font: inherit; }
   color: var(--text-primary);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   HEADER
-══════════════════════════════════════════════════════════════ */
 .site-header {
   position: sticky; top: 0; z-index: 50;
   backdrop-filter: blur(20px) saturate(1.5);
@@ -251,9 +242,6 @@ button, input, textarea, select { font: inherit; }
   background: rgba(26,102,64,.08); color: var(--verdant);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════════════════════════ */
 .site-footer {
   padding: 1.5rem 0 2rem;
   color: var(--text-muted); font-size: .88rem;
@@ -269,9 +257,6 @@ button, input, textarea, select { font: inherit; }
 .site-footer-links a { color: var(--text-muted); font-weight: 600; }
 .site-footer-links a:hover { color: var(--verdant); }
 
-/* ══════════════════════════════════════════════════════════════
-   LEGAL PAGES
-══════════════════════════════════════════════════════════════ */
 .legal-page  { padding: 2rem 0 4rem; }
 .legal-grid  {
   display: grid; grid-template-columns: 270px minmax(0,1fr);
@@ -314,15 +299,11 @@ button, input, textarea, select { font: inherit; }
   text-underline-offset: .15em;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   PAGE TRANSITIONS
-══════════════════════════════════════════════════════════════ */
 .page-enter-active, .page-leave-active {
   transition: opacity 160ms ease, transform 160ms ease;
 }
 .page-enter-from, .page-leave-to { opacity: 0; transform: translateY(6px); }
 
-/* Mobile overlay transitions */
 .mobile-overlay-fade-enter-active, .mobile-overlay-fade-leave-active { transition: opacity 180ms ease; }
 .mobile-overlay-fade-enter-from,  .mobile-overlay-fade-leave-to      { opacity: 0; }
 .mobile-panel-slide-enter-active, .mobile-panel-slide-leave-active {
@@ -332,9 +313,6 @@ button, input, textarea, select { font: inherit; }
   opacity: 0; transform: translateY(-10px) scale(.98);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════════════════════════════ */
 @media (max-width: 960px) {
   .legal-grid  { grid-template-columns: 1fr; }
   .legal-aside { position: static; }

@@ -9,7 +9,7 @@
     <p>Sendora (« nous », « notre », « nos ») s'engage à protéger la vie privée de ses utilisateurs. La présente Politique de confidentialité décrit comment nous collectons, utilisons, partageons et protégeons vos données personnelles lorsque vous utilisez notre application mobile et notre site web.</p>
     <p>Cette politique est conforme au Règlement Général sur la Protection des Données (RGPD – Règlement UE 2016/679) et à la loi Informatique et Libertés modifiée.</p>
     <div class="highlight-box">
-      <p><strong>Responsable du traitement :</strong> Sendora — contact@sendora.app — France</p>
+      <p><strong>Responsable du traitement :</strong> Sendora - contact@sendora.app - France</p>
     </div>
 
     <h2 id="collect">2. Données collectées</h2>

@@ -221,7 +221,7 @@ async function submit() {
 
   try {
     const payload: Record<string, string> = {
-      _subject: `[Sendora] ${subjectLabel} — ${form.name}`,
+      _subject: `[Sendora] ${subjectLabel} - ${form.name}`,
       _replyto: form.email,
       name: form.name,
       email: form.email,

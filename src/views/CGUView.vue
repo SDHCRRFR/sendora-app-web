@@ -1,6 +1,8 @@
 <template>
   <LegalLayout title="Conditions Générales d'Utilisation" tag="CGU" date="01 juin 2025" :toc="toc">
-    <h2 id="objet">Article 1 — Objet</h2>
+    <h2 id="objet">Article 1 <v-banner-actions>
+
+    </v-banner-actions> Objet</h2>
     <p>
       Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir
       les modalités et conditions dans lesquelles Sendora (ci-après « la Société ») met à la
@@ -12,7 +14,7 @@
       Les CGU prévalent sur tout autre document.
     </p>
 
-    <h2 id="definitions">Article 2 — Définitions</h2>
+    <h2 id="definitions">Article 2 - Définitions</h2>
     <ul>
       <li>
         <strong>« Plateforme »</strong> : l'application mobile Sendora et le site web sendora.app ;
@@ -41,7 +43,7 @@
       </li>
     </ul>
 
-    <h2 id="acces">Article 3 — Accès et inscription</h2>
+    <h2 id="acces">Article 3 - Accès et inscription</h2>
     <p>
       L'accès à la Plateforme est gratuit. L'inscription est obligatoire pour utiliser les
       fonctionnalités de mise en relation. Pour s'inscrire, l'Utilisateur doit :
@@ -57,7 +59,7 @@
       (KYC) et au processus d'onboarding Stripe Connect pour recevoir des paiements.
     </p>
 
-    <h2 id="obligations-expediteur">Article 4 — Obligations de l'Expéditeur</h2>
+    <h2 id="obligations-expediteur">Article 4 - Obligations de l'Expéditeur</h2>
     <p>L'Expéditeur s'engage à :</p>
     <ul>
       <li>
@@ -71,7 +73,7 @@
       <li>Payer le montant convenu lors de la confirmation de la mission.</li>
     </ul>
 
-    <h2 id="obligations-transporteur">Article 5 — Obligations du Transporteur</h2>
+    <h2 id="obligations-transporteur">Article 5 - Obligations du Transporteur</h2>
     <p>Le Transporteur s'engage à :</p>
     <ul>
       <li>Transporter uniquement les colis dont il a vérifié la conformité ;</li>
@@ -83,7 +85,7 @@
       <li>Agir en qualité de particulier et non de professionnel du transport.</li>
     </ul>
 
-    <h2 id="missions">Article 6 — Fonctionnement des missions</h2>
+    <h2 id="missions">Article 6 - Fonctionnement des missions</h2>
     <h3>6.1 Publication d'une annonce</h3>
     <p>
       L'Expéditeur publie une annonce décrivant son colis, les villes de départ et d'arrivée, les
@@ -112,7 +114,7 @@
       <li>Annulation par le Transporteur : remboursement intégral à l'Expéditeur.</li>
     </ul>
 
-    <h2 id="paiements">Article 7 — Modalités de paiement</h2>
+    <h2 id="paiements">Article 7 - Modalités de paiement</h2>
     <p>
       Les transactions financières sur Sendora sont gérées via Stripe, prestataire de services de
       paiement agréé. La Société collecte des frais de service calculés sur le montant de chaque
@@ -128,7 +130,7 @@
       effectués selon le calendrier défini par Stripe (généralement sous 2 à 7 jours ouvrés).
     </p>
 
-    <h2 id="responsabilite">Article 8 — Responsabilité</h2>
+    <h2 id="responsabilite">Article 8 - Responsabilité</h2>
     <h3>8.1 Responsabilité de la Société</h3>
     <p>
       Sendora est une plateforme d'intermédiation. La Société ne saurait être tenue responsable des
@@ -148,7 +150,7 @@
       majeure telle que définie par la jurisprudence française.
     </p>
 
-    <h2 id="interdictions">Article 9 — Comportements interdits</h2>
+    <h2 id="interdictions">Article 9 - Comportements interdits</h2>
     <p>Il est interdit de :</p>
     <ul>
       <li>Créer de faux profils ou usurper l'identité d'une tierce personne ;</li>
@@ -163,14 +165,14 @@
       <li>Tenter de nuire au bon fonctionnement technique de la Plateforme.</li>
     </ul>
 
-    <h2 id="evaluations">Article 10 — Système d'évaluation</h2>
+    <h2 id="evaluations">Article 10 - Système d'évaluation</h2>
     <p>
       À l'issue de chaque mission, les Expéditeurs et Transporteurs peuvent s'évaluer mutuellement.
       Les évaluations doivent être sincères, objectives et respectueuses. Sendora se réserve le
       droit de modérer ou supprimer les évaluations qui contreviendraient à ces principes.
     </p>
 
-    <h2 id="resiliation">Article 11 — Suspension et résiliation</h2>
+    <h2 id="resiliation">Article 11 - Suspension et résiliation</h2>
     <p>
       Sendora peut suspendre ou résilier l'accès d'un Utilisateur à la Plateforme, avec ou sans
       préavis, en cas de :
@@ -186,7 +188,7 @@
       l'application.
     </p>
 
-    <h2 id="propriete">Article 12 — Propriété intellectuelle</h2>
+    <h2 id="propriete">Article 12 - Propriété intellectuelle</h2>
     <p>
       L'ensemble des éléments constitutifs de la Plateforme (logo, marque, design, code source,
       algorithmes, contenus éditoriaux) sont la propriété exclusive de Sendora et sont protégés par
@@ -195,7 +197,7 @@
       fins de fourniture du service.
     </p>
 
-    <h2 id="donnees">Article 13 — Protection des données personnelles</h2>
+    <h2 id="donnees">Article 13 - Protection des données personnelles</h2>
     <p>
       Le traitement des données personnelles des Utilisateurs est régi par la Politique de
       confidentialité de Sendora, disponible à l'adresse
@@ -203,7 +205,7 @@
       référence.
     </p>
 
-    <h2 id="modification">Article 14 — Modification des CGU</h2>
+    <h2 id="modification">Article 14 - Modification des CGU</h2>
     <p>
       La Société se réserve le droit de modifier les présentes CGU à tout moment. Les modifications
       sont opposables aux Utilisateurs dès leur publication sur la Plateforme. En cas de
@@ -212,7 +214,7 @@
       nouvelles CGU.
     </p>
 
-    <h2 id="droit">Article 15 — Droit applicable et litiges</h2>
+    <h2 id="droit">Article 15 - Droit applicable et litiges</h2>
     <p>
       Les présentes CGU sont soumises au droit français. En cas de litige entre la Société et un
       Utilisateur, les parties s'engagent à rechercher une solution amiable. À défaut d'accord dans
@@ -224,7 +226,7 @@
       sur demande.
     </p>
 
-    <h2 id="contact">Article 16 — Contact</h2>
+    <h2 id="contact">Article 16 - Contact</h2>
     <p>
       Pour toute question relative aux présentes CGU :<br />
       <a href="mailto:legal@sendora.app">legal@sendora.app</a><br />
@@ -237,21 +239,21 @@
 import LegalLayout from '../components/LegalLayout.vue'
 
 const toc = [
-  { id: 'objet', label: 'Art. 1 — Objet' },
-  { id: 'definitions', label: 'Art. 2 — Définitions' },
-  { id: 'acces', label: 'Art. 3 — Accès et inscription' },
-  { id: 'obligations-expediteur', label: "Art. 4 — Obligations de l'Expéditeur" },
-  { id: 'obligations-transporteur', label: 'Art. 5 — Obligations du Transporteur' },
-  { id: 'missions', label: 'Art. 6 — Fonctionnement des missions' },
-  { id: 'paiements', label: 'Art. 7 — Modalités de paiement' },
-  { id: 'responsabilite', label: 'Art. 8 — Responsabilité' },
-  { id: 'interdictions', label: 'Art. 9 — Comportements interdits' },
-  { id: 'evaluations', label: "Art. 10 — Système d'évaluation" },
-  { id: 'resiliation', label: 'Art. 11 — Suspension et résiliation' },
-  { id: 'propriete', label: 'Art. 12 — Propriété intellectuelle' },
-  { id: 'donnees', label: 'Art. 13 — Données personnelles' },
-  { id: 'modification', label: 'Art. 14 — Modification des CGU' },
-  { id: 'droit', label: 'Art. 15 — Droit applicable' },
-  { id: 'contact', label: 'Art. 16 — Contact' },
+  { id: 'objet', label: 'Art. 1 - Objet' },
+  { id: 'definitions', label: 'Art. 2 - Définitions' },
+  { id: 'acces', label: 'Art. 3 - Accès et inscription' },
+  { id: 'obligations-expediteur', label: "Art. 4 - Obligations de l'Expéditeur" },
+  { id: 'obligations-transporteur', label: 'Art. 5 - Obligations du Transporteur' },
+  { id: 'missions', label: 'Art. 6 - Fonctionnement des missions' },
+  { id: 'paiements', label: 'Art. 7 - Modalités de paiement' },
+  { id: 'responsabilite', label: 'Art. 8 - Responsabilité' },
+  { id: 'interdictions', label: 'Art. 9 - Comportements interdits' },
+  { id: 'evaluations', label: "Art. 10 - Système d'évaluation" },
+  { id: 'resiliation', label: 'Art. 11 - Suspension et résiliation' },
+  { id: 'propriete', label: 'Art. 12 - Propriété intellectuelle' },
+  { id: 'donnees', label: 'Art. 13 - Données personnelles' },
+  { id: 'modification', label: 'Art. 14 - Modification des CGU' },
+  { id: 'droit', label: 'Art. 15 - Droit applicable' },
+  { id: 'contact', label: 'Art. 16 - Contact' },
 ]
 </script>

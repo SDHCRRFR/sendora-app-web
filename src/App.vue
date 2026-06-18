@@ -50,7 +50,7 @@
 
     <footer class="site-footer">
       <div class="container site-footer-inner">
-        <span>© 2026 Sendora — Tous droits réservés</span>
+        <span>© 2026 Sendora - Tous droits réservés</span>
         <div class="site-footer-links">
           <RouterLink to="/contact">Contact</RouterLink>
           <RouterLink to="/privacy">Confidentialité</RouterLink>

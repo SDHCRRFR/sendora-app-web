@@ -1,10 +1,8 @@
 <template>
   <main class="home">
-    <!-- ═══════════════════ HERO ═══════════════════ -->
     <section class="hero">
       <div class="hero-noise"></div>
       <div class="container hero-inner">
-        <!-- Left column -->
         <div class="hero-content">
           <div class="hero-eyebrow">
             <span class="pulse-dot"></span>
@@ -65,13 +63,11 @@
           <p class="hero-fine">Gratuit · Aucun abonnement · Données hébergées en Europe</p>
         </div>
 
-        <!-- Right column — phone mockup -->
         <div class="hero-visual" aria-hidden="true">
           <div class="phone-wrap">
             <div class="phone">
               <div class="phone-island"></div>
               <div class="phone-screen">
-                <!-- Status bar -->
                 <div class="screen-status">
                   <span class="screen-time">09:41</span>
                   <div class="screen-icons">
@@ -80,7 +76,6 @@
                     <span class="icon-battery"></span>
                   </div>
                 </div>
-                <!-- App header -->
                 <div class="screen-header">
                   <div class="screen-logo">
                     <div class="sl-dot"></div>
@@ -88,12 +83,10 @@
                   <span class="screen-title">Sendora</span>
                   <div class="screen-avatar"></div>
                 </div>
-                <!-- Search bar -->
                 <div class="screen-search">
                   <span class="search-icon">🔍</span>
                   <span class="search-text">Paris → Lyon</span>
                 </div>
-                <!-- Map area -->
                 <div class="screen-map">
                   <div class="map-road"></div>
                   <div class="map-pin mp-a">
@@ -154,7 +147,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════ STATS TICKER ═══════════════════ -->
     <section class="stats-strip">
       <div class="container stats-row">
         <div class="stat-item" v-for="s in stats" :key="s.label">
@@ -164,7 +156,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
     <section class="how-section">
       <div class="container">
         <div class="section-head">
@@ -183,7 +174,6 @@
               <div v-if="i < steps.length - 1" class="step-line"></div>
             </div>
             <div class="step-body">
-              <div class="step-emoji">{{ step.icon }}</div>
               <div class="step-text">
                 <h3>{{ step.title }}</h3>
                 <p>{{ step.desc }}</p>
@@ -194,7 +184,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════ DUAL ROLE ═══════════════════ -->
     <section class="roles-section">
       <div class="container roles-grid">
         <div class="role-card role-sender">
@@ -208,7 +197,7 @@
           <ul class="role-checklist">
             <li>Prix jusqu'à 60 % moins chers qu'un transporteur classique</li>
             <li>Transporteurs vérifiés par vérification d'identité complète</li>
-            <li>Paiement sous séquestre Stripe — libéré à la livraison</li>
+            <li>Paiement sous séquestre Stripe - libéré à la livraison</li>
             <li>Chat direct et suivi en temps réel</li>
             <li>Aucun frais d'inscription, aucun abonnement</li>
           </ul>
@@ -224,7 +213,7 @@
           </p>
           <ul class="role-checklist">
             <li>Revenus complémentaires sans contrainte de planning</li>
-            <li>Missions sur votre trajet habituel — aucun détour imposé</li>
+            <li>Missions sur votre trajet habituel - aucun détour imposé</li>
             <li>Virement rapide via Stripe Connect (2–7 jours ouvrés)</li>
             <li>Application intuitive, pas de paperasse</li>
             <li>Communauté vérifiée et assurance en cours d'étude</li>
@@ -234,7 +223,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════ FEATURES GRID ═══════════════════ -->
     <section class="features-section">
       <div class="container">
         <div class="section-head">
@@ -297,7 +285,6 @@
       </div>
     </section>
 
-    <!-- ═══════════════════ TRUST ═══════════════════ -->
     <section class="trust-section">
       <div class="container">
         <div class="trust-inner">
@@ -313,7 +300,6 @@
 
             <div class="trust-badges">
               <div class="trust-badge" v-for="t in trust" :key="t.title">
-                <div class="tb-icon">{{ t.icon }}</div>
                 <div>
                   <div class="tb-title">{{ t.title }}</div>
                   <div class="tb-desc">{{ t.desc }}</div>
@@ -347,7 +333,7 @@
               </div>
               <div class="tc-row">
                 <span class="tc-label">Colis</span>
-                <span class="tc-val">2 kg — Fragile</span>
+                <span class="tc-val">2 kg - Fragile</span>
               </div>
               <div class="tc-actions">
                 <div class="tc-btn tc-btn-outline">💬 Chat</div>
@@ -462,7 +448,6 @@ const trust = [
 </script>
 
 <style scoped>
-/* ═══ HERO ═══════════════════════════════════════════ */
 .hero {
   position: relative;
   min-height: calc(100vh - 72px);
@@ -978,7 +963,6 @@ const trust = [
   }
 }
 
-/* ═══ STATS STRIP ════════════════════════════════════ */
 .stats-strip {
   background: var(--ink);
   padding: 2.5rem 0;
@@ -1009,7 +993,6 @@ const trust = [
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ═══ SECTION COMMONS ════════════════════════════════ */
 .section-head {
   text-align: center;
   max-width: 680px;
@@ -1045,7 +1028,6 @@ const trust = [
   line-height: 1.75;
 }
 
-/* ═══ HOW IT WORKS ════════════════════════════════════ */
 .how-section {
   padding: 7rem 0;
   background: var(--cream-deep);
@@ -1114,7 +1096,6 @@ const trust = [
   line-height: 1.75;
 }
 
-/* ═══ ROLES ══════════════════════════════════════════ */
 .roles-section {
   padding: 7rem 0;
 }
@@ -1235,7 +1216,6 @@ const trust = [
   color: var(--ink);
 }
 
-/* ═══ FEATURES BENTO ═════════════════════════════════ */
 .features-section {
   padding: 7rem 0;
   background: var(--cream-deep);
@@ -1287,7 +1267,6 @@ const trust = [
   line-height: 1.75;
 }
 
-/* ═══ TRUST ══════════════════════════════════════════ */
 .trust-section {
   padding: 7rem 0;
 }
@@ -1439,7 +1418,6 @@ const trust = [
   color: white;
 }
 
-/* ═══ CTA SECTION ════════════════════════════════════ */
 .cta-section {
   position: relative;
   padding: 8rem 0;
@@ -1509,7 +1487,6 @@ const trust = [
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* ═══ RESPONSIVE ════════════════════════════════════ */
 @media (max-width: 1000px) {
   .features-bento {
     grid-template-columns: 1fr 1fr;
