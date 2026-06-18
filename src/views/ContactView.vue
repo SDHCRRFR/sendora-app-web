@@ -38,7 +38,6 @@
 
         <!-- Formulaire -->
         <div class="surface form-card">
-          <!-- ✅ Succès -->
           <div v-if="sent" class="form-success">
             <div class="success-icon">✅</div>
             <h2>Message envoyé !</h2>
@@ -48,7 +47,6 @@
             <button class="btn btn-primary" @click="reset">Envoyer un autre message</button>
           </div>
 
-          <!-- ❌ Erreur Formspree -->
           <div v-else-if="serverError" class="form-server-error">
             <div class="success-icon">⚠️</div>
             <h2>Oups, quelque chose a raté</h2>
@@ -56,7 +54,6 @@
             <button class="btn btn-secondary" @click="serverError = ''">Réessayer</button>
           </div>
 
-          <!-- 📝 Formulaire actif -->
           <template v-else>
             <div class="form-header">
               <h2>Nous écrire</h2>
@@ -64,7 +61,6 @@
             </div>
 
             <div class="form-body">
-              <!-- Sujet -->
               <div class="field">
                 <label class="field-label">Sujet <span class="req">*</span></label>
                 <div class="subject-tabs">
@@ -82,7 +78,6 @@
                 </div>
               </div>
 
-              <!-- Nom + Email -->
               <div class="field-row">
                 <div class="field">
                   <label class="field-label" for="f-name">Nom <span class="req">*</span></label>
@@ -112,7 +107,6 @@
                 </div>
               </div>
 
-              <!-- Société (partenariat uniquement) -->
               <div class="field" v-if="form.subject === 'partnership'">
                 <label class="field-label" for="f-company">Société / Organisation</label>
                 <input
@@ -124,7 +118,6 @@
                 />
               </div>
 
-              <!-- Message -->
               <div class="field">
                 <label class="field-label" for="f-msg">Message <span class="req">*</span></label>
                 <textarea
