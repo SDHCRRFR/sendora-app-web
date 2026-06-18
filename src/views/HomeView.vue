@@ -401,7 +401,7 @@
 const stats = [
   { value: '0 €', label: "Frais d'inscription" },
   { value: '−60 %', label: 'vs. livraison traditionnelle' },
-  { value: '100 %', label: 'Transporteurs vérifiés KYC' },
+  { value: '50 %', label: 'Transporteurs vérifiés KYC' },
   { value: '24 h', label: 'Délai moyen de réponse' },
 ]
 
