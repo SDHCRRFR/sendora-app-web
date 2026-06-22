@@ -1,0 +1,5 @@
+# Sendora - https://sendoraapp.com
+User-agent: *
+Allow: /
+
+Sitemap: https://sendoraapp.com/sitemap.xml

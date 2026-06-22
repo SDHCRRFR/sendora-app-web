@@ -1,0 +1,80 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#0d1a12"/>
+      <stop offset="0.55" stop-color="#0f2317"/>
+      <stop offset="1" stop-color="#12281a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2db56c" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#2db56c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#238a52"/>
+      <stop offset="1" stop-color="#1a6640"/>
+    </linearGradient>
+    <path id="star" d="M12 2l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.02 6.1 20.16l1.13-6.58L2.45 8.94l6.6-.96z" fill="#e8a922"/>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="170" r="300" fill="url(#glow)"/>
+  <circle cx="120" cy="560" r="280" fill="url(#glow)" opacity="0.6"/>
+
+  <!-- Route motif (top-right) -->
+  <g fill="none" stroke="#f5c842" stroke-width="3" stroke-linecap="round" opacity="0.55">
+    <path d="M812 232 C 905 120, 1010 250, 1120 116" stroke-dasharray="1 13"/>
+  </g>
+  <!-- origin pin -->
+  <circle cx="812" cy="232" r="13" fill="#ffffff"/>
+  <circle cx="812" cy="232" r="5.5" fill="#1a6640"/>
+  <!-- destination pin -->
+  <circle cx="1120" cy="116" r="15" fill="#ffffff"/>
+  <circle cx="1120" cy="116" r="6.5" fill="#e8a922"/>
+  <!-- package node mid-route -->
+  <g transform="translate(951 156) rotate(8)">
+    <rect x="-16" y="-16" width="32" height="32" rx="7" fill="#2db56c"/>
+    <rect x="-16" y="-4" width="32" height="2.4" fill="#0f2317" opacity="0.5"/>
+    <rect x="-1.2" y="-16" width="2.4" height="32" fill="#0f2317" opacity="0.5"/>
+  </g>
+
+  <!-- Brand lockup -->
+  <g transform="translate(80 70)">
+    <rect width="58" height="58" rx="16" fill="url(#mark)"/>
+    <circle cx="29" cy="29" r="10" fill="#e8a922"/>
+    <text x="76" y="40" font-family="Arial, 'Segoe UI', sans-serif" font-size="32" font-weight="700" letter-spacing="0.5" fill="#ffffff">Sendora</text>
+  </g>
+
+  <!-- Rating -->
+  <g transform="translate(80 168)">
+    <use href="#star" x="0" y="0"/>
+    <use href="#star" x="30" y="0"/>
+    <use href="#star" x="60" y="0"/>
+    <use href="#star" x="90" y="0"/>
+    <use href="#star" x="120" y="0"/>
+    <text x="162" y="19" font-family="Arial, 'Segoe UI', sans-serif" font-size="22" font-weight="600" fill="#cdd8cf">4,9/5 · Disponible sur iOS &amp; Android</text>
+  </g>
+
+  <!-- Headline -->
+  <text x="78" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="78" fill="#f9f5ee">Vos colis voyagent</text>
+  <text x="78" y="404" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-style="italic" fill="#f5c842">avec vos voisins.</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="470" font-family="Arial, 'Segoe UI', sans-serif" font-size="27" fill="#aebbb0">L&#8217;Airbnb du transport de colis — jusqu&#8217;à 60 % moins cher.</text>
+
+  <!-- Feature pills -->
+  <g font-family="Arial, 'Segoe UI', sans-serif" font-size="21" font-weight="600">
+    <g transform="translate(80 512)">
+      <rect width="232" height="48" rx="24" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15"/>
+      <text x="24" y="31" fill="#f9f5ee"><tspan fill="#2db56c" font-weight="800">✓</tspan>  Vérification KYC</text>
+    </g>
+    <g transform="translate(328 512)">
+      <rect width="250" height="48" rx="24" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15"/>
+      <text x="24" y="31" fill="#f9f5ee"><tspan fill="#2db56c" font-weight="800">✓</tspan>  Paiement sécurisé</text>
+    </g>
+    <g transform="translate(594 512)">
+      <rect width="216" height="48" rx="24" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.15"/>
+      <text x="24" y="31" fill="#f9f5ee"><tspan fill="#2db56c" font-weight="800">✓</tspan>  Suivi en direct</text>
+    </g>
+  </g>
+</svg>

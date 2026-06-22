@@ -64,80 +64,50 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <div class="phone-wrap">
-            <div class="phone">
-              <div class="phone-island"></div>
-              <div class="phone-screen">
-                <div class="screen-status">
-                  <span class="screen-time">09:41</span>
-                  <div class="screen-icons">
-                    <span class="icon-signal"></span>
-                    <span class="icon-wifi"></span>
-                    <span class="icon-battery"></span>
-                  </div>
-                </div>
-                <div class="screen-header">
-                  <div class="screen-logo">
-                    <div class="sl-dot"></div>
-                  </div>
-                  <span class="screen-title">Sendora</span>
-                  <div class="screen-avatar"></div>
-                </div>
-                <div class="screen-search">
-                  <span class="search-icon">🔍</span>
-                  <span class="search-text">Paris → Lyon</span>
-                </div>
-                <div class="screen-map">
-                  <div class="map-road"></div>
-                  <div class="map-pin mp-a">
-                    <span>📦</span>
-                  </div>
-                  <div class="map-pin mp-b">
-                    <span>🏠</span>
-                  </div>
-                  <div class="map-car">🚗</div>
-                </div>
-                <!-- Match cards -->
-                <div class="screen-label">Transporteurs disponibles</div>
-                <div class="match-card mc1">
-                  <div class="mc-avatar a1"></div>
-                  <div class="mc-info">
-                    <div class="mc-name">Thomas G.</div>
-                    <div class="mc-route">Demain · 9h00 → 12h30</div>
-                  </div>
-                  <div class="mc-price">14€</div>
-                </div>
-                <div class="match-card mc2">
-                  <div class="mc-avatar a2"></div>
-                  <div class="mc-info">
-                    <div class="mc-name">Marie L.</div>
-                    <div class="mc-route">Demain · 14h → 18h</div>
-                  </div>
-                  <div class="mc-price">9€</div>
-                </div>
+          <div class="route-card">
+            <div class="rc-head">
+              <span class="rc-live"><span class="rc-live-dot"></span>Trajet en cours</span>
+              <span class="rc-km">462 km</span>
+            </div>
+
+            <div class="rc-journey">
+              <div class="rc-end">
+                <div class="rc-avatar rc-av-from"></div>
+                <span class="rc-city">Paris</span>
+                <span class="rc-role">Expéditeur</span>
+              </div>
+
+              <div class="rc-track">
+                <div class="rc-track-line"></div>
+                <div class="rc-track-fill"></div>
+                <div class="rc-parcel"><AppIcon name="package" /></div>
+              </div>
+
+              <div class="rc-end">
+                <div class="rc-avatar rc-av-to"></div>
+                <span class="rc-city">Lyon</span>
+                <span class="rc-role">Voisin</span>
               </div>
             </div>
 
-            <!-- Floating badges -->
-            <div class="badge badge-delivered">
-              <span class="bd-icon">✅</span>
-              <div>
-                <div class="bd-title">Livré !</div>
-                <div class="bd-sub">Paris → Marseille · 3h40</div>
+            <div class="rc-carrier">
+              <div class="rc-c-avatar"></div>
+              <div class="rc-c-info">
+                <div class="rc-c-name">Thomas G.<span class="rc-badge">✓ Vérifié KYC</span></div>
+                <div class="rc-c-meta">★ 4,9 · 128 trajets partagés</div>
               </div>
+              <div class="rc-c-price">14&nbsp;€</div>
             </div>
-            <div class="badge badge-rating">
-              <span class="bd-stars">★★★★★</span>
-              <div class="bd-sub">4.9 note moyenne</div>
-            </div>
-            <div class="badge badge-save">
-              <span class="bd-icon">💸</span>
-              <div>
-                <div class="bd-title">Économisé 28€</div>
-                <div class="bd-sub">vs. transporteur classique</div>
-              </div>
+
+            <div class="rc-timeline">
+              <div class="rc-step rc-done"><span class="rc-dot"></span>Publié</div>
+              <div class="rc-step rc-done"><span class="rc-dot"></span>En route</div>
+              <div class="rc-step"><span class="rc-dot"></span>Livré</div>
             </div>
           </div>
+
+          <div class="rc-chip rc-chip-save"><strong>−60 %</strong> vs transporteur classique</div>
+          <div class="rc-chip rc-chip-eco"><strong>0 km</strong> en plus · trajet déjà prévu</div>
         </div>
       </div>
 
@@ -232,7 +202,7 @@
 
         <div class="features-bento">
           <div class="feat-card feat-large">
-            <div class="feat-icon-wrap">🔐</div>
+            <div class="feat-icon-wrap"><AppIcon name="fingerprint" /></div>
             <h3>Vérification d'identité KYC</h3>
             <p>
               Chaque transporteur passe par un processus de vérification d'identité complet via
@@ -240,7 +210,7 @@
             </p>
           </div>
           <div class="feat-card">
-            <div class="feat-icon-wrap">💳</div>
+            <div class="feat-icon-wrap"><AppIcon name="credit-card" /></div>
             <h3>Paiement sous séquestre</h3>
             <p>
               Votre argent est bloqué par Stripe et libéré uniquement après confirmation de
@@ -248,7 +218,7 @@
             </p>
           </div>
           <div class="feat-card">
-            <div class="feat-icon-wrap">📍</div>
+            <div class="feat-icon-wrap"><AppIcon name="map-pin" /></div>
             <h3>Suivi en temps réel</h3>
             <p>
               Suivez chaque étape du parcours de votre colis directement depuis l'application,
@@ -256,7 +226,7 @@
             </p>
           </div>
           <div class="feat-card">
-            <div class="feat-icon-wrap">💬</div>
+            <div class="feat-icon-wrap"><AppIcon name="message-circle" /></div>
             <h3>Chat sécurisé intégré</h3>
             <p>
               Coordonnez avec votre transporteur ou expéditeur via la messagerie chiffrée. Pas
@@ -264,7 +234,7 @@
             </p>
           </div>
           <div class="feat-card feat-large-right">
-            <div class="feat-icon-wrap">⭐</div>
+            <div class="feat-icon-wrap"><AppIcon name="star" /></div>
             <h3>Réputation communautaire</h3>
             <p>
               Après chaque mission, expéditeurs et transporteurs se notent mutuellement. Un système
@@ -273,7 +243,7 @@
             </p>
           </div>
           <div class="feat-card feat-wide">
-            <div class="feat-icon-wrap">🌍</div>
+            <div class="feat-icon-wrap"><AppIcon name="globe" /></div>
             <h3>Partout en France, depuis votre smartphone</h3>
             <p>
               Que ce soit entre deux villes voisines ou d'un bout à l'autre du pays, le matching
@@ -325,7 +295,7 @@
               </div>
               <div class="tc-row">
                 <span class="tc-label">Statut paiement</span>
-                <span class="tc-val tc-green">🔒 Sous séquestre</span>
+                <span class="tc-val tc-green"><AppIcon name="lock" /> Sous séquestre</span>
               </div>
               <div class="tc-row">
                 <span class="tc-label">Départ prévu</span>
@@ -336,11 +306,42 @@
                 <span class="tc-val">2 kg - Fragile</span>
               </div>
               <div class="tc-actions">
-                <div class="tc-btn tc-btn-outline">💬 Chat</div>
+                <div class="tc-btn tc-btn-outline"><AppIcon name="message-circle" /> Chat</div>
                 <div class="tc-btn tc-btn-solid">Confirmer la livraison</div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Écosystème</span>
+          <h2 class="section-title">Nos <em>partenaires</em></h2>
+          <p class="section-sub">
+            Des partenaires de confiance qui nous accompagnent au quotidien.
+          </p>
+        </div>
+      </div>
+
+      <div class="partners-marquee">
+        <div class="partners-track">
+          <a
+            v-for="(p, i) in partnerMarquee"
+            :key="i"
+            class="partner-card"
+            :href="p.url"
+            :target="p.url !== '#' ? '_blank' : undefined"
+            :rel="p.url !== '#' ? 'noopener' : undefined"
+            :aria-hidden="i >= partners.length ? 'true' : undefined"
+            :tabindex="i >= partners.length ? -1 : undefined"
+            :aria-label="`Visiter ${p.name}`"
+          >
+            <img v-if="p.logo" :src="p.logo" :alt="p.name" class="partner-logo" />
+            <span v-else class="partner-name">{{ p.name }}</span>
+          </a>
         </div>
       </div>
     </section>
@@ -398,6 +399,18 @@
 </template>
 
 <script lang="ts" setup>
+import AppIcon from '@/components/AppIcon.vue'
+
+/* Partners — set `url` to the real site and `logo` to an image in
+   /public (e.g. '/partners/myshelf.png') to swap the wordmark. */
+const partners = [
+  { name: 'MyShelf', url: 'https://myshelfapp.app', logo: '' },
+  { name: 'DigitalPowers', url: 'https://digitalpowers.fr', logo: '/partners/logo2.png' },
+]
+// Repeat the set, then duplicate it so the -50% scroll loops seamlessly.
+const partnerHalf = Array.from({ length: 6 }, () => partners).flat()
+const partnerMarquee = [...partnerHalf, ...partnerHalf]
+
 const stats = [
   { value: '0 €', label: "Frais d'inscription" },
   { value: '−60 %', label: 'vs. livraison traditionnelle' },
@@ -592,7 +605,6 @@ const trust = [
   color: var(--text-muted);
 }
 
-/* ── Phone mockup ── */
 .hero-visual {
   display: flex;
   justify-content: center;
@@ -600,341 +612,260 @@ const trust = [
   position: relative;
   padding: 2rem 0;
 }
-.phone-wrap {
+/* Hero route card */
+.route-card {
   position: relative;
-  animation: float-phone 5s ease-in-out infinite;
+  width: 360px;
+  max-width: 100%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  box-shadow: var(--shadow-lg);
 }
-@keyframes float-phone {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
-}
-.phone {
-  width: 248px;
-  height: 498px;
-  background: linear-gradient(160deg, #1a2e1d, #0e1a10);
-  border-radius: 44px;
-  padding: 14px;
-  box-shadow:
-    0 50px 100px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.07) inset,
-    0 1px 0 rgba(255, 255, 255, 0.12) inset;
-  position: relative;
-}
-.phone-island {
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88px;
-  height: 26px;
-  background: #0b1109;
-  border-radius: 14px;
-  z-index: 10;
-}
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  background: var(--cream);
-  border-radius: 32px;
-  overflow: hidden;
+.rc-head {
   display: flex;
-  flex-direction: column;
-}
-.screen-status {
-  height: 44px;
-  display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  padding: 0 18px 6px;
-  background: var(--cream);
+  margin-bottom: 1.25rem;
 }
-.screen-time {
-  font-size: 0.68rem;
+.rc-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
   font-weight: 800;
-  color: var(--ink);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--verdant);
 }
-.screen-icons {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-.icon-signal {
-  width: 12px;
-  height: 8px;
-  background: var(--ink);
-  clip-path: polygon(0 100%, 33% 50%, 66% 25%, 100% 0, 100% 100%);
-}
-.icon-wifi {
-  width: 10px;
-  height: 7px;
-  background: var(--ink);
-  border-radius: 0 0 50% 50%;
-  clip-path: ellipse(50% 100% at 50% 100%);
-  opacity: 0.8;
-}
-.icon-battery {
-  width: 16px;
-  height: 8px;
-  border: 1.5px solid var(--ink);
-  border-radius: 2px;
-  position: relative;
-}
-.icon-battery::after {
-  content: '';
-  position: absolute;
-  right: -4px;
-  top: 2px;
-  width: 3px;
-  height: 4px;
-  background: var(--ink);
-  border-radius: 1px;
-}
-.screen-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 14px 10px;
-}
-.screen-logo {
-  width: 24px;
-  height: 24px;
-  background: var(--verdant);
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.sl-dot {
+.rc-live-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--verdant-lt);
+  box-shadow: 0 0 0 4px rgba(45, 181, 108, 0.15);
 }
-.screen-title {
-  flex: 1;
-  font-size: 0.75rem;
+.rc-km {
+  font-size: 0.72rem;
   font-weight: 800;
-  color: var(--ink);
+  color: var(--text-muted);
+  background: var(--cream-deep);
+  padding: 3px 11px;
+  border-radius: var(--radius-xl);
 }
-.screen-avatar {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--verdant-lt), var(--gold));
-}
-.screen-search {
-  margin: 0 12px 10px;
-  padding: 7px 10px;
-  background: rgba(13, 26, 18, 0.06);
-  border-radius: 10px;
+
+.rc-journey {
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.rc-end {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 6px;
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  font-weight: 600;
+  width: 64px;
+  flex-shrink: 0;
 }
-.search-icon {
-  font-size: 0.8rem;
-}
-.screen-map {
-  margin: 0 12px;
-  height: 110px;
-  background: linear-gradient(145deg, #dff0e6, #c8e8d4);
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-}
-.map-road {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  right: 5%;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.7);
-  transform: translateY(-50%);
-  border-radius: 2px;
-}
-.map-road::before,
-.map-road::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  height: 1px;
-  background: var(--verdant-lt);
-  opacity: 0.5;
-}
-.map-road::before {
-  width: 100%;
-  left: 0;
-  top: -4px;
-}
-.map-road::after {
-  width: 100%;
-  left: 0;
-  top: 4px;
-}
-.map-pin {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: white;
+.rc-avatar {
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(13, 26, 18, 0.15);
+}
+.rc-av-from {
+  background: linear-gradient(135deg, var(--verdant-lt), var(--verdant));
+}
+.rc-av-to {
+  background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+}
+.rc-city {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+}
+.rc-role {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.rc-track {
+  flex: 1;
+  position: relative;
+  height: 46px;
+  display: flex;
+  align-items: center;
+}
+.rc-track-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 2px dashed var(--border);
+  transform: translateY(-50%);
+}
+.rc-track-fill {
+  position: absolute;
+  left: 0;
+  width: 58%;
+  top: 50%;
+  border-top: 2px dashed var(--verdant);
+  transform: translateY(-50%);
+}
+.rc-parcel {
+  position: absolute;
+  left: 58%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: var(--white);
+  box-shadow: 0 4px 14px rgba(13, 26, 18, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-.mp-a {
-  top: 28%;
-  left: 10%;
-}
-.mp-b {
-  top: 28%;
-  right: 10%;
-}
-.map-car {
-  position: absolute;
-  top: 55%;
-  left: 55%;
-  font-size: 18px;
-  animation: drive 4s ease-in-out infinite;
-}
-@keyframes drive {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-30px);
-  }
-}
-.screen-label {
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 8px 12px 4px;
-}
-.match-card {
-  margin: 0 12px 6px;
-  background: white;
-  border-radius: 10px;
-  padding: 8px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-}
-.mc-avatar {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.a1 {
-  background: linear-gradient(135deg, var(--verdant-lt), var(--verdant));
-}
-.a2 {
-  background: linear-gradient(135deg, var(--gold-lt), var(--gold));
-}
-.mc-info {
-  flex: 1;
-}
-.mc-name {
-  font-size: 0.67rem;
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1.2;
-}
-.mc-route {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-}
-.mc-price {
-  font-size: 0.8rem;
-  font-weight: 900;
+.rc-parcel .app-icon {
+  width: 18px;
+  height: 18px;
   color: var(--verdant);
 }
 
-/* Floating badges */
-.badge {
-  position: absolute;
-  background: white;
-  border-radius: 14px;
-  padding: 10px 14px;
-  box-shadow: var(--shadow);
+.rc-carrier {
   display: flex;
   align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-  font-size: 0.78rem;
+  gap: 12px;
+  background: var(--cream-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 11px 13px;
 }
-.badge-delivered {
-  bottom: 70px;
-  left: -60px;
-  animation: float-b1 4.5s ease-in-out infinite;
+.rc-c-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c8e8d4, var(--verdant-lt));
+  flex-shrink: 0;
 }
-.badge-rating {
-  top: 80px;
-  right: -50px;
-  animation: float-b2 5s ease-in-out infinite;
+.rc-c-info {
+  flex: 1;
+  min-width: 0;
 }
-.badge-save {
-  top: 200px;
-  right: -60px;
-  animation: float-b3 4s ease-in-out infinite 1s;
-}
-@keyframes float-b1 {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-@keyframes float-b2 {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-@keyframes float-b3 {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-.bd-icon {
-  font-size: 1.2rem;
-}
-.bd-title {
+.rc-c-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
   font-weight: 800;
   color: var(--ink);
-  font-size: 0.82rem;
-  line-height: 1.2;
 }
-.bd-sub {
+.rc-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: var(--verdant);
+  background: rgba(26, 102, 64, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-xl);
+  white-space: nowrap;
+}
+.rc-c-meta {
+  font-size: 0.74rem;
   color: var(--text-muted);
-  font-size: 0.72rem;
+  margin-top: 2px;
 }
-.bd-stars {
-  font-size: 1rem;
-  color: var(--gold);
+.rc-c-price {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--verdant);
+  flex-shrink: 0;
+}
+
+.rc-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 1.25rem;
+  padding-top: 0.25rem;
+}
+.rc-timeline::before,
+.rc-timeline::after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  height: 2px;
+  border-radius: 2px;
+}
+.rc-timeline::before {
+  left: 16%;
+  right: 16%;
+  background: var(--border);
+}
+.rc-timeline::after {
+  left: 16%;
+  width: 34%;
+  background: var(--verdant);
+}
+.rc-step {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.rc-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--border);
+}
+.rc-step.rc-done {
+  color: var(--verdant);
+}
+.rc-step.rc-done .rc-dot {
+  background: var(--verdant);
+  border-color: var(--verdant);
+}
+
+/* Static accent chips */
+.rc-chip {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  padding: 9px 15px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.rc-chip strong {
+  font-weight: 900;
+  color: var(--ink);
+}
+.rc-chip-save {
+  top: 34px;
+  left: -52px;
+}
+.rc-chip-save strong {
+  color: var(--verdant);
+}
+.rc-chip-eco {
+  bottom: 40px;
+  right: -44px;
 }
 
 /* Scroll hint */
@@ -964,7 +895,7 @@ const trust = [
 }
 
 .stats-strip {
-  background: var(--ink);
+  background: var(--band);
   padding: 2.5rem 0;
   overflow: hidden;
 }
@@ -1115,7 +1046,7 @@ const trust = [
   border: 1.5px solid rgba(26, 102, 64, 0.15);
 }
 .role-transporter {
-  background: var(--ink);
+  background: var(--band);
 }
 .role-eyebrow {
   font-size: 0.72rem;
@@ -1141,7 +1072,7 @@ const trust = [
   color: var(--ink);
 }
 .role-transporter h2 {
-  color: var(--white);
+  color: var(--band-ink);
 }
 .role-sender h2 em {
   font-style: italic;
@@ -1213,7 +1144,7 @@ const trust = [
 }
 .role-action-light {
   background: var(--gold);
-  color: var(--ink);
+  color: var(--band);
 }
 
 .features-section {
@@ -1252,8 +1183,19 @@ const trust = [
   grid-column: span 3;
 }
 .feat-icon-wrap {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(26, 102, 64, 0.1);
+  color: var(--verdant);
+  margin-bottom: 1.25rem;
+}
+.feat-icon-wrap .app-icon {
+  width: 26px;
+  height: 26px;
 }
 .feat-card h3 {
   font-size: 1.05rem;
@@ -1388,9 +1330,16 @@ const trust = [
   font-weight: 600;
 }
 .tc-val {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--ink);
+}
+.tc-val .app-icon {
+  width: 14px;
+  height: 14px;
 }
 .tc-green {
   color: var(--verdant);
@@ -1402,12 +1351,19 @@ const trust = [
 }
 .tc-btn {
   flex: 1;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   padding: 0.6rem;
   border-radius: 10px;
   font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
+}
+.tc-btn .app-icon {
+  width: 15px;
+  height: 15px;
 }
 .tc-btn-outline {
   border: 1.5px solid var(--border);
@@ -1418,12 +1374,97 @@ const trust = [
   color: white;
 }
 
+/* Partners marquee */
+.partners-section {
+  padding: 2rem 0 7rem;
+  overflow: hidden;
+}
+.partners-marquee {
+  position: relative;
+  width: 70%;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  overflow: hidden;
+  /* Fade the cards in/out at the edges */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+@media (max-width: 768px) {
+  .partners-marquee {
+    width: 90%;
+  }
+}
+.partners-track {
+  display: flex;
+  width: max-content;
+  animation: partners-scroll 32s linear infinite;
+  will-change: transform;
+}
+.partners-marquee:hover .partners-track {
+  animation-play-state: paused;
+}
+@keyframes partners-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.partner-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  min-width: 230px;
+  height: 96px;
+  padding: 0 2.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: rgba(26, 102, 64, 0.25);
+}
+.partner-logo {
+  height: 64px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+.partner-name {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .partners-track {
+    animation: none;
+  }
+}
+
 .cta-section {
   position: relative;
   padding: 8rem 0;
   overflow: hidden;
   text-align: center;
-  background: var(--ink);
+  background: var(--band);
 }
 .cta-grain {
   position: absolute;
@@ -1450,7 +1491,7 @@ const trust = [
   font-size: clamp(2.4rem, 5vw, 4rem);
   line-height: 1.08;
   letter-spacing: -0.04em;
-  color: var(--white);
+  color: var(--band-ink);
   margin-bottom: 1.1rem;
 }
 .cta-sub {
@@ -1477,7 +1518,7 @@ const trust = [
 }
 .store-google-dark {
   background: var(--gold);
-  color: var(--ink);
+  color: var(--band);
 }
 .store-google-dark:hover {
   background: var(--gold-lt);

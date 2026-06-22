@@ -4,9 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" href="/src/assets/logo.png" type="image/png" />
-    <link rel="apple-touch-icon" href="/src/assets/logo.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#1a6640" />
+
+    <!-- Apply the saved/device theme before first paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme')
+          if (t !== 'light' && t !== 'dark') {
+            t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          }
+          document.documentElement.setAttribute('data-theme', t)
+        } catch (e) {}
+      })()
+    </script>
 
     <title>Sendora - Envoyez vos colis avec vos voisins | Transport collaboratif en France</title>
     <meta
@@ -35,7 +50,8 @@
       property="og:description"
       content="L'Airbnb du transport de colis. Envoyez malin, payez moins : des transporteurs vérifiés font déjà votre trajet. Paiement sous séquestre Stripe, suivi temps réel, gratuit à l'inscription."
     />
-    <meta property="og:image" content="https://sendoraapp.com/og-image.jpg" />
+    <meta property="og:image" content="https://sendoraapp.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -52,7 +68,7 @@
       name="twitter:description"
       content="Transport collaboratif de colis en France. Jusqu'à 60 % moins cher, transporteurs vérifiés KYC, paiement Stripe sécurisé. iOS &amp; Android."
     />
-    <meta name="twitter:image" content="https://sendoraapp.com/og-image.jpg" />
+    <meta name="twitter:image" content="https://sendoraapp.com/og-image.png" />
     <meta name="twitter:image:alt" content="Sendora - Application de livraison collaborative" />
 
     <meta name="application-name" content="Sendora" />
@@ -72,6 +88,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    />
     <link rel="dns-prefetch" href="https://js.stripe.com" />
     <link rel="dns-prefetch" href="https://apps.apple.com" />
     <link rel="dns-prefetch" href="https://play.google.com" />
@@ -82,7 +102,7 @@
         "@type": "Organization",
         "name": "Sendora",
         "url": "https://sendoraapp.com",
-        "logo": "https://sendoraapp.com/src/assets/logo.png",
+        "logo": "https://sendoraapp.com/logo.png",
         "description": "Sendora est une plateforme de transport collaboratif de colis qui connecte expéditeurs et particuliers effectuant déjà le trajet.",
         "foundingDate": "2025",
         "areaServed": {
@@ -93,7 +113,7 @@
           "@type": "ContactPoint",
           "contactType": "customer support",
           "availableLanguage": "French",
-          "email": "support@sendora.app"
+          "email": "contact@sendora.app"
         },
         "sameAs": [
           "https://twitter.com/sendoraapp",
@@ -113,7 +133,7 @@
         "applicationCategory": "TravelApplication",
         "description": "Application de transport collaboratif de colis. Envoyez vos colis avec des particuliers qui font déjà votre trajet. Jusqu'à 60 % moins cher qu'un transporteur classique.",
         "url": "https://sendoraapp.com",
-        "logo": "https://sendoraapp.com/src/assets/logo.png",
+        "logo": "https://sendoraapp.com/logo.png",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -122,7 +142,7 @@
         },
         "installUrl": [
           "https://apps.apple.com/fr/app/sendora/id6773115334",
-          "https://play.google.com/store/apps/details?id=com.sendora.app"
+          "https://play.google.com/store/apps/details?id=com.sendoraapp"
         ],
         "featureList": [
           "Vérification KYC via Didit (eIDAS)",

@@ -7,25 +7,63 @@
           <span>Sendora</span>
         </RouterLink>
 
-        <button
-          class="burger"
-          :class="{ open: menuOpen }"
-          type="button"
-          :aria-expanded="menuOpen"
-          aria-label="Ouvrir le menu"
-          @click="toggleMenu"
-        >
-          <span></span><span></span><span></span>
-        </button>
+        <div class="nav-cluster">
+          <button
+            class="theme-toggle"
+            type="button"
+            :aria-label="isDark ? 'Activer le thème clair' : 'Activer le thème sombre'"
+            :title="isDark ? 'Thème clair' : 'Thème sombre'"
+            @click="toggleTheme"
+          >
+            <svg
+              v-if="isDark"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              />
+            </svg>
+            <svg
+              v-else
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
 
-        <nav class="nav-links desktop-nav" aria-label="Navigation principale">
-          <RouterLink to="/" class="nav-link">Accueil</RouterLink>
-          <RouterLink to="/contact" class="nav-link">Contact</RouterLink>
-          <RouterLink to="/terms" class="nav-link">CGU</RouterLink>
-          <RouterLink to="/privacy" class="nav-link">Confidentialité</RouterLink>
-          <RouterLink to="/cgu" class="nav-link">Mentions</RouterLink>
-          <a href="#download" class="nav-cta">Télécharger →</a>
-        </nav>
+          <button
+            class="burger"
+            :class="{ open: menuOpen }"
+            type="button"
+            :aria-expanded="menuOpen"
+            aria-label="Ouvrir le menu"
+            @click="toggleMenu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+
+          <nav class="nav-links desktop-nav" aria-label="Navigation principale">
+            <RouterLink to="/" class="nav-link">Accueil</RouterLink>
+            <RouterLink to="/contact" class="nav-link">Contact</RouterLink>
+            <RouterLink to="/terms" class="nav-link">CGU</RouterLink>
+            <RouterLink to="/privacy" class="nav-link">Confidentialité</RouterLink>
+            <RouterLink to="/cgu" class="nav-link">Mentions</RouterLink>
+            <a href="#download" class="nav-cta">Télécharger →</a>
+          </nav>
+        </div>
       </div>
 
       <transition name="mobile-overlay-fade">
@@ -72,8 +110,47 @@ const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 const closeMenu  = () => { menuOpen.value = false }
 watch(() => route.fullPath, closeMenu)
 const onKeydown = (e: KeyboardEvent) => { if (e.key === 'Escape') closeMenu() }
-onMounted(()       => window.addEventListener('keydown', onKeydown))
-onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
+
+/* ─── Theme (light / dark) ──────────────────────────────────
+   Default follows the device; an explicit choice is persisted. */
+type Theme = 'light' | 'dark'
+const THEME_KEY = 'theme'
+const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+
+const isDark = ref(document.documentElement.getAttribute('data-theme') === 'dark')
+
+const storedTheme = (): Theme | null => {
+  try { return localStorage.getItem(THEME_KEY) as Theme | null } catch { return null }
+}
+
+const applyTheme = (theme: Theme) => {
+  document.documentElement.setAttribute('data-theme', theme)
+  isDark.value = theme === 'dark'
+  document
+    .querySelector('meta[name="theme-color"]')
+    ?.setAttribute('content', theme === 'dark' ? '#0c120e' : '#1a6640')
+}
+
+const toggleTheme = () => {
+  const next: Theme = isDark.value ? 'light' : 'dark'
+  try { localStorage.setItem(THEME_KEY, next) } catch { /* storage unavailable */ }
+  applyTheme(next)
+}
+
+// Track the OS preference only while the user hasn't chosen explicitly.
+const onSystemChange = (e: MediaQueryListEvent) => {
+  if (!storedTheme()) applyTheme(e.matches ? 'dark' : 'light')
+}
+
+onMounted(() => {
+  applyTheme(storedTheme() ?? (systemDark.matches ? 'dark' : 'light'))
+  systemDark.addEventListener('change', onSystemChange)
+  window.addEventListener('keydown', onKeydown)
+})
+onBeforeUnmount(() => {
+  systemDark.removeEventListener('change', onSystemChange)
+  window.removeEventListener('keydown', onKeydown)
+})
 </script>
 
 <style>

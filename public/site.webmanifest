@@ -1,0 +1,20 @@
+{
+  "name": "Sendora — Transport de colis",
+  "short_name": "Sendora",
+  "description": "Envoyez vos colis avec des particuliers qui font déjà le trajet. Jusqu'à 60 % moins cher, transporteurs vérifiés KYC, paiement sécurisé Stripe.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f9f5ee",
+  "theme_color": "#1a6640",
+  "categories": ["travel", "shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -2,7 +2,6 @@
   <main class="contact-page">
     <section class="contact-hero">
       <div class="container contact-inner">
-        <!-- Intro -->
         <div class="contact-intro">
           <span class="chip">Contact</span>
           <h1 class="contact-title">Une question ?<br /><em>On vous répond.</em></h1>
@@ -13,21 +12,21 @@
 
           <div class="contact-emails">
             <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
-              <div class="cer-icon">📬</div>
+              <div class="cer-icon"><AppIcon name="mail" /></div>
               <div>
                 <div class="cer-label">Support général</div>
                 <div class="cer-addr">contact@sendora.app</div>
               </div>
             </a>
             <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
-              <div class="cer-icon">🔒</div>
+              <div class="cer-icon"><AppIcon name="shield-check" /></div>
               <div>
                 <div class="cer-label">Données & RGPD</div>
                 <div class="cer-addr">privacy@sendora.app</div>
               </div>
             </a>
             <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
-              <div class="cer-icon">⚖️</div>
+              <div class="cer-icon"><AppIcon name="scale" /></div>
               <div>
                 <div class="cer-label">Questions légales</div>
                 <div class="cer-addr">legal@sendora.app</div>
@@ -36,10 +35,9 @@
           </div>
         </div>
 
-        <!-- Formulaire -->
         <div class="surface form-card">
           <div v-if="sent" class="form-success">
-            <div class="success-icon">✅</div>
+            <div class="success-icon"><AppIcon name="check-circle" /></div>
             <h2>Message envoyé !</h2>
             <p>
               Merci ! On reviendra vers <strong>{{ form.email }}</strong> dans les meilleurs délais.
@@ -48,7 +46,7 @@
           </div>
 
           <div v-else-if="serverError" class="form-server-error">
-            <div class="success-icon">⚠️</div>
+            <div class="success-icon"><AppIcon name="alert-triangle" /></div>
             <h2>Oups, quelque chose a raté</h2>
             <p>{{ serverError }}</p>
             <button class="btn btn-secondary" @click="serverError = ''">Réessayer</button>
@@ -72,7 +70,7 @@
                     :class="{ active: form.subject === s.value }"
                     @click="form.subject = s.value"
                   >
-                    <span>{{ s.icon }}</span>
+                    <AppIcon :name="s.icon" />
                     {{ s.label }}
                   </button>
                 </div>
@@ -137,7 +135,6 @@
                 </div>
               </div>
 
-              <!-- Submit -->
               <div class="form-actions">
                 <button
                   type="button"
@@ -160,19 +157,17 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
+import AppIcon from '@/components/AppIcon.vue'
 
-// ─── PATCH : remplace YOUR_FORMSPREE_ID par ton vrai ID Formspree ───
-// 1. Va sur https://formspree.io → "New Form" → copy l'ID (ex: xpwzgkqd)
-// 2. Remplace la valeur ci-dessous
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqeowyqo'
 
 const subjects = [
-  { value: 'support', icon: '📦', label: 'Support' },
-  { value: 'payment', icon: '💳', label: 'Paiement' },
-  { value: 'account', icon: '👤', label: 'Mon compte' },
-  { value: 'privacy', icon: '🔒', label: 'Confidentialité' },
-  { value: 'bug', icon: '⚡', label: 'Bug' },
-  { value: 'partnership', icon: '🤝', label: 'Partenariat' },
+  { value: 'support', icon: 'life-buoy', label: 'Support' },
+  { value: 'payment', icon: 'credit-card', label: 'Paiement' },
+  { value: 'account', icon: 'user', label: 'Mon compte' },
+  { value: 'privacy', icon: 'lock', label: 'Confidentialité' },
+  { value: 'bug', icon: 'bug', label: 'Bug' },
+  { value: 'partnership', icon: 'handshake', label: 'Partenariat' },
 ]
 
 const form = reactive({
@@ -277,7 +272,6 @@ function reset() {
   align-items: start;
 }
 
-/* ── Intro ── */
 .contact-intro {
   display: flex;
   flex-direction: column;
@@ -325,8 +319,19 @@ function reset() {
   box-shadow: var(--shadow-sm);
 }
 .cer-icon {
-  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(26, 102, 64, 0.1);
+  color: var(--verdant);
+}
+.cer-icon .app-icon {
+  width: 22px;
+  height: 22px;
 }
 .cer-label {
   font-size: 0.72rem;
@@ -341,7 +346,6 @@ function reset() {
   color: var(--verdant);
 }
 
-/* ── Form card ── */
 .form-card {
   padding: clamp(1.5rem, 3vw, 2rem);
 }
@@ -366,7 +370,6 @@ function reset() {
   gap: 1.25rem;
 }
 
-/* ── Fields ── */
 .field {
   display: flex;
   flex-direction: column;
@@ -436,7 +439,6 @@ function reset() {
   font-weight: 700;
 }
 
-/* ── Subject tabs ── */
 .subject-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -469,8 +471,12 @@ function reset() {
   color: var(--verdant);
   font-weight: 800;
 }
+.subject-tab .app-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
 
-/* ── Actions ── */
 .form-actions {
   display: flex;
   flex-direction: column;
@@ -514,7 +520,6 @@ function reset() {
   }
 }
 
-/* ── Success / Error states ── */
 .form-success,
 .form-server-error {
   display: flex;
@@ -525,7 +530,20 @@ function reset() {
   padding: 2rem 1rem;
 }
 .success-icon {
-  font-size: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-icon .app-icon {
+  width: 56px;
+  height: 56px;
+  stroke-width: 1.75;
+}
+.form-success .success-icon {
+  color: var(--verdant);
+}
+.form-server-error .success-icon {
+  color: #d94f4f;
 }
 .form-success h2,
 .form-server-error h2 {
@@ -541,7 +559,6 @@ function reset() {
   margin: 0;
 }
 
-/* ── Responsive ── */
 @media (max-width: 960px) {
   .contact-inner {
     grid-template-columns: 1fr;
