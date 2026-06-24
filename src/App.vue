@@ -57,6 +57,7 @@
 
           <nav class="nav-links desktop-nav" aria-label="Navigation principale">
             <RouterLink to="/" class="nav-link">Accueil</RouterLink>
+            <RouterLink to="/blog" class="nav-link">Blog</RouterLink>
             <RouterLink to="/contact" class="nav-link">Contact</RouterLink>
             <RouterLink to="/terms" class="nav-link">CGU</RouterLink>
             <RouterLink to="/privacy" class="nav-link">Confidentialité</RouterLink>
@@ -72,6 +73,7 @@
       <transition name="mobile-panel-slide">
         <nav v-if="menuOpen" class="mobile-menu" aria-label="Navigation mobile">
           <RouterLink to="/" class="mobile-link" @click="closeMenu">Accueil</RouterLink>
+          <RouterLink to="/blog" class="mobile-link" @click="closeMenu">Blog</RouterLink>
           <RouterLink to="/contact" class="mobile-link" @click="closeMenu">Contact</RouterLink>
           <RouterLink to="/terms" class="mobile-link" @click="closeMenu">CGU</RouterLink>
           <RouterLink to="/privacy" class="mobile-link" @click="closeMenu">Confidentialité</RouterLink>
@@ -88,6 +90,14 @@
 
     <footer class="site-footer">
       <div class="container site-footer-inner">
+        <nav class="site-footer-seo" aria-label="Envois populaires">
+          <RouterLink to="/transport-colis-entre-particuliers">Transport entre particuliers</RouterLink>
+          <RouterLink to="/envoyer-colis-pas-cher">Colis pas cher</RouterLink>
+          <RouterLink to="/envoyer-colis-senegal">Colis au Sénégal</RouterLink>
+          <RouterLink to="/envoyer-colis-maroc">Colis au Maroc</RouterLink>
+          <RouterLink to="/envoyer-colis-algerie">Colis en Algérie</RouterLink>
+          <RouterLink to="/blog">Blog</RouterLink>
+        </nav>
         <span>© 2026 Sendora - Tous droits réservés</span>
         <div class="site-footer-links">
           <RouterLink to="/contact">Contact</RouterLink>
@@ -115,9 +125,11 @@ const onKeydown = (e: KeyboardEvent) => { if (e.key === 'Escape') closeMenu() }
    Default follows the device; an explicit choice is persisted. */
 type Theme = 'light' | 'dark'
 const THEME_KEY = 'theme'
-const systemDark = window.matchMedia('(prefers-color-scheme: dark)')
+// Guarded for SSG: during prerender there is no window/document.
+const isClient = typeof window !== 'undefined'
+const systemDark = isClient ? window.matchMedia('(prefers-color-scheme: dark)') : null
 
-const isDark = ref(document.documentElement.getAttribute('data-theme') === 'dark')
+const isDark = ref(isClient && document.documentElement.getAttribute('data-theme') === 'dark')
 
 const storedTheme = (): Theme | null => {
   try { return localStorage.getItem(THEME_KEY) as Theme | null } catch { return null }
@@ -143,16 +155,34 @@ const onSystemChange = (e: MediaQueryListEvent) => {
 }
 
 onMounted(() => {
-  applyTheme(storedTheme() ?? (systemDark.matches ? 'dark' : 'light'))
-  systemDark.addEventListener('change', onSystemChange)
+  applyTheme(storedTheme() ?? (systemDark?.matches ? 'dark' : 'light'))
+  systemDark?.addEventListener('change', onSystemChange)
   window.addEventListener('keydown', onKeydown)
 })
 onBeforeUnmount(() => {
-  systemDark.removeEventListener('change', onSystemChange)
+  systemDark?.removeEventListener('change', onSystemChange)
   window.removeEventListener('keydown', onKeydown)
 })
 </script>
 
 <style>
 /* All global styles are in main.css */
+
+/* SEO link row in the footer (internal linking for crawlers & users). */
+.site-footer-seo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.25rem;
+  margin-bottom: 1rem;
+}
+.site-footer-seo a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+.site-footer-seo a:hover {
+  color: var(--verdant);
+}
 </style>

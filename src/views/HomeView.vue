@@ -190,6 +190,25 @@
           </ul>
           <a href="#download" class="role-action role-action-light">Devenir transporteur →</a>
         </div>
+
+        <div class="role-card role-pro">
+          <div class="role-eyebrow">Pour les professionnels</div>
+          <h2>Expédiez en volume,<br /><em>sans la logistique.</em></h2>
+          <p>
+            E-commerçants, TPE et associations : confiez vos envois récurrents à notre réseau de
+            transporteurs vérifiés. Un tableau de bord, une facture, un interlocuteur dédié.
+          </p>
+          <ul class="role-checklist">
+            <li>Tarifs dégressifs selon votre volume d'envois</li>
+            <li>Facturation centralisée et compatible TVA</li>
+            <li>Tableau de bord multi-colis et multi-utilisateurs</li>
+            <li>Intégration API &amp; e-commerce (sur demande)</li>
+            <li>Account manager dédié et support prioritaire</li>
+          </ul>
+          <RouterLink to="/contact" class="role-action role-action-pro"
+            >Demander une démo →</RouterLink
+          >
+        </div>
       </div>
     </section>
 
@@ -317,6 +336,26 @@
 
     <PriceMarket />
 
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title">Questions <em>fréquentes</em></h2>
+          <p class="section-sub">
+            Tout ce qu'il faut savoir pour envoyer un colis entre particuliers, en France et vers la
+            diaspora.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details v-for="(f, i) in homeFaq" :key="i" class="faq-item">
+            <summary>{{ f.q }}</summary>
+            <p>{{ f.a }}</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="partners-section">
       <div class="container">
         <div class="section-head">
@@ -403,6 +442,102 @@
 <script lang="ts" setup>
 import AppIcon from '@/components/AppIcon.vue'
 import PriceMarket from '@/components/PriceMarket.vue'
+import { useSeo } from '@/composables/useSeo'
+import { faqPage, howTo, mobileApplication, service } from '@/seo/schema'
+
+const DIASPORA_COUNTRIES = [
+  'Sénégal',
+  'Maroc',
+  'Algérie',
+  "Côte d'Ivoire",
+  'Cameroun',
+  'Comores',
+  'Mayotte',
+  'La Réunion',
+]
+
+const homeFaq = [
+  {
+    q: 'Comment fonctionne Sendora ?',
+    a: 'Sendora fonctionne en 3 étapes : publiez votre annonce colis en 2 minutes, choisissez un transporteur particulier vérifié qui fait déjà votre trajet, puis confirmez la livraison pour libérer le paiement. Simple, rapide et sécurisé.',
+  },
+  {
+    q: 'Comment envoyer un colis pas cher entre particuliers ?',
+    a: 'Avec Sendora, vous confiez votre colis à un particulier qui fait déjà le trajet : il n’y a donc pas de coût logistique supplémentaire. Résultat, des tarifs jusqu’à 60 % moins chers qu’un transporteur classique en France, et jusqu’à 10× moins chers vers la diaspora.',
+  },
+  {
+    q: 'Peut-on envoyer un colis vers la diaspora (Sénégal, Maroc, Algérie…) ?',
+    a: 'Oui. Sendora met en relation des expéditeurs avec des voyageurs vérifiés qui se rendent au Sénégal, au Maroc, en Algérie, en Côte d’Ivoire, au Cameroun, aux Comores ou en Outre-mer. Votre colis est remis en main propre, sans entrepôt ni intermédiaire, pour une fraction du prix d’un transporteur express.',
+  },
+  {
+    q: 'Combien coûte l’envoi d’un colis avec Sendora ?',
+    a: 'Sendora est gratuit à l’inscription et sans abonnement. Le prix de chaque livraison est proposé par les transporteurs ; à titre indicatif, un colis de 10 kg vers le Maroc revient à environ 40 € contre 120 € en express.',
+  },
+  {
+    q: 'Comment Sendora garantit-il la sécurité des paiements ?',
+    a: 'Sendora utilise le séquestre (escrow) de Stripe : votre paiement est bloqué jusqu’à la confirmation de réception du colis. Le transporteur ne reçoit ses fonds qu’après validation de la livraison.',
+  },
+  {
+    q: 'Les transporteurs sont-ils vérifiés ?',
+    a: 'Oui, tous les transporteurs passent par une vérification d’identité complète (KYC) via Didit, partenaire agréé eIDAS. Vous savez toujours à qui vous confiez votre colis.',
+  },
+  {
+    q: 'Sendora est-il disponible sur iPhone et Android ?',
+    a: 'Oui, Sendora est disponible gratuitement sur l’App Store (iOS) et le sera très bientôt sur Google Play (Android).',
+  },
+  {
+    q: 'Comment gagner de l’argent en transportant des colis ?',
+    a: 'Si vous effectuez régulièrement des trajets, vous pouvez proposer de transporter des colis sur votre route. Vous définissez vos disponibilités, acceptez les missions qui vous conviennent et êtes payé via Stripe Connect sous 2 à 7 jours ouvrés.',
+  },
+]
+
+useSeo({
+  title:
+    'Sendora — Envoyer un colis entre particuliers, en France & vers la diaspora',
+  description:
+    "Envoyez vos colis avec des particuliers qui font déjà le trajet : en France et vers la diaspora (Sénégal, Maroc, Algérie, Côte d'Ivoire, Cameroun…). Jusqu'à 60 % moins cher, transporteurs vérifiés KYC, paiement Stripe sous séquestre, suivi en direct. iOS & Android.",
+  path: '/',
+  keywords:
+    'envoyer un colis entre particuliers, transport collaboratif de colis, envoyer colis pas cher, envoyer colis au Sénégal, envoyer colis au Maroc, envoyer colis en Algérie, colis diaspora, covoiturage de colis, Sendora',
+  jsonLd: [
+    mobileApplication(),
+    service({
+      name: 'Transport collaboratif de colis en France',
+      serviceType: 'Livraison de colis entre particuliers',
+      description:
+        'Mise en relation d’expéditeurs avec des particuliers effectuant déjà le trajet, partout en France. Vérification KYC, paiement sécurisé sous séquestre et suivi temps réel.',
+      areaServed: 'France',
+      url: 'https://sendoraapp.com/',
+    }),
+    service({
+      name: 'Envoi de colis vers la diaspora',
+      serviceType: 'Transport de colis entre particuliers à l’international',
+      description:
+        'Envoyez vos colis depuis la France vers la diaspora grâce à des voyageurs vérifiés qui font déjà le trajet : remise en main propre, jusqu’à 10× moins cher qu’un transporteur express.',
+      areaServed: DIASPORA_COUNTRIES,
+      url: 'https://sendoraapp.com/',
+    }),
+    howTo(
+      'Comment envoyer un colis avec Sendora',
+      'Envoyer un colis entre particuliers, en France ou vers la diaspora, en 3 étapes.',
+      [
+        {
+          name: 'Publiez votre annonce',
+          text: 'Décrivez votre colis (poids, dimensions), indiquez les villes de départ et d’arrivée et votre budget. Moins de 2 minutes.',
+        },
+        {
+          name: 'Choisissez un transporteur',
+          text: 'Sendora vous propose des particuliers vérifiés KYC qui font déjà votre trajet. Comparez leurs profils, notes et tarifs, puis sélectionnez.',
+        },
+        {
+          name: 'Livraison & paiement sécurisé',
+          text: 'Le transporteur remet le colis en main propre. Vous confirmez la réception et le paiement sous séquestre Stripe est libéré.',
+        },
+      ],
+    ),
+    faqPage(homeFaq),
+  ],
+})
 
 /* Partners — set `url` to the real site and `logo` to an image in
    /public (e.g. '/partners/myshelf.png') to swap the wordmark. */
@@ -1035,8 +1170,8 @@ const trust = [
 }
 .roles-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 .role-card {
   border-radius: var(--radius-lg);
@@ -1148,6 +1283,42 @@ const trust = [
 .role-action-light {
   background: var(--gold);
   color: var(--band);
+}
+
+/* Professionals — deep-green premium card (stable in light & dark) */
+.role-pro {
+  background: var(--brand-700);
+  border: 1.5px solid var(--brand-700);
+}
+.role-pro .role-eyebrow {
+  color: var(--gold-lt);
+}
+.role-pro h2 {
+  color: var(--band-ink);
+}
+.role-pro h2 em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+.role-pro p {
+  color: rgba(255, 255, 255, 0.82);
+}
+.role-pro .role-checklist li {
+  color: rgba(255, 255, 255, 0.88);
+}
+.role-pro .role-checklist li::before {
+  color: var(--gold-lt);
+}
+.role-action-pro {
+  background: var(--band-ink);
+  color: var(--brand-700);
+}
+
+@media (max-width: 1080px) {
+  .roles-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
 }
 
 .features-section {
@@ -1523,6 +1694,51 @@ const trust = [
 .cta-note {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.4);
+}
+
+/* FAQ */
+.faq-section {
+  padding: 6rem 0;
+}
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.75rem;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 1.4rem;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 1rem 0;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: '+';
+  float: right;
+  color: var(--verdant);
+  font-weight: 900;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.faq-item[open] summary::after {
+  content: '–';
+}
+.faq-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  padding-bottom: 1.1rem;
 }
 
 @media (max-width: 1000px) {

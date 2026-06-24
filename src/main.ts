@@ -1,16 +1,23 @@
-// import './assets/main.css'
+import './assets/main.css'
 
-import { createApp } from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
-import router from './router'
+import { routes } from './router/routes'
 
-import './assets/main.css'
-
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+// vite-ssg owns app/router creation so each route can be prerendered to static
+// HTML (filled markup that Google AND AI crawlers read without running JS),
+// then hydrated on the client for full interactivity.
+export const createApp = ViteSSG(
+  App,
+  {
+    routes,
+    scrollBehavior() {
+      return { top: 0, left: 0 }
+    },
+  },
+  ({ app }) => {
+    app.use(createPinia())
+  },
+)

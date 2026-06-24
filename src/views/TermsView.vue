@@ -86,6 +86,14 @@
 
 <script lang="ts" setup>
 import LegalLayout from '../components/LegalLayout.vue'
+import { useSeo } from '@/composables/useSeo'
+
+useSeo({
+  title: "Conditions Générales d'Utilisation — Sendora",
+  description:
+    "Conditions générales d'utilisation de Sendora, plateforme de transport collaboratif de colis entre particuliers en France et vers la diaspora.",
+  path: '/terms',
+})
 
 const toc = [
   { id: 'acceptance',    label: '1. Acceptation des conditions' },

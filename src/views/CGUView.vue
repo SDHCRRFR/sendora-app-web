@@ -237,6 +237,14 @@
 
 <script lang="ts" setup>
 import LegalLayout from '../components/LegalLayout.vue'
+import { useSeo } from '@/composables/useSeo'
+
+useSeo({
+  title: 'Mentions Légales — Sendora',
+  description:
+    "Mentions légales de Sendora : éditeur, hébergeur et conditions d'utilisation de la plateforme de transport collaboratif de colis.",
+  path: '/cgu',
+})
 
 const toc = [
   { id: 'objet', label: 'Art. 1 - Objet' },

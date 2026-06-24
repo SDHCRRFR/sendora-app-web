@@ -3,7 +3,7 @@
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Comparez les prix</span>
-        <h2 class="section-title">Le même colis,<br /><em>jusqu'à 5× moins cher.</em></h2>
+        <h2 class="section-title">Le même colis,<br /><em>jusqu'à 10× moins cher.</em></h2>
         <p class="section-sub">
           Pour un colis de 10&nbsp;kg, voici ce que vous payez ailleurs… et ce que vous payez avec
           Sendora grâce aux voyageurs qui font déjà le trajet.
@@ -578,12 +578,12 @@ const savings = computed(() => {
   flex-wrap: wrap;
 }
 .pc-amount {
-  font-family: var(--font-display);
-  font-size: 2.9rem;
-  font-weight: 400;
+  font-family: var(--font-body);
+  font-size: 2.8rem;
+  font-weight: 900;
   line-height: 1;
   color: var(--ink);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
 }
 .pc-amount-brand {
   color: var(--verdant);
@@ -618,9 +618,10 @@ const savings = computed(() => {
   height: 14px;
 }
 .pc-tag-delay {
-  color: var(--gold);
-  border-color: rgba(232, 169, 34, 0.3);
-  background: rgba(232, 169, 34, 0.12);
+  color: var(--text-muted);
+}
+.pc-tag-delay .app-icon {
+  color: var(--text-muted);
 }
 .pc-tag-brand {
   color: var(--verdant);
@@ -656,7 +657,7 @@ const savings = computed(() => {
   color: var(--text-secondary);
 }
 .pc-con .app-icon {
-  color: var(--gold);
+  color: var(--text-muted);
 }
 .pc-pro {
   color: var(--text-secondary);
