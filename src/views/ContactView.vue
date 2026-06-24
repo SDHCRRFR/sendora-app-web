@@ -161,7 +161,7 @@ import AppIcon from '@/components/AppIcon.vue'
 import { useSeo } from '@/composables/useSeo'
 
 useSeo({
-  title: 'Contact — Support, paiement & RGPD | Sendora',
+  title: 'Contact - Support, paiement & RGPD | Sendora',
   description:
     "Contactez l'équipe Sendora pour toute question sur l'application, votre compte, les paiements ou la confidentialité de vos données. Réponse rapide garantie.",
   path: '/contact',

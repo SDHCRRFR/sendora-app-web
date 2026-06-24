@@ -1,11 +1,11 @@
-# Sendora — https://sendoraapp.com
-# Transport collaboratif de colis entre particuliers — France & diaspora.
+# Sendora - https://sendoraapp.com
+# Transport collaboratif de colis entre particuliers - France & diaspora.
 
 # Default: everyone is welcome to crawl everything.
 User-agent: *
 Allow: /
 
-# ── Search engines ──────────────────────────────────────────────
+# Search engines
 User-agent: Googlebot
 Allow: /
 User-agent: Googlebot-Image
@@ -17,7 +17,7 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# ── AI / answer engines (explicitly allowed so Sendora can be cited) ──
+# AI / answer engines (explicitly allowed so Sendora can be cited)
 User-agent: GPTBot
 Allow: /
 User-agent: OAI-SearchBot

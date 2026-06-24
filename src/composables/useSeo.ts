@@ -12,7 +12,7 @@ export interface SeoInput {
   /** Absolute or root-relative path; resolved against the canonical site URL. */
   path: string
   image?: string
-  /** og:type — "website" (default) for pages, "article" for blog posts. */
+  /** og:type - "website" (default) for pages, "article" for blog posts. */
   type?: 'website' | 'article'
   keywords?: string
   /** Set true on pages that should not be indexed (none today, but handy). */

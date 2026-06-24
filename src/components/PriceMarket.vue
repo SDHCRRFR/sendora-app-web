@@ -65,7 +65,7 @@
           </ul>
         </article>
 
-        <!-- Sendora — highlighted -->
+        <!-- Sendora - highlighted -->
         <article class="price-card price-card-sendora">
           <div class="pc-flag">Le meilleur choix</div>
           <div class="pc-head">

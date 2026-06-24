@@ -3,7 +3,7 @@ import { defineComponent, h } from 'vue'
 
 type IconNode = [string, Record<string, string | number>]
 
-/* Line icons (24×24, currentColor) — same visual language as the
+/* Line icons (24×24, currentColor) - same visual language as the
    theme toggle. Add an entry here to expose a new icon. */
 const icons: Record<string, IconNode[]> = {
   mail: [

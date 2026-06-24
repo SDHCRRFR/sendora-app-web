@@ -1,6 +1,6 @@
 # Sendora
 
-> Sendora est une application française de transport collaboratif de colis entre particuliers. Elle met en relation des expéditeurs avec des voyageurs vérifiés qui font déjà le trajet — en France comme vers la diaspora (Sénégal, Maroc, Algérie, Côte d'Ivoire, Cameroun, Comores, Outre-mer). Résultat : un envoi jusqu'à 60 % moins cher en national et jusqu'à 10× moins cher à l'international qu'un transporteur express, avec remise en main propre.
+> Sendora est une application française de transport collaboratif de colis entre particuliers. Elle met en relation des expéditeurs avec des voyageurs vérifiés qui font déjà le trajet - en France comme vers la diaspora (Sénégal, Maroc, Algérie, Côte d'Ivoire, Cameroun, Comores, Outre-mer). Résultat : un envoi jusqu'à 60 % moins cher en national et jusqu'à 10× moins cher à l'international qu'un transporteur express, avec remise en main propre.
 
 ## En bref
 

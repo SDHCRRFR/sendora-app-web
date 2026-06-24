@@ -493,7 +493,7 @@ const homeFaq = [
 
 useSeo({
   title:
-    'Sendora — Envoyer un colis entre particuliers, en France & vers la diaspora',
+    'Sendora - Envoyer un colis entre particuliers, en France & vers la diaspora',
   description:
     "Envoyez vos colis avec des particuliers qui font déjà le trajet : en France et vers la diaspora (Sénégal, Maroc, Algérie, Côte d'Ivoire, Cameroun…). Jusqu'à 60 % moins cher, transporteurs vérifiés KYC, paiement Stripe sous séquestre, suivi en direct. iOS & Android.",
   path: '/',
@@ -539,7 +539,7 @@ useSeo({
   ],
 })
 
-/* Partners — set `url` to the real site and `logo` to an image in
+/* Partners - set `url` to the real site and `logo` to an image in
    /public (e.g. '/partners/myshelf.png') to swap the wordmark. */
 const partners = [
   { name: 'MyShelf', url: 'https://myshelfapp.app', logo: '' },
@@ -1285,7 +1285,7 @@ const trust = [
   color: var(--band);
 }
 
-/* Professionals — deep-green premium card (stable in light & dark) */
+/* Professionals - deep-green premium card (stable in light & dark) */
 .role-pro {
   background: var(--brand-700);
   border: 1.5px solid var(--brand-700);

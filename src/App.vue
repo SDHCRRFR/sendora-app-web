@@ -121,7 +121,7 @@ const closeMenu  = () => { menuOpen.value = false }
 watch(() => route.fullPath, closeMenu)
 const onKeydown = (e: KeyboardEvent) => { if (e.key === 'Escape') closeMenu() }
 
-/* ─── Theme (light / dark) ──────────────────────────────────
+/* Theme (light / dark)
    Default follows the device; an explicit choice is persisted. */
 type Theme = 'light' | 'dark'
 const THEME_KEY = 'theme'

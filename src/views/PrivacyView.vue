@@ -98,7 +98,7 @@ import LegalLayout from '../components/LegalLayout.vue'
 import { useSeo } from '@/composables/useSeo'
 
 useSeo({
-  title: 'Politique de Confidentialité & RGPD — Sendora',
+  title: 'Politique de Confidentialité & RGPD - Sendora',
   description:
     'Comment Sendora collecte, utilise et protège vos données personnelles. Conformité RGPD totale, chiffrement et hébergement en Europe (AWS EU).',
   path: '/privacy',

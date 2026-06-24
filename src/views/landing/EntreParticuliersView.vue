@@ -12,7 +12,7 @@
         <p class="lp-lead">
           Le transport de colis entre particuliers (ou co-transport) consiste à confier votre colis
           à une personne qui fait déjà le trajet, plutôt qu'à un transporteur professionnel. C'est le
-          principe de Sendora : moins cher, plus humain, plus écologique — en France comme vers la
+          principe de Sendora : moins cher, plus humain, plus écologique - en France comme vers la
           diaspora.
         </p>
         <div class="lp-cta">
@@ -108,7 +108,7 @@ const faq = [
 ]
 
 useSeo({
-  title: 'Transport de colis entre particuliers (co-transport) — Sendora',
+  title: 'Transport de colis entre particuliers (co-transport) - Sendora',
   description:
     'Le transport de colis entre particuliers avec Sendora : confiez votre colis à un voyageur vérifié qui fait déjà le trajet. Jusqu’à 60 % moins cher, paiement sécurisé, en France et vers la diaspora.',
   path: '/transport-colis-entre-particuliers',

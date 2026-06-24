@@ -12,7 +12,7 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/views/HomeView.vue'),
   },
 
-  // ── Diaspora / international landing pages ──────────────────────────────
+  // Diaspora / international landing pages
   {
     path: '/envoyer-colis-senegal',
     name: 'colis-senegal',
@@ -29,7 +29,7 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/views/destinations/AlgerieView.vue'),
   },
 
-  // ── National / keyword landing pages ───────────────────────────────────
+  // National / keyword landing pages
   {
     path: '/transport-colis-entre-particuliers',
     name: 'entre-particuliers',
@@ -41,7 +41,7 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/views/landing/PasCherView.vue'),
   },
 
-  // ── Blog ───────────────────────────────────────────────────────────────
+  // Blog
   {
     path: '/blog',
     name: 'blog',
@@ -53,7 +53,7 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/views/blog/BlogPostView.vue'),
   },
 
-  // ── Legal / utility ────────────────────────────────────────────────────
+  // Legal / utility 
   {
     path: '/contact',
     name: 'contact',

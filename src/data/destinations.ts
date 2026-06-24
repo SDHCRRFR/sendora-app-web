@@ -122,7 +122,7 @@ export const destinations: Destination[] = [
         a: 'Oui : les transporteurs sont vérifiés KYC, le paiement est bloqué sous séquestre Stripe jusqu’à la livraison, et vous suivez le colis en temps réel avec une messagerie intégrée.',
       },
     ],
-    seoTitle: 'Envoyer un colis au Sénégal pas cher entre particuliers — Sendora',
+    seoTitle: 'Envoyer un colis au Sénégal pas cher entre particuliers - Sendora',
     seoDescription:
       'Envoyez un colis au Sénégal (Dakar, Thiès, Touba…) entre particuliers, dès ~60 € pour 10 kg au lieu de ~280 € en express. Voyageurs vérifiés KYC, paiement sécurisé, remise en main propre. App Sendora.',
     keywords:
@@ -159,7 +159,7 @@ export const destinations: Destination[] = [
       },
     ],
     intro:
-      "Le Maroc est l’une des destinations diaspora les plus demandées — et l’une des plus chères en express. Avec Sendora, vous confiez votre colis à un voyageur vérifié qui prend la route ou l’avion pour Casablanca, Rabat, Marrakech ou Tanger. Il transporte votre colis sur un trajet qu’il fait déjà : vous évitez les forfaits minimums, les points relais et les surcoûts de douane, et le colis arrive directement chez le destinataire.",
+      "Le Maroc est l’une des destinations diaspora les plus demandées - et l’une des plus chères en express. Avec Sendora, vous confiez votre colis à un voyageur vérifié qui prend la route ou l’avion pour Casablanca, Rabat, Marrakech ou Tanger. Il transporte votre colis sur un trajet qu’il fait déjà : vous évitez les forfaits minimums, les points relais et les surcoûts de douane, et le colis arrive directement chez le destinataire.",
     whyPoints: SENDORA_PROS,
     faq: [
       {
@@ -179,7 +179,7 @@ export const destinations: Destination[] = [
         a: 'Oui : transporteurs vérifiés KYC, paiement sous séquestre Stripe libéré à la livraison, suivi en temps réel. Vous gardez le contrôle du début à la fin.',
       },
     ],
-    seoTitle: 'Envoyer un colis au Maroc pas cher entre particuliers — Sendora',
+    seoTitle: 'Envoyer un colis au Maroc pas cher entre particuliers - Sendora',
     seoDescription:
       'Envoyez un colis au Maroc (Casablanca, Rabat, Marrakech…) entre particuliers, dès ~40 € pour 10 kg au lieu de ~120 € en express. Voyageurs vérifiés KYC, paiement sécurisé, remise en main propre. App Sendora.',
     keywords:
@@ -236,7 +236,7 @@ export const destinations: Destination[] = [
         a: 'Oui : vérification KYC des transporteurs, paiement bloqué sous séquestre Stripe jusqu’à la livraison, suivi et messagerie intégrés pour rester en contact.',
       },
     ],
-    seoTitle: 'Envoyer un colis en Algérie pas cher entre particuliers — Sendora',
+    seoTitle: 'Envoyer un colis en Algérie pas cher entre particuliers - Sendora',
     seoDescription:
       'Envoyez un colis en Algérie (Alger, Oran, Constantine…) entre particuliers, dès ~48 € pour 10 kg au lieu de ~110 € en express. Voyageurs vérifiés KYC, paiement sécurisé, remise en main propre. App Sendora.',
     keywords:

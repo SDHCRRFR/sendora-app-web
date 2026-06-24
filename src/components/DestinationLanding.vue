@@ -1,6 +1,5 @@
 <template>
   <main class="dest">
-    <!-- Hero -->
     <section class="dest-hero">
       <div class="container">
         <nav class="crumbs" aria-label="Fil d'Ariane">
@@ -36,7 +35,6 @@
       </div>
     </section>
 
-    <!-- Price comparison -->
     <section id="prix" class="dest-prices">
       <div class="container">
         <h2 class="dest-h2">
