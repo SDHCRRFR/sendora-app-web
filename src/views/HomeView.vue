@@ -54,7 +54,7 @@
                 />
               </svg>
               <div>
-                <span class="store-sub">Disponible sur</span>
+                <span class="store-sub">Bientôt sur</span>
                 <span class="store-name">Google Play</span>
               </div>
             </a>
@@ -315,6 +315,8 @@
       </div>
     </section>
 
+    <PriceMarket />
+
     <section class="partners-section">
       <div class="container">
         <div class="section-head">
@@ -384,7 +386,7 @@
               />
             </svg>
             <div>
-              <span class="store-sub">Disponible sur</span>
+              <span class="store-sub">Bientôt sur</span>
               <span class="store-name">Google Play</span>
             </div>
           </a>
@@ -400,6 +402,7 @@
 
 <script lang="ts" setup>
 import AppIcon from '@/components/AppIcon.vue'
+import PriceMarket from '@/components/PriceMarket.vue'
 
 /* Partners — set `url` to the real site and `logo` to an image in
    /public (e.g. '/partners/myshelf.png') to swap the wordmark. */
@@ -1386,13 +1389,7 @@ const trust = [
   margin: 3rem auto 0;
   overflow: hidden;
   /* Fade the cards in/out at the edges */
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 10%,
-    #000 90%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
 @media (max-width: 768px) {
