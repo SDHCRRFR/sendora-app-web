@@ -125,7 +125,7 @@ const faq = [
 ]
 
 useSeo({
-  title: 'Envoyer un colis pas cher entre particuliers - Sendora',
+  title: 'Envoyer un colis pas cher entre particuliers',
   description:
     'Comment envoyer un colis pas cher ? Le co-transport entre particuliers permet jusqu’à 60 % d’économie en France et jusqu’à 10× moins cher vers la diaspora. Exemples de prix, astuces et envoi sécurisé avec Sendora.',
   path: '/envoyer-colis-pas-cher',

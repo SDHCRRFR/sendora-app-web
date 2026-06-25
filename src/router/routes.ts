@@ -28,6 +28,21 @@ export const routes: RouteRecordRaw[] = [
     name: 'colis-algerie',
     component: () => import('@/views/destinations/AlgerieView.vue'),
   },
+  {
+    path: '/envoyer-colis-cameroun',
+    name: 'colis-cameroun',
+    component: () => import('@/views/destinations/CamerounView.vue'),
+  },
+  {
+    path: '/envoyer-colis-comores',
+    name: 'colis-comores',
+    component: () => import('@/views/destinations/ComoresView.vue'),
+  },
+  {
+    path: '/envoyer-colis-soudan',
+    name: 'colis-soudan',
+    component: () => import('@/views/destinations/SoudanView.vue'),
+  },
 
   // National / keyword landing pages
   {

@@ -96,9 +96,12 @@
           <RouterLink to="/envoyer-colis-senegal">Colis au Sénégal</RouterLink>
           <RouterLink to="/envoyer-colis-maroc">Colis au Maroc</RouterLink>
           <RouterLink to="/envoyer-colis-algerie">Colis en Algérie</RouterLink>
+          <RouterLink to="/envoyer-colis-cameroun">Colis au Cameroun</RouterLink>
+          <RouterLink to="/envoyer-colis-comores">Colis aux Comores</RouterLink>
+          <RouterLink to="/envoyer-colis-soudan">Colis au Soudan</RouterLink>
           <RouterLink to="/blog">Blog</RouterLink>
         </nav>
-        <span>© 2026 Sendora - Tous droits réservés</span>
+        <span>© 2026 Sendora · Tous droits réservés</span>
         <div class="site-footer-links">
           <RouterLink to="/contact">Contact</RouterLink>
           <RouterLink to="/privacy">Confidentialité</RouterLink>

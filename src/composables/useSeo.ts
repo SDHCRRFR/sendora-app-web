@@ -71,6 +71,8 @@ export function useSeo(input: SeoInput): void {
     : []
 
   useHead({
+    // vite-ssg renders <html lang="en"> by default; force French on every page.
+    htmlAttrs: { lang: 'fr' },
     title,
     meta,
     link: [{ rel: 'canonical', href: url }],

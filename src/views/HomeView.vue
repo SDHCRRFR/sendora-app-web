@@ -452,6 +452,7 @@ const DIASPORA_COUNTRIES = [
   "Côte d'Ivoire",
   'Cameroun',
   'Comores',
+  'Soudan',
   'Mayotte',
   'La Réunion',
 ]
@@ -493,7 +494,7 @@ const homeFaq = [
 
 useSeo({
   title:
-    'Sendora - Envoyer un colis entre particuliers, en France & vers la diaspora',
+    'Sendora : envoyer un colis entre particuliers, en France et vers la diaspora',
   description:
     "Envoyez vos colis avec des particuliers qui font déjà le trajet : en France et vers la diaspora (Sénégal, Maroc, Algérie, Côte d'Ivoire, Cameroun…). Jusqu'à 60 % moins cher, transporteurs vérifiés KYC, paiement Stripe sous séquestre, suivi en direct. iOS & Android.",
   path: '/',

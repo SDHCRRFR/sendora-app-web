@@ -37,7 +37,7 @@ export const articles: Article[] = [
     sections: [
       {
         paragraphs: [
-          "Envoyer un colis à sa famille au pays paraît simple, jusqu’à la facture finale. Entre les transporteurs express, le groupage aérien et l’excédent bagages, les frais cachés peuvent doubler le coût annoncé. Voici ce qu’il faut surveiller - et comment l’éviter.",
+          "Envoyer un colis à sa famille au pays paraît simple, jusqu’à la facture finale. Entre les transporteurs express, le groupage aérien et l’excédent bagages, les frais cachés peuvent doubler le coût annoncé. Voici ce qu’il faut surveiller, et comment l’éviter.",
         ],
       },
       {
@@ -112,7 +112,7 @@ export const articles: Article[] = [
       {
         heading: 'Avec le co-transport, c’est plus simple',
         paragraphs: [
-          'Quand un voyageur transporte votre colis comme un bagage personnel pour un usage non commercial, les formalités sont généralement allégées. Sendora vous met en relation avec des voyageurs vérifiés qui connaissent le trajet - et vous gardez le suivi du colis du départ à la remise en main propre.',
+          'Quand un voyageur transporte votre colis comme un bagage personnel pour un usage non commercial, les formalités sont généralement allégées. Sendora vous met en relation avec des voyageurs vérifiés qui connaissent le trajet, et vous gardez le suivi du colis du départ à la remise en main propre.',
         ],
       },
     ],

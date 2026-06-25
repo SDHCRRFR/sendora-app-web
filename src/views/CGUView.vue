@@ -240,7 +240,7 @@ import LegalLayout from '../components/LegalLayout.vue'
 import { useSeo } from '@/composables/useSeo'
 
 useSeo({
-  title: 'Mentions Légales - Sendora',
+  title: 'Mentions Légales',
   description:
     "Mentions légales de Sendora : éditeur, hébergeur et conditions d'utilisation de la plateforme de transport collaboratif de colis.",
   path: '/cgu',

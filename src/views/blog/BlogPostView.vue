@@ -73,7 +73,7 @@ if (article.value) {
   const a = article.value
   const path = `/blog/${a.slug}`
   useSeo({
-    title: `${a.title} - Sendora`,
+    title: a.title,
     description: a.description,
     path,
     type: 'article',
@@ -94,7 +94,7 @@ if (article.value) {
   })
 } else {
   useSeo({
-    title: 'Article introuvable - Sendora',
+    title: 'Article introuvable',
     description: 'Cet article n’existe pas ou a été déplacé.',
     path: '/blog',
     noindex: true,

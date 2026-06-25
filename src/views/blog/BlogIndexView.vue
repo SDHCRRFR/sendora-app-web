@@ -54,7 +54,7 @@ function formatDate(iso: string): string {
 }
 
 useSeo({
-  title: 'Blog Sendora - Guides envoi de colis, diaspora & transporteurs',
+  title: 'Blog Sendora : guides envoi de colis, diaspora et transporteurs',
   description:
     'Conseils et guides pour envoyer vos colis : frais cachés vers la diaspora, douane, prix, devenir transporteur. Le blog de Sendora, le transport collaboratif de colis.',
   path: '/blog',
