@@ -1,13 +1,13 @@
 <template>
   <LegalLayout title="Conditions Générales d'Utilisation" tag="CGU" date="01 juin 2025" :toc="toc">
-    <h2 id="objet">Article 1 <v-banner-actions>
+    <h2 id="objet">Article 1 - <v-banner-actions>
 
     </v-banner-actions> Objet</h2>
     <p>
-      Les présentes Conditions Générales d'Utilisation (ci-après « CGU ») ont pour objet de définir
-      les modalités et conditions dans lesquelles Sendora (ci-après « la Société ») met à la
+      Les présentes Conditions Générales d'Utilisation ont pour objet de définir
+      les modalités et conditions dans lesquelles Sendora met à la
       disposition de ses utilisateurs la plateforme de transport collaboratif de colis entre
-      particuliers accessible via l'application mobile Sendora (ci-après « la Plateforme »).
+      particuliers accessible via l'application mobile Sendora.
     </p>
     <p>
       Toute utilisation de la Plateforme implique l'acceptation pleine et entière des présentes CGU.
@@ -64,7 +64,7 @@
     <ul>
       <li>
         Décrire avec exactitude et complétude les colis à transporter (nature, dimensions, poids,
-        fragilité) ;
+        fragilité ainsi que la valeur réel) ;
       </li>
       <li>Ne pas expédier d'objets interdits ou réglementés ;</li>
       <li>Emballer correctement les colis pour prévenir tout dommage pendant le transport ;</li>
