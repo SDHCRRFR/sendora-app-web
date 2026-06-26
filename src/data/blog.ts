@@ -77,7 +77,7 @@ export const articles: Article[] = [
       {
         heading: 'Avec Sendora : en main propre, pas par colis postal',
         paragraphs: [
-          'La plupart des transporteurs (La Poste, DHL, UPS…) refusent les colis de médicaments. Le co-transport change la donne : un voyageur vérifié emporte les médicaments sans ordonnance comme un bagage accompagné, sur un trajet qu’il fait déjà, et les remet directement au destinataire. Vérification KYC, paiement bloqué sous séquestre jusqu’à la livraison et suivi en temps réel : tout est cadré. Sendora n’est pas une pharmacie et ne vend aucun médicament — la plateforme se contente de mettre en relation, dans le respect de la réglementation.',
+          'La plupart des transporteurs (La Poste, DHL, UPS…) refusent les colis de médicaments. Le co-transport change la donne : un voyageur vérifié emporte les médicaments sans ordonnance comme un bagage accompagné, sur un trajet qu’il fait déjà, et les remet directement au destinataire. Vérification KYC, paiement bloqué sous séquestre jusqu’à la livraison et suivi en temps réel : tout est cadré. Sendora n’est pas une pharmacie et ne vend aucun médicament - la plateforme se contente de mettre en relation, dans le respect de la réglementation.',
         ],
       },
     ],

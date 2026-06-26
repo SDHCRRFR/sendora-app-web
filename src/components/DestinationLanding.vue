@@ -73,7 +73,7 @@
         <div class="relais-note">
           <AppIcon name="map-pin" />
           <p>
-            <strong>Nouveau · Retrait en point relais</strong> — disponible dès le 5 juillet 2026
+            <strong>Nouveau · Retrait en point relais</strong> - disponible dès le 5 juillet 2026
             à Mayotte et aux Comores. Nous travaillons activement pour le déployer très
             prochainement sur nos trajets d'arrivée les plus populaires.
           </p>

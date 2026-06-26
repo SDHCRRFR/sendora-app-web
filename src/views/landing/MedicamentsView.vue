@@ -13,7 +13,7 @@
         <p class="med-lead">
           Paracétamol, vitamines, parapharmacie, matériel de premiers soins… Avec Sendora, un
           voyageur vérifié transporte en main propre les médicaments <strong>sans ordonnance</strong>
-          dont votre famille a besoin — dans le respect de la réglementation. Pas un colis postal
+          dont votre famille a besoin - dans le respect de la réglementation. Pas un colis postal
           anonyme : un bagage accompagné, remis directement au destinataire.
         </p>
         <div class="med-cta">
@@ -216,14 +216,14 @@ const allowed = [
   {
     icon: 'shield-check',
     title: 'Usage personnel ou familial',
-    text: 'En quantité raisonnable — l’équivalent de 3 mois de traitement maximum, sans but commercial.',
+    text: 'En quantité raisonnable - l’équivalent de 3 mois de traitement maximum, sans but commercial.',
   },
 ]
 
 const forbidden = [
   {
     title: 'Stupéfiants & psychotropes',
-    text: 'Interdiction absolue : transportables uniquement par le patient lui-même, avec certificat — jamais par un tiers ni par voie postale.',
+    text: 'Interdiction absolue : transportables uniquement par le patient lui-même, avec certificat - jamais par un tiers ni par voie postale.',
   },
   {
     title: 'Ordonnance sans la prescription',
@@ -243,7 +243,7 @@ const reglementation = [
   'Principe d’usage personnel : sans ordonnance, on ne peut transporter que l’équivalent de 3 mois de traitement maximum (règle de la douane française). Au-delà, l’importation est prohibée à titre absolu.',
   'Médicaments sur ordonnance : la prescription correspondante est indispensable et doit accompagner l’envoi.',
   'Stupéfiants et psychotropes : transport personnel uniquement par le patient, avec certificat (ANSM/ARS). Ils ne peuvent jamais être confiés à un tiers ni envoyés par la poste.',
-  'Pays de destination : chaque pays a ses propres règles d’importation et certains interdisent certaines substances. Plusieurs pays, dont le Sénégal, luttent activement contre les faux médicaments — vérifiez toujours les règles locales avant l’envoi.',
+  'Pays de destination : chaque pays a ses propres règles d’importation et certains interdisent certaines substances. Plusieurs pays, dont le Sénégal, luttent activement contre les faux médicaments - vérifiez toujours les règles locales avant l’envoi.',
 ]
 
 const disclaimer =
@@ -294,7 +294,7 @@ const howSteps = [
 const faq = [
   {
     q: 'Peut-on vraiment envoyer des médicaments à l’étranger avec Sendora ?',
-    a: 'Oui, pour les médicaments sans ordonnance (paracétamol, parapharmacie, vitamines, premiers soins), en quantité raisonnable pour un usage personnel ou familial — l’équivalent de 3 mois de traitement maximum. Un voyageur vérifié les transporte en main propre, comme un bagage accompagné. Sendora n’est pas une pharmacie et ne vend aucun médicament.',
+    a: 'Oui, pour les médicaments sans ordonnance (paracétamol, parapharmacie, vitamines, premiers soins), en quantité raisonnable pour un usage personnel ou familial - l’équivalent de 3 mois de traitement maximum. Un voyageur vérifié les transporte en main propre, comme un bagage accompagné. Sendora n’est pas une pharmacie et ne vend aucun médicament.',
   },
   {
     q: 'Faut-il une ordonnance pour envoyer des médicaments ?',
