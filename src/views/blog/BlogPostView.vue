@@ -134,6 +134,7 @@ if (article.value) {
 }
 .post-title {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2rem, 4.5vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -151,6 +152,7 @@ if (article.value) {
 .post-body :deep(h2),
 .post-body h2 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -183,6 +185,7 @@ if (article.value) {
 }
 .post-cta h3 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.4rem;
   color: var(--ink);
   margin-bottom: 1.25rem;
@@ -215,6 +218,7 @@ if (article.value) {
 }
 .post-missing h1 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 2rem;
   color: var(--ink);
   margin-bottom: 0.75rem;

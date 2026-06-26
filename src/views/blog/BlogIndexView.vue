@@ -105,6 +105,7 @@ useSeo({
 }
 .blog-hero h1 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   letter-spacing: -0.03em;
   color: var(--ink);

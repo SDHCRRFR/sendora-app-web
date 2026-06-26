@@ -59,7 +59,7 @@
   --transition: 200ms cubic-bezier(.4,0,.2,1);
 
   /* Typography */
-  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
 }
 
@@ -170,6 +170,7 @@ button, input, textarea, select { font: inherit; }
 /* Type scale */
 .page-title {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.08;
   letter-spacing: -.03em;

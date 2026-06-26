@@ -169,6 +169,7 @@ useSeo({
 }
 .lp-hero h1 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   line-height: 1.07;
   letter-spacing: -0.03em;
@@ -222,6 +223,7 @@ useSeo({
 }
 .lp-block h2 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(1.7rem, 3.5vw, 2.3rem);
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -370,6 +372,7 @@ useSeo({
 }
 .lp-final h2 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   color: var(--band-ink);
   margin-bottom: 1.5rem;

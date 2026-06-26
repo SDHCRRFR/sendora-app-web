@@ -664,14 +664,16 @@ const trust = [
 }
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-  line-height: 1.03;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   color: var(--ink);
   margin-bottom: 1.5rem;
 }
 .hero-italic {
   font-style: italic;
+  font-weight: 700;
   color: var(--verdant);
 }
 .hero-body {
@@ -1055,7 +1057,7 @@ const trust = [
   display: block;
   font-family: var(--font-display);
   font-size: 2.4rem;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--gold);
   line-height: 1;
   margin-bottom: 0.35rem;
@@ -1086,6 +1088,7 @@ const trust = [
 }
 .section-title {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(1.9rem, 4vw, 2.9rem);
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -1134,7 +1137,7 @@ const trust = [
   border-radius: 50%;
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 700;
   flex-shrink: 0;
 }
 .step-line {
@@ -1206,6 +1209,7 @@ const trust = [
 }
 .role-card h2 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -1661,6 +1665,7 @@ const trust = [
 }
 .cta-title {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.4rem, 5vw, 4rem);
   line-height: 1.08;
   letter-spacing: -0.04em;

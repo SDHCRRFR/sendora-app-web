@@ -288,6 +288,7 @@ function reset() {
 }
 .contact-title {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2rem, 4vw, 2.9rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -362,6 +363,7 @@ function reset() {
 }
 .form-header h2 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -556,6 +558,7 @@ function reset() {
 .form-success h2,
 .form-server-error h2 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.5rem;
   color: var(--ink);
   margin: 0;
