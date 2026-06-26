@@ -69,6 +69,15 @@
             </a>
           </article>
         </div>
+
+        <div class="relais-note">
+          <AppIcon name="map-pin" />
+          <p>
+            <strong>Nouveau · Retrait en point relais</strong> — disponible dès le 5 juillet 2026
+            à Mayotte et aux Comores. Nous travaillons activement pour le déployer très
+            prochainement sur nos trajets d'arrivée les plus populaires.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -162,6 +171,9 @@
           </RouterLink>
           <RouterLink to="/envoyer-colis-pas-cher" class="link-card">
             Envoyer un colis pas cher →
+          </RouterLink>
+          <RouterLink to="/envoyer-medicaments" class="link-card">
+            Envoyer des médicaments →
           </RouterLink>
           <RouterLink to="/blog" class="link-card">Guides & conseils →</RouterLink>
         </div>
@@ -392,11 +404,12 @@ useSeo({
   margin-bottom: 0.9rem;
 }
 .pcard-amount {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 2.4rem;
-  font-weight: 400;
+  font-weight: 900;
   color: var(--ink);
   line-height: 1;
+  letter-spacing: -0.045em;
 }
 .pcard-amount-brand {
   color: var(--verdant);
@@ -431,6 +444,33 @@ useSeo({
   font-size: 0.88rem;
   padding: 0.65rem;
   border-radius: var(--radius);
+}
+
+.relais-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(26, 102, 64, 0.08);
+  border: 1px solid rgba(26, 102, 64, 0.18);
+  border-radius: var(--radius);
+}
+.relais-note .app-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--verdant);
+}
+.relais-note p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.relais-note strong {
+  color: var(--verdant);
+  font-weight: 800;
 }
 
 .dest-why {

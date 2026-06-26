@@ -55,6 +55,11 @@ export const routes: RouteRecordRaw[] = [
     name: 'pas-cher',
     component: () => import('@/views/landing/PasCherView.vue'),
   },
+  {
+    path: '/envoyer-medicaments',
+    name: 'medicaments',
+    component: () => import('@/views/landing/MedicamentsView.vue'),
+  },
 
   // Blog
   {

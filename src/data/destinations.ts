@@ -121,6 +121,10 @@ export const destinations: Destination[] = [
         q: 'Est-ce sécurisé d’envoyer un colis entre particuliers vers le Sénégal ?',
         a: 'Oui : les transporteurs sont vérifiés KYC, le paiement est bloqué sous séquestre Stripe jusqu’à la livraison, et vous suivez le colis en temps réel avec une messagerie intégrée.',
       },
+      {
+        q: 'Peut-on envoyer des médicaments au Sénégal ?',
+        a: 'Oui, des médicaments sans ordonnance (paracétamol, vitamines, parapharmacie…) en quantité raisonnable pour un usage familial, transportés en main propre par un voyageur vérifié. Les médicaments sur ordonnance sans la prescription, les stupéfiants et les psychotropes sont interdits. La douane sénégalaise est particulièrement vigilante face aux faux médicaments : conservez l’emballage d’origine et déclarez le contenu. Voir notre page « Envoyer des médicaments ».',
+      },
     ],
     seoTitle: 'Envoyer un colis au Sénégal pas cher entre particuliers',
     seoDescription:
@@ -177,6 +181,10 @@ export const destinations: Destination[] = [
       {
         q: 'Est-ce fiable d’envoyer un colis entre particuliers au Maroc ?',
         a: 'Oui : transporteurs vérifiés KYC, paiement sous séquestre Stripe libéré à la livraison, suivi en temps réel. Vous gardez le contrôle du début à la fin.',
+      },
+      {
+        q: 'Peut-on envoyer des médicaments au Maroc ?',
+        a: 'Oui, uniquement des médicaments sans ordonnance (antidouleurs courants, vitamines, parapharmacie…), en quantité raisonnable pour un usage personnel ou familial, remis en main propre par un voyageur vérifié. Les produits soumis à prescription doivent être accompagnés de l’ordonnance ; les stupéfiants et psychotropes sont strictement interdits. Renseignez-vous sur les règles d’importation marocaines avant l’envoi. Voir notre page « Envoyer des médicaments ».',
       },
     ],
     seoTitle: 'Envoyer un colis au Maroc pas cher entre particuliers',
@@ -235,6 +243,10 @@ export const destinations: Destination[] = [
         q: 'Est-ce sûr d’envoyer un colis entre particuliers en Algérie ?',
         a: 'Oui : vérification KYC des transporteurs, paiement bloqué sous séquestre Stripe jusqu’à la livraison, suivi et messagerie intégrés pour rester en contact.',
       },
+      {
+        q: 'Peut-on envoyer des médicaments en Algérie ?',
+        a: 'Oui, des médicaments sans ordonnance pour un usage familial (paracétamol, vitamines, premiers soins…), en quantité raisonnable et remis en main propre par un voyageur vérifié. Les médicaments soumis à prescription nécessitent l’ordonnance ; les stupéfiants et psychotropes sont interdits. L’Algérie applique des règles d’importation strictes : vérifiez-les avant d’envoyer. Voir notre page « Envoyer des médicaments ».',
+      },
     ],
     seoTitle: 'Envoyer un colis en Algérie pas cher entre particuliers',
     seoDescription:
@@ -291,6 +303,10 @@ export const destinations: Destination[] = [
       {
         q: 'Est-ce sécurisé d’envoyer un colis entre particuliers au Cameroun ?',
         a: 'Oui : transporteurs vérifiés KYC, paiement bloqué sous séquestre Stripe jusqu’à la livraison, suivi et messagerie intégrés pour rester en contact.',
+      },
+      {
+        q: 'Peut-on envoyer des médicaments au Cameroun ?',
+        a: 'Oui, des médicaments sans ordonnance (antidouleurs, vitamines, parapharmacie…) en quantité raisonnable pour un usage familial, transportés en main propre par un voyageur vérifié. Les médicaments sur ordonnance sans la prescription, les stupéfiants et les psychotropes restent interdits. Conservez l’emballage et la notice pour faciliter le passage en douane. Voir notre page « Envoyer des médicaments ».',
       },
     ],
     seoTitle: 'Envoyer un colis au Cameroun pas cher entre particuliers',
@@ -349,6 +365,10 @@ export const destinations: Destination[] = [
         q: 'Est-ce fiable d’envoyer un colis entre particuliers aux Comores ?',
         a: 'Oui : voyageurs vérifiés KYC, paiement sous séquestre Stripe libéré à la livraison, suivi en temps réel et messagerie intégrée.',
       },
+      {
+        q: 'Peut-on envoyer des médicaments aux Comores ?',
+        a: 'Oui, des médicaments sans ordonnance pour un usage personnel ou familial (paracétamol, vitamines, premiers soins…), en quantité raisonnable et remis en main propre par un voyageur vérifié. Sur ordonnance sans la prescription, stupéfiants et psychotropes : interdits. Voir notre page « Envoyer des médicaments » pour le détail des règles.',
+      },
     ],
     seoTitle: 'Envoyer un colis aux Comores pas cher entre particuliers',
     seoDescription:
@@ -405,6 +425,10 @@ export const destinations: Destination[] = [
       {
         q: 'Est-ce sécurisé d’envoyer un colis entre particuliers au Soudan ?',
         a: 'Oui : les transporteurs sont vérifiés KYC, le paiement reste bloqué sous séquestre Stripe jusqu’à la confirmation de livraison, et vous suivez le colis via la messagerie intégrée.',
+      },
+      {
+        q: 'Peut-on envoyer des médicaments au Soudan ?',
+        a: 'Oui, des médicaments sans ordonnance en quantité raisonnable pour un usage familial, transportés en main propre par un voyageur vérifié quand un trajet est disponible. Les médicaments sur ordonnance exigent la prescription ; les stupéfiants et psychotropes sont interdits. Vérifiez les règles d’importation locales, qui peuvent varier selon le contexte. Voir notre page « Envoyer des médicaments ».',
       },
     ],
     seoTitle: 'Envoyer un colis au Soudan pas cher entre particuliers',

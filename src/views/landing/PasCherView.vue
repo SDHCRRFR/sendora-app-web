@@ -68,6 +68,7 @@
           <RouterLink to="/envoyer-colis-senegal" class="link-card">Envoyer un colis au Sénégal →</RouterLink>
           <RouterLink to="/envoyer-colis-maroc" class="link-card">Envoyer un colis au Maroc →</RouterLink>
           <RouterLink to="/envoyer-colis-algerie" class="link-card">Envoyer un colis en Algérie →</RouterLink>
+          <RouterLink to="/envoyer-medicaments" class="link-card">Envoyer des médicaments →</RouterLink>
           <RouterLink to="/transport-colis-entre-particuliers" class="link-card">Transport entre particuliers →</RouterLink>
         </div>
       </div>

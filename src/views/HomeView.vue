@@ -479,6 +479,10 @@ const homeFaq = [
     a: 'Sendora utilise le séquestre (escrow) de Stripe : votre paiement est bloqué jusqu’à la confirmation de réception du colis. Le transporteur ne reçoit ses fonds qu’après validation de la livraison.',
   },
   {
+    q: 'Peut-on envoyer des médicaments avec Sendora ?',
+    a: 'Oui, pour les médicaments sans ordonnance (paracétamol, parapharmacie, vitamines, premiers soins), en quantité raisonnable pour un usage personnel ou familial (3 mois de traitement maximum). Un voyageur vérifié les transporte en main propre. Les médicaments sur ordonnance sans la prescription, les stupéfiants et les psychotropes sont en revanche interdits. Voir notre page dédiée « Envoyer des médicaments ».',
+  },
+  {
     q: 'Les transporteurs sont-ils vérifiés ?',
     a: 'Oui, tous les transporteurs passent par une vérification d’identité complète (KYC) via Didit, partenaire agréé eIDAS. Vous savez toujours à qui vous confiez votre colis.',
   },

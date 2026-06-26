@@ -25,6 +25,64 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: 'envoyer-medicaments-etranger-regles',
+    title: 'Peut-on envoyer des médicaments à un proche à l’étranger ?',
+    description:
+      'Médicaments sans ordonnance, règle des 3 mois, stupéfiants interdits, règles du pays de destination : le guide pour faire transporter des médicaments à sa famille à l’étranger en toute légalité.',
+    date: '2026-06-26',
+    tag: 'Santé',
+    readingTime: '6 min',
+    excerpt:
+      'Oui, mais pas n’importe lesquels ni en n’importe quelle quantité. Ce qui est autorisé, ce qui est interdit, et comment faire les choses bien.',
+    sections: [
+      {
+        paragraphs: [
+          'Envoyer des médicaments à sa famille au pays est un besoin courant de la diaspora : du paracétamol, des vitamines, un peu de parapharmacie. Mais c’est un domaine encadré, et bien faire les choses protège à la fois l’expéditeur et le voyageur. Voici les règles essentielles.',
+        ],
+      },
+      {
+        heading: 'Médicaments sans ordonnance : ce que vous pouvez envoyer',
+        paragraphs: [
+          'On peut faire transporter des médicaments délivrés sans ordonnance (antidouleurs courants comme le paracétamol, vitamines, compléments, produits de parapharmacie, matériel de premiers soins), à condition de rester dans un usage personnel ou familial. Pas de logique de stock ni de revente : ce sont des médicaments destinés à un proche identifié.',
+        ],
+      },
+      {
+        heading: 'La règle des 3 mois : l’usage personnel',
+        paragraphs: [
+          'La douane française fixe une limite simple : sans ordonnance, on ne peut transporter que l’équivalent de 3 mois de traitement maximum. Au-delà, l’importation est prohibée à titre absolu et peut être assimilée à du trafic. Pour un médicament soumis à prescription, l’ordonnance correspondante est indispensable et doit accompagner l’envoi.',
+        ],
+      },
+      {
+        heading: 'Stupéfiants et psychotropes : l’interdiction absolue',
+        paragraphs: [
+          'Certains médicaments (antidouleurs puissants à base d’opioïdes, certains traitements du système nerveux, substituts comme la méthadone…) sont classés comme stupéfiants ou psychotropes. Ils ne peuvent être transportés que personnellement par le patient, muni d’un certificat délivré par l’ANSM ou l’ARS. Ils ne peuvent jamais être confiés à un tiers ni envoyés par voie postale. Sur Sendora, ils sont strictement exclus.',
+        ],
+      },
+      {
+        heading: 'Vérifiez toujours les règles du pays de destination',
+        paragraphs: [
+          'Chaque pays applique ses propres règles d’importation, et certaines substances autorisées en France peuvent y être interdites. Plusieurs pays, dont le Sénégal, mènent une lutte active contre les faux médicaments : les douanes y sont très vigilantes et les saisies fréquentes. Renseignez-vous avant d’envoyer, conservez l’emballage d’origine et déclarez honnêtement le contenu.',
+        ],
+      },
+      {
+        heading: 'Bonnes pratiques pour un envoi serein',
+        list: [
+          'Gardez l’emballage d’origine et la notice.',
+          'Joignez l’ordonnance pour tout médicament qui en nécessite une.',
+          'Déclarez précisément le contenu sur l’annonce et au voyageur.',
+          'Restez sur des quantités raisonnables (usage familial, 3 mois maximum).',
+          'Au moindre doute, demandez conseil à votre pharmacien.',
+        ],
+      },
+      {
+        heading: 'Avec Sendora : en main propre, pas par colis postal',
+        paragraphs: [
+          'La plupart des transporteurs (La Poste, DHL, UPS…) refusent les colis de médicaments. Le co-transport change la donne : un voyageur vérifié emporte les médicaments sans ordonnance comme un bagage accompagné, sur un trajet qu’il fait déjà, et les remet directement au destinataire. Vérification KYC, paiement bloqué sous séquestre jusqu’à la livraison et suivi en temps réel : tout est cadré. Sendora n’est pas une pharmacie et ne vend aucun médicament — la plateforme se contente de mettre en relation, dans le respect de la réglementation.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'envoyer-colis-diaspora-frais-caches',
     title: 'Envoyer un colis à la diaspora : les frais cachés à éviter',
     description:

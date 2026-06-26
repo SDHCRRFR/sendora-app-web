@@ -128,6 +128,15 @@ const icons: Record<string, IconNode[]> = {
     ['path', { d: 'M12 9v4' }],
     ['path', { d: 'M12 17h.01' }],
   ],
+  pill: [
+    ['path', { d: 'm10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z' }],
+    ['path', { d: 'm8.5 8.5 7 7' }],
+  ],
+  'x-circle': [
+    ['circle', { cx: 12, cy: 12, r: 10 }],
+    ['path', { d: 'm15 9-6 6' }],
+    ['path', { d: 'm9 9 6 6' }],
+  ],
 }
 
 export default defineComponent({
