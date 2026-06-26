@@ -105,6 +105,15 @@
         </article>
       </div>
 
+      <div class="relais-note">
+        <AppIcon name="map-pin" />
+        <p>
+          <strong>Nouveau · Retrait en point relais</strong> - disponible dès le 5 juillet 2026
+          à Mayotte et aux Comores. Nous travaillons activement pour le déployer très
+          prochainement sur nos trajets d'arrivée les plus populaires.
+        </p>
+      </div>
+
       <p class="market-foot">
         Tarifs concurrents donnés à titre indicatif (juin 2026), variables selon la saison et le
         mode (aérien / maritime) · le prix Sendora dépend des annonces des transporteurs sur chaque
@@ -729,6 +738,34 @@ const savings = computed(() => {
   background: var(--verdant-mid);
   transform: translateY(-2px);
   box-shadow: var(--shadow);
+}
+
+.relais-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: 720px;
+  margin: 2rem auto 0;
+  padding: 1rem 1.25rem;
+  background: rgba(26, 102, 64, 0.08);
+  border: 1px solid rgba(26, 102, 64, 0.18);
+  border-radius: var(--radius);
+}
+.relais-note .app-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--verdant);
+}
+.relais-note p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.relais-note strong {
+  color: var(--verdant);
+  font-weight: 800;
 }
 
 .market-foot {
