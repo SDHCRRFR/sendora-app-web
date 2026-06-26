@@ -927,7 +927,7 @@ const trust = [
 }
 .rc-c-price {
   font-size: 1.15rem;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--verdant);
   flex-shrink: 0;
 }

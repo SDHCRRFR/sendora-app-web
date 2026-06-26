@@ -589,7 +589,7 @@ const savings = computed(() => {
 .pc-amount {
   font-family: var(--font-body);
   font-size: 2.8rem;
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1;
   color: var(--ink);
   letter-spacing: -0.045em;
