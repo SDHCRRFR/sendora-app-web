@@ -116,8 +116,8 @@
 
       <p class="market-foot">
         Tarifs concurrents donnés à titre indicatif (juin 2026), variables selon la saison et le
-        mode (aérien / maritime) · le prix Sendora dépend des annonces des transporteurs sur chaque
-        trajet.
+        mode (aérien / maritime) · le prix Sendora dépend des annonces des expéditeurs sur chaque
+        envoie.
       </p>
     </div>
   </section>

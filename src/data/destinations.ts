@@ -168,7 +168,7 @@ export const destinations: Destination[] = [
     faq: [
       {
         q: 'Combien coûte l’envoi d’un colis de 10 kg au Maroc ?',
-        a: 'Environ 40 € pour 10 kg avec Sendora, contre environ 120 € avec un transporteur express. Le transport routier classique tourne autour de 45 € mais avec point relais et forfaits minimums. Le prix Sendora dépend des annonces des voyageurs.',
+        a: 'Environ 40 € pour 10 kg avec Sendora, contre environ 120 € avec un transporteur express. Le transport routier classique tourne autour de 45 € mais avec point relais et forfaits minimums. Le prix Sendora dépend des annonces des expéditeurs.',
       },
       {
         q: 'Vers quelles villes du Maroc peut-on envoyer un colis ?',
@@ -351,7 +351,7 @@ export const destinations: Destination[] = [
     faq: [
       {
         q: 'Combien coûte l’envoi d’un colis de 10 kg aux Comores ?',
-        a: 'Environ 65 € pour 10 kg avec Sendora, contre environ 220 € en express. Le groupage maritime est moins cher mais très lent (5 à 8 semaines). Le prix Sendora dépend des annonces des voyageurs.',
+        a: 'Environ 65 € pour 10 kg avec Sendora, contre environ 220 € en express. Le groupage maritime est moins cher mais très lent (5 à 8 semaines). Le prix Sendora dépend des annonces des expéditeurs.',
       },
       {
         q: 'Vers quelles îles des Comores peut-on envoyer un colis ?',

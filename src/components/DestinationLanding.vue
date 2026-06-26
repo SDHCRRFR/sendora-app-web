@@ -43,7 +43,7 @@
         </h2>
         <p class="dest-sub">
           Comparatif indicatif vers {{ dest.mainCity }}. Le prix Sendora dépend des annonces des
-          voyageurs sur chaque trajet.
+          expéditeurs sur chaque envoie.
         </p>
 
         <div class="price-grid">
@@ -64,7 +64,12 @@
             <div class="pcard-delay pcard-delay-brand">
               <AppIcon name="check-circle" /> {{ dest.sendora.delay }}
             </div>
-            <a href="https://apps.apple.com/fr/app/sendora/id6773115334" target="_blank" rel="noopener" class="pcard-cta">
+            <a
+              href="https://apps.apple.com/fr/app/sendora/id6773115334"
+              target="_blank"
+              rel="noopener"
+              class="pcard-cta"
+            >
               Trouver un transporteur →
             </a>
           </article>
@@ -73,9 +78,9 @@
         <div class="relais-note">
           <AppIcon name="map-pin" />
           <p>
-            <strong>Nouveau · Retrait en point relais</strong> - disponible dès le 5 juillet 2026
-            à Mayotte et aux Comores. Nous travaillons activement pour le déployer très
-            prochainement sur nos trajets d'arrivée les plus populaires.
+            <strong>Nouveau · Retrait en point relais</strong> - disponible dès le 5 juillet 2026 à
+            Mayotte et aux Comores. Nous travaillons activement pour le déployer très prochainement
+            sur nos trajets d'arrivée les plus populaires.
           </p>
         </div>
       </div>
@@ -103,24 +108,30 @@
             <span class="how-num">1</span>
             <div>
               <h3>Publiez votre annonce</h3>
-              <p>Décrivez votre colis (poids, dimensions), indiquez {{ dest.mainCity }} ou une autre
-                ville {{ dest.prep }} {{ dest.country }}, et votre budget. Moins de 2 minutes.</p>
+              <p>
+                Décrivez votre colis (poids, dimensions), indiquez {{ dest.mainCity }} ou une autre
+                ville {{ dest.prep }} {{ dest.country }}, et votre budget. Moins de 2 minutes.
+              </p>
             </div>
           </li>
           <li>
             <span class="how-num">2</span>
             <div>
               <h3>Choisissez un voyageur vérifié</h3>
-              <p>Sendora vous propose des particuliers qui font déjà le trajet vers {{ dest.country }}.
-                Comparez profils, notes et tarifs, puis sélectionnez.</p>
+              <p>
+                Sendora vous propose des particuliers qui font déjà le trajet vers
+                {{ dest.country }}. Comparez profils, notes et tarifs, puis sélectionnez.
+              </p>
             </div>
           </li>
           <li>
             <span class="how-num">3</span>
             <div>
               <h3>Livraison & paiement sécurisé</h3>
-              <p>Le voyageur remet le colis en main propre au destinataire. Vous confirmez la
-                réception et le paiement sous séquestre est libéré.</p>
+              <p>
+                Le voyageur remet le colis en main propre au destinataire. Vous confirmez la
+                réception et le paiement sous séquestre est libéré.
+              </p>
             </div>
           </li>
         </ol>
@@ -131,7 +142,9 @@
     <section class="dest-cities">
       <div class="container">
         <h2 class="dest-h2">Villes desservies {{ dest.prep }} {{ dest.country }}</h2>
-        <p class="dest-sub">Les trajets les plus fréquents proposés par la communauté de voyageurs.</p>
+        <p class="dest-sub">
+          Les trajets les plus fréquents proposés par la communauté de voyageurs.
+        </p>
         <div class="cities-chips">
           <span v-for="city in dest.cities" :key="city" class="city-chip">
             <AppIcon name="map-pin" /> {{ city }}
@@ -158,12 +171,7 @@
       <div class="container">
         <h2 class="dest-h2">Autres destinations & ressources</h2>
         <div class="links-row">
-          <RouterLink
-            v-for="l in otherDestinations"
-            :key="l.path"
-            :to="l.path"
-            class="link-card"
-          >
+          <RouterLink v-for="l in otherDestinations" :key="l.path" :to="l.path" class="link-card">
             Envoyer un colis {{ l.prep }} {{ l.country }} →
           </RouterLink>
           <RouterLink to="/transport-colis-entre-particuliers" class="link-card">
@@ -203,18 +211,12 @@ import { computed } from 'vue'
 import AppIcon from '@/components/AppIcon.vue'
 import { useSeo } from '@/composables/useSeo'
 import { breadcrumb, faqPage, howTo, service, SITE_URL } from '@/seo/schema'
-import {
-  destinations,
-  savingsVsExpress,
-  type Destination,
-} from '@/data/destinations'
+import { destinations, savingsVsExpress, type Destination } from '@/data/destinations'
 
 const props = defineProps<{ dest: Destination }>()
 
 const savings = computed(() => savingsVsExpress(props.dest))
-const otherDestinations = computed(() =>
-  destinations.filter((d) => d.slug !== props.dest.slug),
-)
+const otherDestinations = computed(() => destinations.filter((d) => d.slug !== props.dest.slug))
 
 useSeo({
   title: props.dest.seoTitle,

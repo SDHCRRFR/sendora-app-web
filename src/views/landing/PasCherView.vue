@@ -38,7 +38,7 @@
         </div>
         <p class="lp-fine">
           Tarifs concurrents donnés à titre indicatif ; le prix Sendora dépend des annonces des
-          transporteurs sur chaque trajet.
+          expéditeurs sur chaque envoie.
         </p>
       </div>
     </section>
