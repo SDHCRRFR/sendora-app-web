@@ -93,7 +93,7 @@
             <div class="rc-carrier">
               <div class="rc-c-avatar"></div>
               <div class="rc-c-info">
-                <div class="rc-c-name">Thomas G.<span class="rc-badge">✓ Vérifié KYC</span></div>
+                <div class="rc-c-name">Said H.<span class="rc-badge">✓ Vérifié KYC</span></div>
                 <div class="rc-c-meta">★ 4,9 · 128 trajets partagés</div>
               </div>
               <div class="rc-c-price">14&nbsp;€</div>
@@ -497,8 +497,7 @@ const homeFaq = [
 ]
 
 useSeo({
-  title:
-    'Sendora : envoyer un colis entre particuliers, en France et vers la diaspora',
+  title: 'Sendora : envoyer un colis entre particuliers, en France et vers la diaspora',
   description:
     "Envoyez vos colis avec des particuliers qui font déjà le trajet : en France et vers la diaspora (Sénégal, Maroc, Algérie, Côte d'Ivoire, Cameroun…). Jusqu'à 60 % moins cher, transporteurs vérifiés KYC, paiement Stripe sous séquestre, suivi en direct. iOS & Android.",
   path: '/',
