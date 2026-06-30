@@ -85,8 +85,8 @@
 
               <div class="rc-end">
                 <div class="rc-avatar rc-av-to"></div>
-                <span class="rc-city">Lyon</span>
-                <span class="rc-role">Voisin</span>
+                <span class="rc-city">Moroni</span>
+                <span class="rc-role">Internationale</span>
               </div>
             </div>
 
@@ -825,7 +825,7 @@ const trust = [
   background: linear-gradient(135deg, var(--verdant-lt), var(--verdant));
 }
 .rc-av-to {
-  background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+  background-color: black;
 }
 .rc-city {
   font-size: 0.82rem;
