@@ -16,7 +16,7 @@
 
           <p class="hero-body">
             Sendora connecte les expéditeurs avec des particuliers qui font déjà le trajet. Plus
-            rapide, écologique, moins cher, humain. L'Airbnb du transport de colis.
+            rapide, écologique et moins cher, . L'Airbnb du transport de colis.
           </p>
 
           <div class="hero-pills">
@@ -178,7 +178,7 @@
           <div class="role-eyebrow">Pour les transporteurs</div>
           <h2>Vos trajets vous<br /><em>rapportent enfin.</em></h2>
           <p>
-            Vous partez de Paris à Lyon demain ? Des colis vous attendent déjà sur votre route.
+            Vous partez de Paris à Moroni demain ? Des colis vous attendent déjà sur votre route.
             Acceptez les missions qui vous conviennent et recevez votre paiement directement.
           </p>
           <ul class="role-checklist">
@@ -206,7 +206,7 @@
             <li>Account manager dédié et support prioritaire</li>
           </ul>
           <RouterLink to="/contact" class="role-action role-action-pro"
-            >Demander une démo →</RouterLink
+            >Bientôt disponible</RouterLink
           >
         </div>
       </div>
@@ -492,7 +492,7 @@ const homeFaq = [
   },
   {
     q: 'Comment gagner de l’argent en transportant des colis ?',
-    a: 'Si vous effectuez régulièrement des trajets, vous pouvez proposer de transporter des colis sur votre route. Vous définissez vos disponibilités, acceptez les missions qui vous conviennent et êtes payé via Stripe Connect sous 2 à 7 jours ouvrés.',
+    a: 'Si vous effectuez des trajets, vous pouvez proposer de transporter des colis sur votre route. Vous définissez vos disponibilités, acceptez les missions qui vous conviennent et êtes payé via Stripe Connect sous 2 à 7 jours ouvrés.',
   },
 ]
 
