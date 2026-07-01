@@ -16,7 +16,7 @@
 
           <p class="hero-body">
             Sendora connecte les expéditeurs avec des particuliers qui font déjà le trajet. Plus
-            rapide, écologique et moins cher, . L'Airbnb du transport de colis.
+            rapide, écologique et moins cher. L'Airbnb du transport de colis.
           </p>
 
           <div class="hero-pills">
