@@ -546,7 +546,7 @@ useSeo({
 /* Partners - set `url` to the real site and `logo` to an image in
    /public (e.g. '/partners/myshelf.png') to swap the wordmark. */
 const partners = [
-  { name: 'MyShelf', url: 'https://myshelfapp.app', logo: '' },
+  { name: 'MyShelf', url: 'https://myshelfapp.app', logo: '/partners/myshelf.png' },
   { name: 'DigitalPowers', url: 'https://digitalpowers.fr', logo: '/partners/logo2.png' },
 ]
 // Repeat the set, then duplicate it so the -50% scroll loops seamlessly.
