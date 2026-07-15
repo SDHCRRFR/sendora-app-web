@@ -6,9 +6,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import { routes } from './router/routes'
 
-// vite-ssg owns app/router creation so each route can be prerendered to static
-// HTML (filled markup that Google AND AI crawlers read without running JS),
-// then hydrated on the client for full interactivity.
+import { inject } from '@vercel/analytics'
+
 export const createApp = ViteSSG(
   App,
   {
@@ -17,7 +16,11 @@ export const createApp = ViteSSG(
       return { top: 0, left: 0 }
     },
   },
-  ({ app }) => {
+  ({ app, isClient }) => {
     app.use(createPinia())
+
+    if (isClient) {
+      inject()
+    }
   },
 )
