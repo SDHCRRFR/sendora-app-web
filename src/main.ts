@@ -8,6 +8,9 @@ import { routes } from './router/routes'
 
 import { inject } from '@vercel/analytics'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 export const createApp = ViteSSG(
   App,
   {
@@ -16,11 +19,24 @@ export const createApp = ViteSSG(
       return { top: 0, left: 0 }
     },
   },
-  ({ app, isClient }) => {
+  ({ app, router, isClient }) => {
     app.use(createPinia())
 
     if (isClient) {
       inject()
+
+      router.isReady().then(() => {
+        AOS.init({
+          duration: 800,
+          once: true,
+        })
+
+        router.afterEach(() => {
+          setTimeout(() => {
+            AOS.refresh()
+          }, 100)
+        })
+      })
     }
   },
 )

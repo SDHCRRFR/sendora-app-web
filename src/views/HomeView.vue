@@ -3,7 +3,7 @@
     <section class="hero">
       <div class="hero-noise"></div>
       <div class="container hero-inner">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
           <div class="hero-eyebrow">
             <span class="pulse-dot"></span>
             Application en bêta ouverte · iOS &amp; Android
@@ -63,7 +63,7 @@
           <p class="hero-fine">Gratuit · Aucun abonnement · Données hébergées en Europe</p>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
+        <div data-aos="zoom-in" data-aos-duration="1600" class="hero-visual" aria-hidden="true">
           <div class="route-card">
             <div class="rc-head">
               <span class="rc-live"><span class="rc-live-dot"></span>Trajet en cours</span>
@@ -126,7 +126,7 @@
       </div>
     </section>
 
-    <section class="how-section">
+    <section class="how-section" data-aos="zoom-out-right" data-aos-duration="1600">
       <div class="container">
         <div class="section-head">
           <span class="section-tag">Comment ça marche</span>
@@ -156,7 +156,7 @@
 
     <section class="roles-section">
       <div class="container roles-grid">
-        <div class="role-card role-sender">
+        <div class="role-card role-sender" data-aos="zoom-out-right" data-aos-duration="1600">
           <div class="role-eyebrow">Pour les expéditeurs</div>
           <h2>Envoyez malin,<br /><em>payez moins.</em></h2>
           <p>
@@ -174,7 +174,7 @@
           <a href="#download" class="role-action role-action-dark">Publier un colis →</a>
         </div>
 
-        <div class="role-card role-transporter">
+        <div class="role-card role-transporter" data-aos="fade-up" data-aos-duration="1600">
           <div class="role-eyebrow">Pour les transporteurs</div>
           <h2>Vos trajets vous<br /><em>rapportent enfin.</em></h2>
           <p>
@@ -191,7 +191,7 @@
           <a href="#download" class="role-action role-action-light">Devenir transporteur →</a>
         </div>
 
-        <div class="role-card role-pro">
+        <div class="role-card role-pro" data-aos="zoom-out-left" data-aos-duration="1600">
           <div class="role-eyebrow">Pour les professionnels</div>
           <h2>Expédiez en volume,<br /><em>sans la logistique.</em></h2>
           <p>
