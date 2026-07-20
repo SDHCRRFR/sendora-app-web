@@ -54,7 +54,6 @@
                 />
               </svg>
               <div>
-                <span class="store-sub">Bientôt sur</span>
                 <span class="store-name">Google Play</span>
               </div>
             </a>
@@ -425,7 +424,6 @@
               />
             </svg>
             <div>
-              <span class="store-sub">Bientôt sur</span>
               <span class="store-name">Google Play</span>
             </div>
           </a>
@@ -488,7 +486,7 @@ const homeFaq = [
   },
   {
     q: 'Sendora est-il disponible sur iPhone et Android ?',
-    a: 'Oui, Sendora est disponible gratuitement sur l’App Store (iOS) et le sera très bientôt sur Google Play (Android).',
+    a: 'Oui, Sendora est disponible gratuitement sur l’App Store (iOS) et Google Play (Android).',
   },
   {
     q: 'Comment gagner de l’argent en transportant des colis ?',
