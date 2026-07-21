@@ -119,6 +119,8 @@
       </div>
     </section>
 
+    <PriceMarket />
+
     <section class="roles-section">
       <div class="container roles-grid">
         <div class="role-card role-sender" data-aos="zoom-out-right" data-aos-duration="1600">
@@ -176,6 +178,8 @@
         </div>
       </div>
     </section>
+
+    <PriceEstimator />
 
     <section class="features-section">
       <div class="container">
@@ -299,8 +303,6 @@
       </div>
     </section>
 
-    <PriceMarket />
-
     <section class="faq-section">
       <div class="container">
         <div class="section-head">
@@ -407,6 +409,7 @@
 import AppIcon from '@/components/AppIcon.vue'
 import PhoneShowcase, { type PhoneScreen } from '@/components/PhoneShowcase.vue'
 import PriceMarket from '@/components/PriceMarket.vue'
+import PriceEstimator from '@/components/PriceEstimator.vue'
 import { useSeo } from '@/composables/useSeo'
 import { faqPage, howTo, mobileApplication, service } from '@/seo/schema'
 
