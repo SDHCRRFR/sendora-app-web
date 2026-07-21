@@ -63,47 +63,7 @@
         </div>
 
         <div data-aos="zoom-in" data-aos-duration="1600" class="hero-visual" aria-hidden="true">
-          <div class="route-card">
-            <div class="rc-head">
-              <span class="rc-live"><span class="rc-live-dot"></span>Trajet en cours</span>
-              <span class="rc-km">462 km</span>
-            </div>
-
-            <div class="rc-journey">
-              <div class="rc-end">
-                <div class="rc-avatar rc-av-from"></div>
-                <span class="rc-city">Paris</span>
-                <span class="rc-role">Expéditeur</span>
-              </div>
-
-              <div class="rc-track">
-                <div class="rc-track-line"></div>
-                <div class="rc-track-fill"></div>
-                <div class="rc-parcel"><AppIcon name="package" /></div>
-              </div>
-
-              <div class="rc-end">
-                <div class="rc-avatar rc-av-to"></div>
-                <span class="rc-city">Moroni</span>
-                <span class="rc-role">Internationale</span>
-              </div>
-            </div>
-
-            <div class="rc-carrier">
-              <div class="rc-c-avatar"></div>
-              <div class="rc-c-info">
-                <div class="rc-c-name">Said H.<span class="rc-badge">✓ Vérifié KYC</span></div>
-                <div class="rc-c-meta">★ 4,9 · 128 trajets partagés</div>
-              </div>
-              <div class="rc-c-price">14&nbsp;€</div>
-            </div>
-
-            <div class="rc-timeline">
-              <div class="rc-step rc-done"><span class="rc-dot"></span>Publié</div>
-              <div class="rc-step rc-done"><span class="rc-dot"></span>En route</div>
-              <div class="rc-step"><span class="rc-dot"></span>Livré</div>
-            </div>
-          </div>
+          <PhoneShowcase :screens="appScreens" />
 
           <div class="rc-chip rc-chip-save"><strong>−60 %</strong> vs transporteur classique</div>
           <div class="rc-chip rc-chip-eco"><strong>0 km</strong> en plus · trajet déjà prévu</div>
@@ -125,30 +85,36 @@
       </div>
     </section>
 
-    <section class="how-section" data-aos="zoom-out-right" data-aos-duration="1600">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-tag">Comment ça marche</span>
-          <h2 class="section-title">Trois étapes.<br /><em>C'est tout.</em></h2>
-          <p class="section-sub">
-            De la publication à la livraison, l'expérience est pensée pour être aussi fluide que
-            possible.
-          </p>
-        </div>
+    <section class="how-section">
+      <div class="how-inner">
+        <div class="how-copy">
+          <div class="section-head how-head" data-aos="fade-up" data-aos-duration="1000">
+            <span class="section-tag">Comment ça marche</span>
+            <h2 class="section-title">Trois étapes.<br /><em>C'est tout.</em></h2>
+            <p class="section-sub">
+              De la publication à la livraison, l'expérience est pensée pour être aussi fluide que
+              possible.
+            </p>
+          </div>
 
-        <div class="steps-track">
-          <div class="step-item" v-for="(step, i) in steps" :key="step.title">
-            <div class="step-left">
-              <div class="step-number">{{ String(i + 1).padStart(2, '0') }}</div>
-              <div v-if="i < steps.length - 1" class="step-line"></div>
-            </div>
-            <div class="step-body">
-              <div class="step-text">
-                <h3>{{ step.title }}</h3>
-                <p>{{ step.desc }}</p>
+          <div class="steps-track" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+            <div class="step-item" v-for="(step, i) in steps" :key="step.title">
+              <div class="step-left">
+                <div class="step-number">{{ String(i + 1).padStart(2, '0') }}</div>
+                <div v-if="i < steps.length - 1" class="step-line"></div>
+              </div>
+              <div class="step-body">
+                <div class="step-text">
+                  <h3>{{ step.title }}</h3>
+                  <p>{{ step.desc }}</p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="how-visual" data-aos="zoom-in" data-aos-duration="1400" aria-hidden="true">
+          <PhoneShowcase :screens="stepScreens" layout="row" />
         </div>
       </div>
     </section>
@@ -439,9 +405,56 @@
 
 <script lang="ts" setup>
 import AppIcon from '@/components/AppIcon.vue'
+import PhoneShowcase, { type PhoneScreen } from '@/components/PhoneShowcase.vue'
 import PriceMarket from '@/components/PriceMarket.vue'
 import { useSeo } from '@/composables/useSeo'
 import { faqPage, howTo, mobileApplication, service } from '@/seo/schema'
+
+/* Éventail du hero — [centre, gauche, droite].
+   Pour afficher de vraies captures : déposez les fichiers dans /public/screens/
+   et renseignez `image` (ou `video` + `poster` pour une démo). Tant qu'un écran
+   n'a pas de média, un aperçu d'app brandé est affiché à la place.
+   Ex. : { image: '/screens/accueil.png', alt: 'Écran d’accueil Sendora' } */
+const appScreens: PhoneScreen[] = [
+  { variant: 'track', image: '/screens/hero-centre.png', alt: 'Écran Mes trajets de l’application Sendora' },
+  { variant: 'search', image: '/screens/hero-gauche.png', alt: 'Écran de recherche de trajets Sendora' },
+  { variant: 'profile', image: '/screens/hero-droite.png', alt: 'Écran profil Sendora' },
+]
+
+// « Comment ça marche » — un écran d'étape par téléphone. Ordre [centre, gauche,
+// droite] : gauche = étape 1, centre = étape 2, droite = étape 3 (lecture 1→2→3).
+const stepScreens: PhoneScreen[] = [
+  {
+    variant: 'step',
+    image: '/screens/etape-2.png',
+    alt: 'Étape 2 — Choisissez votre transporteur',
+    step: {
+      n: 2,
+      title: 'Choisissez votre transporteur',
+      desc: 'Comparez les profils vérifiés qui font déjà votre trajet.',
+    },
+  },
+  {
+    variant: 'step',
+    image: '/screens/etape-1.png',
+    alt: 'Étape 1 — Publiez votre annonce',
+    step: {
+      n: 1,
+      title: 'Publiez votre annonce',
+      desc: 'Décrivez votre colis et votre trajet en moins de 2 minutes.',
+    },
+  },
+  {
+    variant: 'step',
+    image: '/screens/etape-3.png',
+    alt: 'Étape 3 — Livraison sécurisée',
+    step: {
+      n: 3,
+      title: 'Livraison sécurisée',
+      desc: 'Confirmez la réception, le paiement est libéré au transporteur.',
+    },
+  },
+]
 
 const DIASPORA_COUNTRIES = [
   'Sénégal',
@@ -601,6 +614,11 @@ const trust = [
 </script>
 
 <style scoped>
+/* Guarantee no horizontal page scroll — the hero phone fan spills by design
+   and its transformed edges must never widen the document. */
+.home {
+  overflow-x: clip;
+}
 .hero {
   position: relative;
   min-height: calc(100vh - 72px);
@@ -754,236 +772,10 @@ const trust = [
   position: relative;
   padding: 2rem 0;
 }
-/* Hero route card */
-.route-card {
-  position: relative;
-  width: 360px;
-  max-width: 100%;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.4rem;
-  box-shadow: var(--shadow-lg);
-}
-.rc-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
-}
-.rc-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--verdant);
-}
-.rc-live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--verdant-lt);
-  box-shadow: 0 0 0 4px rgba(45, 181, 108, 0.15);
-}
-.rc-km {
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: var(--text-muted);
-  background: var(--cream-deep);
-  padding: 3px 11px;
-  border-radius: var(--radius-xl);
-}
-
-.rc-journey {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-.rc-end {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  width: 64px;
-  flex-shrink: 0;
-}
-.rc-avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(13, 26, 18, 0.15);
-}
-.rc-av-from {
-  background: linear-gradient(135deg, var(--verdant-lt), var(--verdant));
-}
-.rc-av-to {
-  background-color: black;
-}
-.rc-city {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1;
-}
-.rc-role {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.rc-track {
-  flex: 1;
-  position: relative;
-  height: 46px;
-  display: flex;
-  align-items: center;
-}
-.rc-track-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  border-top: 2px dashed var(--border);
-  transform: translateY(-50%);
-}
-.rc-track-fill {
-  position: absolute;
-  left: 0;
-  width: 58%;
-  top: 50%;
-  border-top: 2px dashed var(--verdant);
-  transform: translateY(-50%);
-}
-.rc-parcel {
-  position: absolute;
-  left: 58%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 11px;
-  background: var(--white);
-  box-shadow: 0 4px 14px rgba(13, 26, 18, 0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rc-parcel .app-icon {
-  width: 18px;
-  height: 18px;
-  color: var(--verdant);
-}
-
-.rc-carrier {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--cream-deep);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 11px 13px;
-}
-.rc-c-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #c8e8d4, var(--verdant-lt));
-  flex-shrink: 0;
-}
-.rc-c-info {
-  flex: 1;
-  min-width: 0;
-}
-.rc-c-name {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--ink);
-}
-.rc-badge {
-  font-size: 0.6rem;
-  font-weight: 800;
-  color: var(--verdant);
-  background: rgba(26, 102, 64, 0.1);
-  padding: 2px 8px;
-  border-radius: var(--radius-xl);
-  white-space: nowrap;
-}
-.rc-c-meta {
-  font-size: 0.74rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-.rc-c-price {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--verdant);
-  flex-shrink: 0;
-}
-
-.rc-timeline {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-top: 1.25rem;
-  padding-top: 0.25rem;
-}
-.rc-timeline::before,
-.rc-timeline::after {
-  content: '';
-  position: absolute;
-  top: 11px;
-  height: 2px;
-  border-radius: 2px;
-}
-.rc-timeline::before {
-  left: 16%;
-  right: 16%;
-  background: var(--border);
-}
-.rc-timeline::after {
-  left: 16%;
-  width: 34%;
-  background: var(--verdant);
-}
-.rc-step {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--text-muted);
-}
-.rc-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 2px solid var(--border);
-}
-.rc-step.rc-done {
-  color: var(--verdant);
-}
-.rc-step.rc-done .rc-dot {
-  background: var(--verdant);
-  border-color: var(--verdant);
-}
-
 /* Static accent chips */
 .rc-chip {
   position: absolute;
+  z-index: 4;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
@@ -999,15 +791,15 @@ const trust = [
   color: var(--ink);
 }
 .rc-chip-save {
-  top: 34px;
-  left: -52px;
+  top: 20px;
+  left: -8px;
 }
 .rc-chip-save strong {
   color: var(--verdant);
 }
 .rc-chip-eco {
-  bottom: 40px;
-  right: -44px;
+  bottom: 30px;
+  right: -8px;
 }
 
 /* Scroll hint */
@@ -1105,10 +897,29 @@ const trust = [
 .how-section {
   padding: 7rem 0;
   background: var(--cream-deep);
+  overflow: hidden;
+}
+/* Centered layout: steps on the left, step-phones on the right. */
+.how-inner {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+.how-head {
+  text-align: left;
+  max-width: 540px;
+  margin: 0 0 2.5rem;
+}
+.how-visual {
+  display: flex;
+  justify-content: center;
 }
 .steps-track {
-  max-width: 680px;
-  margin: 0 auto;
+  max-width: 560px;
+  margin: 0;
   display: flex;
   flex-direction: column;
 }
@@ -1168,6 +979,21 @@ const trust = [
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.75;
+}
+/* Stack the "how it works" columns on tablet/mobile (phones stay visible). */
+@media (max-width: 920px) {
+  .how-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    justify-items: center;
+  }
+  .how-head {
+    text-align: center;
+    margin-inline: auto;
+  }
+  .steps-track {
+    margin-inline: auto;
+  }
 }
 
 .roles-section {
@@ -1779,6 +1605,10 @@ const trust = [
     justify-content: center;
   }
   .hero-visual {
+    padding: 0;
+  }
+  /* Chips would overlap the smaller fan on narrow screens — keep phones clean. */
+  .rc-chip {
     display: none;
   }
   .hero-scroll-hint {
