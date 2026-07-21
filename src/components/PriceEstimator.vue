@@ -98,7 +98,11 @@ const MAX_KG = 30
 
 /* Villes de départ (métropole). Le prix « à partir de » dépend de la
    destination et du poids, pas de la ville de départ. */
-const departures = [
+interface Departure {
+  name: string
+  zip: string
+}
+const departures: [Departure, ...Departure[]] = [
   { name: 'Paris', zip: '75000' },
   { name: 'Lyon', zip: '69000' },
   { name: 'Marseille', zip: '13000' },
