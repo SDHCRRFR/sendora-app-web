@@ -121,7 +121,7 @@
 
     <PriceMarket />
 
-    <section class="roles-section">
+    <!-- <section class="roles-section">
       <div class="container roles-grid">
         <div class="role-card role-sender" data-aos="zoom-out-right" data-aos-duration="1600">
           <div class="role-eyebrow">Pour les expéditeurs</div>
@@ -177,7 +177,7 @@
           >
         </div>
       </div>
-    </section>
+    </section> -->
 
     <PriceEstimator />
 

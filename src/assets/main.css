@@ -9,8 +9,13 @@
   --verdant:    #1a6640;
   --verdant-mid:#238a52;
   --verdant-lt: #2db56c;
-  --cream:      #f9f5ee;
-  --cream-deep: #f0ead9;
+  /* [EXPÉRIMENTAL · branche test] Fond « mesh glows » vert (option B).
+     Base claire + halos verts diffus peints en fixe (voir body::before plus bas).
+     --cream transparent = sections de base laissent passer le mesh ; --cream-deep
+     = léger voile blanc pour surfaces douces / sections alternées / inputs.
+     Retour charte d'origine : --cream #f9f5ee / --cream-deep #f0ead9 */
+  --cream:      transparent;
+  --cream-deep: rgba(255, 255, 255, 0.55);
   --gold:       #e8a922;
   --gold-lt:    #f5c842;
   --white:      #ffffff;
@@ -122,6 +127,23 @@ img, svg { display: block; max-width: 100%; }
 button, input, textarea, select { font: inherit; }
 ::selection { background: rgba(26,102,64,.18); }
 
+/* [EXPÉRIMENTAL · branche test] Fond « mesh glows » — thème clair uniquement.
+   Base claire fixe + 3 halos verts diffus peints derrière tout le contenu.
+   Le thème sombre n'est pas touché (il redéfinit --cream/--cream-deep et garde
+   son propre --bg). Retrait : supprimer ce bloc + restaurer les tokens crème. */
+:root:not([data-theme='dark']) body { background: #fbfdfc; }
+:root:not([data-theme='dark']) body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 55% at 8% -5%,   rgba(45,181,108,.20), transparent 70%),
+    radial-gradient(55% 45% at 100% 8%,  rgba(35,138,82,.16),  transparent 70%),
+    radial-gradient(70% 60% at 85% 105%, rgba(26,102,64,.10),  transparent 70%);
+}
+
 /* Layout */
 .container {
   width: min(var(--container), calc(100% - 40px));
@@ -207,7 +229,7 @@ button, input, textarea, select { font: inherit; }
 .site-header {
   position: sticky; top: 0; z-index: 50;
   backdrop-filter: blur(20px) saturate(1.5);
-  background: rgba(249,245,238,.88);
+  background: rgba(255,255,255,.80); /* [test mesh] blanc translucide, dark surchargé plus haut */
   border-bottom: 1px solid var(--border);
   transition: box-shadow var(--transition);
 }
@@ -297,7 +319,7 @@ button, input, textarea, select { font: inherit; }
   position: fixed; top: 72px; left: 0; right: 0; z-index: 45;
   margin: 0 1rem; padding: .75rem;
   border-radius: 20px;
-  background: rgba(249,245,238,.98);
+  background: rgba(255,255,255,.98); /* [test mesh] blanc translucide, dark surchargé plus haut */
   border: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
   display: grid; gap: .3rem;
