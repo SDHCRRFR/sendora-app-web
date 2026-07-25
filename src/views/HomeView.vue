@@ -221,7 +221,7 @@
               besoin d'échanger vos numéros.
             </p>
           </div>
-          <div class="feat-card feat-large-right">
+          <div class="feat-card">
             <div class="feat-icon-wrap"><AppIcon name="star" /></div>
             <h3>Réputation communautaire</h3>
             <p>
@@ -1184,10 +1184,6 @@ const trust = [
 .feat-large {
   grid-column: span 2;
 }
-.feat-large-right {
-  grid-column: span 2;
-  grid-column-start: 2;
-}
 .feat-wide {
   grid-column: span 3;
 }
@@ -1582,12 +1578,8 @@ const trust = [
     grid-template-columns: 1fr 1fr;
   }
   .feat-large,
-  .feat-large-right,
   .feat-wide {
     grid-column: span 2;
-  }
-  .feat-large-right {
-    grid-column-start: auto;
   }
 }
 @media (max-width: 860px) {
@@ -1635,7 +1627,6 @@ const trust = [
     grid-template-columns: 1fr;
   }
   .feat-large,
-  .feat-large-right,
   .feat-wide {
     grid-column: span 1;
   }
