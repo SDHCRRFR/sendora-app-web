@@ -11,27 +11,30 @@
           </p>
 
           <div class="contact-emails">
-            <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
+            <div class="contact-email-row">
               <div class="cer-icon"><AppIcon name="mail" /></div>
               <div>
                 <div class="cer-label">Support général</div>
-                <div class="cer-addr">contact@sendora.app</div>
+                <div class="cer-desc">Aide sur l'application, votre compte ou vos paiements.</div>
               </div>
-            </a>
-            <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
+            </div>
+            <div class="contact-email-row">
               <div class="cer-icon"><AppIcon name="shield-check" /></div>
               <div>
                 <div class="cer-label">Données & RGPD</div>
-                <div class="cer-addr">privacy@sendora.app</div>
+                <div class="cer-desc">Accès, rectification ou suppression de vos données.</div>
               </div>
-            </a>
-            <a class="contact-email-row" href="mailto:powerdigital.fr@gmail.com">
+            </div>
+            <div class="contact-email-row">
               <div class="cer-icon"><AppIcon name="scale" /></div>
               <div>
                 <div class="cer-label">Questions légales</div>
-                <div class="cer-addr">legal@sendora.app</div>
+                <div class="cer-desc">CGU, mentions légales et litiges.</div>
               </div>
-            </a>
+            </div>
+            <p class="contact-emails-note">
+              Écrivez-nous via le formulaire ci-contre - nous répondons dans les meilleurs délais.
+            </p>
           </div>
         </div>
 
@@ -245,10 +248,10 @@ async function submit() {
       const data = await res.json().catch(() => ({}))
       serverError.value =
         (data as any)?.error ??
-        "L'envoi a échoué. Essayez d'écrire directement à contact@sendora.app"
+        "L'envoi a échoué. Merci de réessayer dans un instant."
     }
   } catch {
-    serverError.value = 'Problème réseau. Vérifiez votre connexion ou écrivez à contact@sendora.app'
+    serverError.value = 'Problème réseau. Vérifiez votre connexion et réessayez.'
   } finally {
     submitting.value = false
   }
@@ -353,6 +356,17 @@ function reset() {
   font-size: 0.92rem;
   font-weight: 800;
   color: var(--verdant);
+}
+.cer-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.contact-emails-note {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.2rem;
 }
 
 .form-card {

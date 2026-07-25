@@ -127,7 +127,7 @@ img, svg { display: block; max-width: 100%; }
 button, input, textarea, select { font: inherit; }
 ::selection { background: rgba(26,102,64,.18); }
 
-/* [EXPÉRIMENTAL · branche test] Fond « mesh glows » — thème clair uniquement.
+/* [EXPÉRIMENTAL · branche test] Fond « mesh glows » - thème clair uniquement.
    Base claire fixe + 3 halos verts diffus peints derrière tout le contenu.
    Le thème sombre n'est pas touché (il redéfinit --cream/--cream-deep et garde
    son propre --bg). Retrait : supprimer ce bloc + restaurer les tokens crème. */

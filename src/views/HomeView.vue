@@ -413,7 +413,7 @@ import PriceEstimator from '@/components/PriceEstimator.vue'
 import { useSeo } from '@/composables/useSeo'
 import { faqPage, howTo, mobileApplication, service } from '@/seo/schema'
 
-/* Éventail du hero — [centre, gauche, droite].
+/* Éventail du hero [centre, gauche, droite].
    Pour afficher de vraies captures : déposez les fichiers dans /public/screens/
    et renseignez `image` (ou `video` + `poster` pour une démo). Tant qu'un écran
    n'a pas de média, un aperçu d'app brandé est affiché à la place.
@@ -424,13 +424,13 @@ const appScreens: PhoneScreen[] = [
   { variant: 'profile', image: '/screens/hero-droite.png', alt: 'Écran profil Sendora' },
 ]
 
-// « Comment ça marche » — un écran d'étape par téléphone. Ordre [centre, gauche,
+// « Comment ça marche » un écran d'étape par téléphone. Ordre [centre, gauche,
 // droite] : gauche = étape 1, centre = étape 2, droite = étape 3 (lecture 1→2→3).
 const stepScreens: PhoneScreen[] = [
   {
     variant: 'step',
     image: '/screens/etape-2.png',
-    alt: 'Étape 2 — Choisissez votre transporteur',
+    alt: 'Étape 2 - Choisissez votre transporteur',
     step: {
       n: 2,
       title: 'Choisissez votre transporteur',
@@ -440,7 +440,7 @@ const stepScreens: PhoneScreen[] = [
   {
     variant: 'step',
     image: '/screens/etape-1.png',
-    alt: 'Étape 1 — Publiez votre annonce',
+    alt: 'Étape 1 - Publiez votre annonce',
     step: {
       n: 1,
       title: 'Publiez votre annonce',
@@ -450,7 +450,7 @@ const stepScreens: PhoneScreen[] = [
   {
     variant: 'step',
     image: '/screens/etape-3.png',
-    alt: 'Étape 3 — Livraison sécurisée',
+    alt: 'Étape 3 - Livraison sécurisée',
     step: {
       n: 3,
       title: 'Livraison sécurisée',
@@ -617,7 +617,7 @@ const trust = [
 </script>
 
 <style scoped>
-/* Guarantee no horizontal page scroll — the hero phone fan spills by design
+/* Guarantee no horizontal page scroll - the hero phone fan spills by design
    and its transformed edges must never widen the document. */
 .home {
   overflow-x: clip;
@@ -1602,7 +1602,7 @@ const trust = [
   .hero-visual {
     padding: 0;
   }
-  /* Chips would overlap the smaller fan on narrow screens — keep phones clean. */
+  /* Chips would overlap the smaller fan on narrow screens - keep phones clean. */
   .rc-chip {
     display: none;
   }

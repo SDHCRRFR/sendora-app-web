@@ -82,7 +82,7 @@
       </div>
 
       <p class="est-foot">
-        Estimation indicative pour {{ weight }}&nbsp;kg — le prix final est librement proposé par
+        Estimation indicative pour {{ weight }}&nbsp;kg - le prix final est librement proposé par
         les transporteurs qui font déjà votre trajet.
       </p>
     </div>
@@ -117,7 +117,7 @@ const departures: [Departure, ...Departure[]] = [
 ]
 
 /* Destinations + tarif Sendora au kg. Les valeurs `perKg` sont calées pour que
-   10 kg tombent exactement sur les prix affichés dans PriceMarket.vue — à garder
+   10 kg tombent exactement sur les prix affichés dans PriceMarket.vue - à garder
    synchronisées si ces chiffres bougent. */
 interface Destination {
   id: string

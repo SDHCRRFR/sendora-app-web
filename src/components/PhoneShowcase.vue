@@ -54,13 +54,11 @@ const titles: Record<string, string> = {
   profile: 'Profil',
 }
 
-// Screen header label — steps show "Étape n", others use the map above.
 const headOf = (screen: PhoneScreen) =>
   screen.variant === 'step' && screen.step
     ? `Étape ${screen.step.n} / 3`
     : (titles[screen.variant ?? 'track'] ?? '')
 
-// [centre (avant), gauche, droite] → ordre visuel dans l'éventail.
 const slots = computed(() => {
   const s = props.screens
   return [
@@ -296,14 +294,12 @@ const variantOf = (screen: PhoneScreen) => screen.variant ?? 'track'
     inset 0 0 0 1.5px var(--frame-rim);
 }
 
-/* Light mode: les trois téléphones en blanc pour des couleurs unies. */
 :root[data-theme='light'] .phone-frame {
   --frame-bg: linear-gradient(155deg, #ffffff, #f4f2ea 58%, #e5e1d4) #f4f2ea;
   --frame-rim: rgba(255, 255, 255, 0.9);
   --frame-ring: 0 0 0 1px rgba(13, 26, 18, 0.16);
 }
 
-/* Physical side buttons — inherit the frame colour so they match each body. */
 .phone-btn {
   position: absolute;
   width: 2.5px;
@@ -723,7 +719,7 @@ const variantOf = (screen: PhoneScreen) => screen.variant ?? 'track'
   }
 }
 
-/* Mobile: the fan stacks under the hero copy — shrink it to fit narrow screens. */
+/* Mobile: the fan stacks under the hero copy - shrink it to fit narrow screens. */
 @media (max-width: 860px) {
   .phones-fan {
     --phone-w: clamp(116px, 38vw, 176px);
