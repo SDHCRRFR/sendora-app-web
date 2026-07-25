@@ -296,21 +296,11 @@ const variantOf = (screen: PhoneScreen) => screen.variant ?? 'track'
     inset 0 0 0 1.5px var(--frame-rim);
 }
 
-/* Light mode: coloured bodies — red (left), white (centre), green (right). */
-:root[data-theme='light'] .slot-left .phone-frame {
-  --frame-bg: linear-gradient(155deg, #e2604f, #c73f31 48%, #9f2a1e) #c73f31;
-  --frame-rim: rgba(255, 255, 255, 0.34);
-  --frame-ring: 0 0 0 1px rgba(13, 26, 18, 0.1);
-}
-:root[data-theme='light'] .slot-lead .phone-frame {
+/* Light mode: les trois téléphones en blanc pour des couleurs unies. */
+:root[data-theme='light'] .phone-frame {
   --frame-bg: linear-gradient(155deg, #ffffff, #f4f2ea 58%, #e5e1d4) #f4f2ea;
   --frame-rim: rgba(255, 255, 255, 0.9);
   --frame-ring: 0 0 0 1px rgba(13, 26, 18, 0.16);
-}
-:root[data-theme='light'] .slot-right .phone-frame {
-  --frame-bg: linear-gradient(155deg, #2fa065, #1a6640 48%, #114a2e) #1a6640;
-  --frame-rim: rgba(255, 255, 255, 0.28);
-  --frame-ring: 0 0 0 1px rgba(13, 26, 18, 0.1);
 }
 
 /* Physical side buttons — inherit the frame colour so they match each body. */
@@ -744,6 +734,15 @@ const variantOf = (screen: PhoneScreen) => screen.variant ?? 'track'
     --phone-w: clamp(90px, 27vw, 150px);
     gap: clamp(6px, 2vw, 12px);
     min-height: 0;
+  }
+  /* Radius fixe (34/26px) = trop arrondi sur les petits téléphones : on le rend
+     proportionnel à la largeur pour garder les bonnes proportions en mobile. */
+  .phone-frame {
+    border-radius: calc(var(--phone-w) * 0.14);
+    padding: 6px;
+  }
+  .phone-screen {
+    border-radius: calc(var(--phone-w) * 0.1);
   }
 }
 </style>
