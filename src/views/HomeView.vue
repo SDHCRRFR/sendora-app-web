@@ -265,37 +265,41 @@
             </div>
           </div>
 
-          <div class="trust-visual" aria-hidden="true">
-            <div class="trust-card">
-              <div class="tc-header">
-                <div class="tc-avatar"></div>
-                <div>
-                  <div class="tc-name">Mission confirmée</div>
-                  <div class="tc-meta">Paris → Bordeaux · 587 km</div>
-                </div>
-                <div class="tc-badge verified">✓ Vérifié</div>
+          <div class="trust-visual">
+            <div class="trust-stack">
+              <div class="ts-eyebrow">
+                <AppIcon name="shield-check" />
+                <span>Pour garantir votre sécurité</span>
               </div>
-              <div class="tc-divider"></div>
-              <div class="tc-row">
-                <span class="tc-label">Transporteur</span>
-                <span class="tc-val">Jean-Marc V. · ★ 4.8</span>
+
+              <div class="ts-grid">
+                <a
+                  v-for="s in securityStack"
+                  :key="s.key"
+                  class="ts-tile"
+                  :class="{ 'ts-tile-wide': s.wide }"
+                  :href="s.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :aria-label="`${s.name} — ${s.role} (site officiel, nouvel onglet)`"
+                >
+                  <img
+                    v-if="brandLogoStyle === 'color'"
+                    :src="s.img"
+                    :alt="s.name"
+                    class="ts-img"
+                    :class="s.cls"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <BrandLogo v-else :name="s.key" :class="s.cls" />
+                </a>
               </div>
-              <div class="tc-row">
-                <span class="tc-label">Statut paiement</span>
-                <span class="tc-val tc-green"><AppIcon name="lock" /> Sous séquestre</span>
-              </div>
-              <div class="tc-row">
-                <span class="tc-label">Départ prévu</span>
-                <span class="tc-val">Lun. 12 jan. · 08h30</span>
-              </div>
-              <div class="tc-row">
-                <span class="tc-label">Colis</span>
-                <span class="tc-val">2 kg - Fragile</span>
-              </div>
-              <div class="tc-actions">
-                <div class="tc-btn tc-btn-outline"><AppIcon name="message-circle" /> Chat</div>
-                <div class="tc-btn tc-btn-solid">Confirmer la livraison</div>
-              </div>
+
+              <p class="ts-note">
+                Marques citées à titre informatif. Elles appartiennent à leurs propriétaires
+                respectifs.
+              </p>
             </div>
           </div>
         </div>
@@ -405,6 +409,7 @@
 
 <script lang="ts" setup>
 import AppIcon from '@/components/AppIcon.vue'
+import BrandLogo from '@/components/BrandLogo.vue'
 import PhoneShowcase, { type PhoneScreen } from '@/components/PhoneShowcase.vue'
 import PriceMarket from '@/components/PriceMarket.vue'
 import PriceEstimator from '@/components/PriceEstimator.vue'
@@ -610,6 +615,60 @@ const trust = [
     icon: '',
     title: 'Auth multifacteur',
     desc: 'Connexion via Apple ID, Google ou email avec vérification renforcée.',
+  },
+]
+
+/* 'mono'  = official marks redrawn as single-colour vectors (BrandLogo),
+             they inherit currentColor and follow the light/dark theme.
+   'color' = the brand assets dropped in /public/services, shown as-is. */
+type BrandLogoStyle = 'mono' | 'color'
+const brandLogoStyle = 'mono' as BrandLogoStyle
+
+const securityStack = [
+  {
+    key: 'didit',
+    name: 'Didit',
+    role: "Vérification d'identité (KYC)",
+    url: 'https://didit.me',
+    img: '/services/api.svg',
+    cls: 'bl-didit',
+    wide: true,
+  },
+  {
+    key: 'stripe',
+    name: 'Stripe',
+    role: 'Paiement sous séquestre',
+    url: 'https://stripe.com',
+    img: '/services/Stripe.png',
+    cls: 'bl-stripe',
+    wide: false,
+  },
+  {
+    key: 'aws',
+    name: 'Amazon Web Services',
+    role: 'Hébergement des données en Europe',
+    url: 'https://aws.amazon.com',
+    img: '/services/Amazon_Web_Services_2025.svg.webp',
+    cls: 'bl-aws',
+    wide: false,
+  },
+  {
+    key: 'apple',
+    name: 'Apple',
+    role: 'Connexion sécurisée',
+    url: 'https://www.apple.com',
+    img: '/services/Apple_logo_black.svg',
+    cls: 'bl-apple',
+    wide: false,
+  },
+  {
+    key: 'google',
+    name: 'Google',
+    role: 'Connexion sécurisée',
+    url: 'https://www.google.com',
+    img: '/services/format-vectoriel-google-logo-sur-fond-blanc-illustration-vectorielle-407571048.webp',
+    cls: 'bl-google',
+    wide: false,
   },
 ]
 </script>
@@ -1265,116 +1324,133 @@ const trust = [
   line-height: 1.5;
 }
 
-/* Trust card visual */
+/* Trust visual - the third-party security stack, as a monochrome logo wall.
+   Marks inherit currentColor so they follow the light/dark theme. */
 .trust-visual {
   display: flex;
   justify-content: center;
 }
-.trust-card {
-  background: var(--white);
+.trust-stack {
+  background: var(--bg-card);
   border: 1.5px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.6rem;
   max-width: 345px;
   width: 100%;
   box-shadow: var(--shadow-lg);
 }
-.tc-header {
+.ts-eyebrow {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 1rem;
-}
-.tc-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--verdant-lt), var(--verdant));
-  flex-shrink: 0;
-}
-.tc-name {
-  font-size: 0.92rem;
-  font-weight: 800;
-  color: var(--ink);
-}
-.tc-meta {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-.tc-badge {
-  margin-left: auto;
+  gap: 0.5rem;
+  margin-bottom: 1.15rem;
   font-size: 0.72rem;
   font-weight: 800;
-  padding: 3px 10px;
-  border-radius: var(--radius-xl);
-}
-.verified {
-  background: rgba(26, 102, 64, 0.1);
-  color: var(--verdant);
-}
-.tc-divider {
-  height: 1px;
-  background: var(--border);
-  margin-bottom: 1rem;
-}
-.tc-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.45rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.tc-row:last-of-type {
-  border-bottom: 0;
-}
-.tc-label {
-  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-muted);
-  font-weight: 600;
 }
-.tc-val {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-.tc-val .app-icon {
-  width: 14px;
-  height: 14px;
-}
-.tc-green {
+.ts-eyebrow .app-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
   color: var(--verdant);
 }
-.tc-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1.1rem;
+.ts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
 }
-.tc-btn {
-  flex: 1;
+.ts-tile {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 0.6rem;
-  border-radius: 10px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  cursor: pointer;
+  min-height: 76px;
+  padding: 1rem;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
-.tc-btn .app-icon {
-  width: 15px;
-  height: 15px;
+.ts-tile:focus-visible {
+  outline: 2px solid var(--verdant);
+  outline-offset: 2px;
 }
-.tc-btn-outline {
-  border: 1.5px solid var(--border);
-  color: var(--ink);
+.ts-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  color: var(--verdant);
 }
-.tc-btn-solid {
-  background: var(--verdant);
-  color: white;
+.ts-tile-wide {
+  grid-column: 1 / -1;
+  min-height: 68px;
+}
+/* Each mark keeps its own aspect ratio; the height is tuned per brand so they
+   read at the same optical weight despite very different proportions. */
+.brand-logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+}
+.brand-logo.bl-didit {
+  height: 28px;
+}
+.brand-logo.bl-stripe {
+  height: 32px;
+}
+/* The AWS mark only fills about half of its 24x24 box, so it needs a taller
+   frame than the letter-marks to read at the same optical weight. */
+.brand-logo.bl-aws {
+  height: 54px;
+}
+.brand-logo.bl-apple {
+  height: 33px;
+}
+.brand-logo.bl-google {
+  height: 31px;
+}
+
+/* 'color' variant: raw brand assets from /public/services */
+.ts-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.ts-img.bl-didit {
+  height: 44px;
+}
+.ts-img.bl-stripe {
+  height: 46px;
+}
+.ts-img.bl-aws {
+  height: 34px;
+}
+.ts-img.bl-apple {
+  height: 34px;
+}
+.ts-img.bl-google {
+  height: 34px;
+}
+.ts-note {
+  margin: 1rem 0 0;
+  font-size: 0.66rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ts-tile {
+    transition: none;
+  }
+  .ts-tile:hover {
+    transform: none;
+  }
 }
 
 /* Partners marquee */
