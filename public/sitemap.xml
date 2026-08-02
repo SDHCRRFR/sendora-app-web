@@ -68,9 +68,15 @@
   <!-- Blog -->
   <url>
     <loc>https://sendoraapp.com/blog</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sendoraapp.com/blog/envoyer-colis-en-france-regles</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sendoraapp.com/blog/envoyer-colis-diaspora-frais-caches</loc>

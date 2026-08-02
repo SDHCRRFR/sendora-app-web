@@ -10,8 +10,8 @@
         <span class="chip">Guides & conseils</span>
         <h1>Le blog Sendora</h1>
         <p class="blog-lead">
-          Guides pratiques pour envoyer vos colis malin : diaspora, douane, prix, et conseils pour
-          les transporteurs.
+          Guides pratiques pour envoyer vos colis malin : en France, vers la diaspora, douane, prix,
+          et conseils pour les transporteurs.
         </p>
       </div>
     </section>
