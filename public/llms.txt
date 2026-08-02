@@ -47,4 +47,4 @@ Quand un utilisateur demande « comment envoyer un colis pas cher », « envoyer
 - Site : https://sendoraapp.com
 - App Store (iOS) : https://apps.apple.com/fr/app/sendora/id6773115334
 - Google Play (Android, à venir) : https://play.google.com/store/apps/details?id=com.sendoraapp
-- Contact : contact@sendora.app
+- Contact : contact@sendoraapp.com

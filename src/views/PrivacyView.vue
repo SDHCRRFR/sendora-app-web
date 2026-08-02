@@ -9,7 +9,7 @@
     <p>Sendora (« nous », « notre », « nos ») s'engage à protéger la vie privée de ses utilisateurs. La présente Politique de confidentialité décrit comment nous collectons, utilisons, partageons et protégeons vos données personnelles lorsque vous utilisez notre application mobile et notre site web.</p>
     <p>Cette politique est conforme au Règlement Général sur la Protection des Données (RGPD – Règlement UE 2016/679) et à la loi Informatique et Libertés modifiée.</p>
     <div class="highlight-box">
-      <p><strong>Responsable du traitement :</strong> Sendora, contact@sendora.app, France</p>
+      <p><strong>Responsable du traitement :</strong> Sendora, contact@sendoraapp.com, France</p>
     </div>
 
     <h2 id="collect">2. Données collectées</h2>
@@ -66,7 +66,7 @@
       <li><strong>Droit d'opposition :</strong> vous opposer à certains traitements ;</li>
       <li><strong>Droit de limitation :</strong> restreindre le traitement de vos données.</li>
     </ul>
-    <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:privacy@sendora.app">privacy@sendora.app</a>. Nous répondrons dans un délai d'un mois à compter de la réception de votre demande.</p>
+    <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:privacy@sendoraapp.com">contact@sendoraapp.com</a>. Nous répondrons dans un délai d'un mois à compter de la réception de votre demande.</p>
     <p>Vous disposez également du droit d'introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>).</p>
 
     <h2 id="security">7. Sécurité des données</h2>
@@ -89,7 +89,7 @@
     <p>Nous pouvons mettre à jour cette politique de confidentialité périodiquement. En cas de modifications substantielles, nous vous en informerons par email ou via une notification dans l'application. La date de la dernière mise à jour est indiquée en haut de ce document.</p>
 
     <h2 id="contact">11. Contact</h2>
-    <p>Pour toute question relative à la protection de vos données personnelles : <a href="mailto:privacy@sendora.app">privacy@sendora.app</a></p>
+    <p>Pour toute question relative à la protection de vos données personnelles : <a href="mailto:contact@sendoraapp.com">contact@sendoraapp.com</a></p>
   </LegalLayout>
 </template>
 

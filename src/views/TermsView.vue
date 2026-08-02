@@ -80,7 +80,7 @@
     <p>Les présentes conditions sont soumises au droit français. Tout litige relatif à leur interprétation ou leur exécution sera de la compétence exclusive des tribunaux français compétents, après tentative de résolution amiable.</p>
 
     <h2 id="contact">11. Contact</h2>
-    <p>Pour toute question concernant les présentes conditions, vous pouvez nous contacter à : <a href="mailto:legal@sendora.app">legal@sendora.app</a></p>
+    <p>Pour toute question concernant les présentes conditions, vous pouvez nous contacter à : <a href="mailto:contact@sendoraapp.com">contact@sendoraapp.com</a></p>
   </LegalLayout>
 </template>
 

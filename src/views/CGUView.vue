@@ -17,7 +17,7 @@
     <h2 id="definitions">Article 2 - Définitions</h2>
     <ul>
       <li>
-        <strong>« Plateforme »</strong> : l'application mobile Sendora et le site web sendora.app ;
+        <strong>« Plateforme »</strong> : l'application mobile Sendora et le site web sendoraapp.com ;
       </li>
       <li>
         <strong>« Utilisateur »</strong> : toute personne inscrite sur la Plateforme, qu'elle soit
@@ -229,8 +229,8 @@
     <h2 id="contact">Article 16 - Contact</h2>
     <p>
       Pour toute question relative aux présentes CGU :<br />
-      <a href="mailto:legal@sendora.app">legal@sendora.app</a><br />
-      sendora.app
+      <a href="mailto:legal@sendoraapp.com">legal@sendoraapp.com</a><br />
+      sendoraapp.com
     </p>
   </LegalLayout>
 </template>
