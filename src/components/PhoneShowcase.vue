@@ -10,16 +10,23 @@ import AppIcon from '@/components/AppIcon.vue'
  * `image` ni `video`, un aperçu d'app brandé (placeholder) est affiché.
  *
  *   <PhoneShowcase :screens="[
- *     { image: '/screens/accueil.png', alt: 'Écran d’accueil Sendora' },   // centre
- *     { image: '/screens/recherche.png', alt: 'Recherche de trajets' },    // gauche
- *     { video: '/screens/demo.mp4', poster: '/screens/demo.jpg' },         // droite
+ *     { image: '/screens/accueil.png', imageLight: '/screens/accueil-w.png' }, // centre
+ *     { image: '/screens/recherche.png', alt: 'Recherche de trajets' },        // gauche
+ *     { video: '/screens/demo.mp4', poster: '/screens/demo.jpg' },             // droite
  *   ]" />
  *
  * Déposez les fichiers dans /public/screens/ et référencez-les en '/screens/...'.
+ * Une capture sombre reste lisible en thème light si on lui joint sa variante
+ * claire via `imageLight` (convention du projet : même nom suffixé « -w »).
  */
 export interface PhoneScreen {
-  /** Capture d'écran (ex. '/screens/accueil.png'). */
+  /** Capture d'écran (ex. '/screens/accueil.png'). Utilisée telle quelle en thème sombre. */
   image?: string
+  /**
+   * Variante claire de `image` (ex. '/screens/accueil-w.png'), affichée quand
+   * le thème light est actif. Omise = `image` dans les deux thèmes.
+   */
+  imageLight?: string
   /** Vidéo (ex. '/screens/demo.mp4'). Prioritaire sur image, jouée en boucle muette. */
   video?: string
   /** Image d'attente affichée avant la lecture de la vidéo. */
@@ -69,6 +76,17 @@ const slots = computed(() => {
 })
 
 const variantOf = (screen: PhoneScreen) => screen.variant ?? 'track'
+
+/* Capture bi-thème : les deux URL sont posées en variables CSS et c'est le
+   sélecteur `[data-theme='light']` qui décide laquelle est peinte.
+   - une seule image est téléchargée : une url() rangée dans une custom property
+     non substituée n'est jamais requêtée ;
+   - l'écran est déjà le bon dès le premier paint, ce qu'un `src` piloté en JS
+     ne permet pas sur des pages prérendues (vite-ssg) où le HTML est figé. */
+const shotStyle = (screen: PhoneScreen) => ({
+  '--shot-dark': `url("${screen.image}")`,
+  '--shot-light': `url("${screen.imageLight}")`,
+})
 </script>
 
 <template>
@@ -96,7 +114,15 @@ const variantOf = (screen: PhoneScreen) => screen.variant ?? 'track'
               <source :src="s.screen.video" />
             </video>
 
-            <!-- Capture d'écran -->
+            <!-- Capture d'écran avec variante claire : peinte en fond, seul moyen
+                 de changer d'image selon le thème sans la télécharger deux fois. -->
+            <div
+              v-else-if="s.screen.image && s.screen.imageLight"
+              class="phone-media phone-shot"
+              :style="shotStyle(s.screen)"
+            ></div>
+
+            <!-- Capture d'écran (une seule version, tous thèmes confondus) -->
             <img
               v-else-if="s.screen.image"
               class="phone-media"
@@ -354,10 +380,26 @@ const variantOf = (screen: PhoneScreen) => screen.variant ?? 'track'
   overflow: hidden;
   background: #0c1310;
 }
+/* Fond d'attente accordé au thème (visible le temps que la capture charge).
+   L'aperçu brandé `.ps`, lui, garde son fond sombre : il se peint par-dessus. */
+:root[data-theme='light'] .phone-screen {
+  background: #f4f2ea;
+}
 .phone-media {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* Capture bi-thème : sombre par défaut, claire dès que le thème light est posé
+   sur <html> (l'attribut est écrit avant le premier paint par index.html). */
+.phone-shot {
+  background-image: var(--shot-dark);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+:root[data-theme='light'] .phone-shot {
+  background-image: var(--shot-light);
 }
 
 /* ── Branded placeholder screen ───────────────────────────────── */

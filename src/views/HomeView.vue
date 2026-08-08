@@ -420,11 +420,28 @@ import { faqPage, howTo, mobileApplication, service } from '@/seo/schema'
    Pour afficher de vraies captures : déposez les fichiers dans /public/screens/
    et renseignez `image` (ou `video` + `poster` pour une démo). Tant qu'un écran
    n'a pas de média, un aperçu d'app brandé est affiché à la place.
-   Ex. : { image: '/screens/accueil.png', alt: 'Écran d’accueil Sendora' } */
+   Ex. : { image: '/screens/accueil.png', alt: 'Écran d’accueil Sendora' }
+   `imageLight` = la même capture en version claire (fichier « -w »), servie
+   automatiquement quand le site est en thème light. */
 const appScreens: PhoneScreen[] = [
-  { variant: 'track', image: '/screens/hero-centre.png', alt: 'Écran Mes trajets de l’application Sendora' },
-  { variant: 'search', image: '/screens/hero-gauche.png', alt: 'Écran de recherche de trajets Sendora' },
-  { variant: 'profile', image: '/screens/hero-droite.png', alt: 'Écran profil Sendora' },
+  {
+    variant: 'track',
+    image: '/screens/hero-centre.png',
+    imageLight: '/screens/hero-centre-w.png',
+    alt: 'Écran Mes trajets de l’application Sendora',
+  },
+  {
+    variant: 'search',
+    image: '/screens/hero-gauche.png',
+    imageLight: '/screens/hero-gauche-w.png',
+    alt: 'Écran de recherche de trajets Sendora',
+  },
+  {
+    variant: 'profile',
+    image: '/screens/hero-droite.png',
+    imageLight: '/screens/hero-droite-w.png',
+    alt: 'Écran profil Sendora',
+  },
 ]
 
 // « Comment ça marche » un écran d'étape par téléphone. Ordre [centre, gauche,
@@ -433,6 +450,7 @@ const stepScreens: PhoneScreen[] = [
   {
     variant: 'step',
     image: '/screens/etape-2.png',
+    imageLight: '/screens/etape-2-w.png',
     alt: 'Étape 2 - Choisissez votre transporteur',
     step: {
       n: 2,
@@ -443,6 +461,7 @@ const stepScreens: PhoneScreen[] = [
   {
     variant: 'step',
     image: '/screens/etape-1.png',
+    imageLight: '/screens/etape-1-w.png',
     alt: 'Étape 1 - Publiez votre annonce',
     step: {
       n: 1,
@@ -453,6 +472,7 @@ const stepScreens: PhoneScreen[] = [
   {
     variant: 'step',
     image: '/screens/etape-3.png',
+    imageLight: '/screens/etape-3-w.png',
     alt: 'Étape 3 - Livraison sécurisée',
     step: {
       n: 3,
