@@ -4,10 +4,10 @@
       <div class="hero-noise"></div>
       <div class="container hero-inner">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-          <div class="hero-eyebrow">
+          <!-- <div class="hero-eyebrow">
             <span class="pulse-dot"></span>
             Application en bêta ouverte · iOS &amp; Android
-          </div>
+          </div> -->
 
           <h1 class="hero-headline">
             Vos colis voyagent<br />
@@ -724,7 +724,7 @@ const securityStack = [
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
-  padding-top: 3rem;
+  padding-top: 5rem;
   padding-bottom: 4rem;
 }
 .hero-eyebrow {
