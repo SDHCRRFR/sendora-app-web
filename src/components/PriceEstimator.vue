@@ -13,32 +13,84 @@
       <div class="estimator-card">
         <!-- Champs -->
         <div class="est-form">
-          <div class="est-field">
+
+          <!-- Départ -->
+          <div class="est-field est-field-city">
             <label class="est-label" for="est-departure">Départ</label>
             <div class="est-control">
               <AppIcon name="map-pin" />
-              <select id="est-departure" v-model="departure" class="est-select">
-                <option v-for="c in departures" :key="c.zip" :value="c.zip">
-                  {{ c.name }} ({{ c.zip }})
-                </option>
-              </select>
+              <input
+                id="est-departure"
+                type="text"
+                class="est-input"
+                placeholder="Paris, Lyon…"
+                v-model="departureQuery"
+                autocomplete="off"
+                spellcheck="false"
+                @input="onDepartureInput"
+                @focus="departureFocused = true; if (departureResults.length) showDepartureList = true"
+                @blur="onBlur('departure')"
+              />
+              <span v-if="departureLoading" class="est-spin" />
             </div>
+            <ul
+              v-if="showDepartureList && departureResults.length"
+              class="est-dropdown"
+              role="listbox"
+            >
+              <li
+                v-for="r in departureResults"
+                :key="r.label"
+                class="est-dd-item"
+                role="option"
+                @mousedown.prevent="selectDeparture(r)"
+              >
+                <AppIcon name="map-pin" class="est-dd-pin" />
+                <span>{{ r.label }}</span>
+              </li>
+            </ul>
           </div>
 
           <span class="est-arrow" aria-hidden="true"><AppIcon name="arrow-right" /></span>
 
-          <div class="est-field">
+          <!-- Arrivée -->
+          <div class="est-field est-field-city">
             <label class="est-label" for="est-arrival">Arrivée</label>
             <div class="est-control">
               <AppIcon name="map-pin" />
-              <select id="est-arrival" v-model="arrivalId" class="est-select">
-                <option v-for="d in destinations" :key="d.id" :value="d.id">
-                  {{ d.city }}, {{ d.country }}
-                </option>
-              </select>
+              <input
+                id="est-arrival"
+                type="text"
+                class="est-input"
+                placeholder="Dakar, Tunis…"
+                v-model="arrivalQuery"
+                autocomplete="off"
+                spellcheck="false"
+                @input="onArrivalInput"
+                @focus="arrivalFocused = true; if (arrivalResults.length) showArrivalList = true"
+                @blur="onBlur('arrival')"
+              />
+              <span v-if="arrivalLoading" class="est-spin" />
             </div>
+            <ul
+              v-if="showArrivalList && arrivalResults.length"
+              class="est-dropdown"
+              role="listbox"
+            >
+              <li
+                v-for="r in arrivalResults"
+                :key="r.label"
+                class="est-dd-item"
+                role="option"
+                @mousedown.prevent="selectArrival(r)"
+              >
+                <AppIcon name="map-pin" class="est-dd-pin" />
+                <span>{{ r.label }}</span>
+              </li>
+            </ul>
           </div>
 
+          <!-- Poids -->
           <div class="est-field est-field-weight">
             <label class="est-label" for="est-weight">Poids du colis</label>
             <div class="est-stepper">
@@ -68,7 +120,7 @@
         <!-- Résultat -->
         <div class="est-result">
           <p class="est-live">
-            <span class="est-dot"></span>
+            <!-- <span class="est-dot"></span> -->
             Des transporteurs font ce trajet actuellement&nbsp;!
           </p>
           <div class="est-price">
@@ -82,7 +134,7 @@
       </div>
 
       <p class="est-foot">
-        Estimation indicative pour {{ weight }}&nbsp;kg - le prix final est librement proposé par
+        Estimation indicative pour {{ weight }}&nbsp;kg · le prix final est librement proposé par
         les transporteurs qui font déjà votre trajet.
       </p>
     </div>
@@ -93,67 +145,180 @@
 import { ref, computed } from 'vue'
 import AppIcon from '@/components/AppIcon.vue'
 
+// Constants
 const MIN_KG = 1
 const MAX_KG = 30
-
-/* Villes de départ (métropole). Le prix « à partir de » dépend de la
-   destination et du poids, pas de la ville de départ. */
-interface Departure {
-  name: string
-  zip: string
-}
-const departures: [Departure, ...Departure[]] = [
-  { name: 'Paris', zip: '75000' },
-  { name: 'Lyon', zip: '69000' },
-  { name: 'Marseille', zip: '13000' },
-  { name: 'Toulouse', zip: '31000' },
-  { name: 'Lille', zip: '59000' },
-  { name: 'Bordeaux', zip: '33000' },
-  { name: 'Nantes', zip: '44000' },
-  { name: 'Strasbourg', zip: '67000' },
-  { name: 'Nice', zip: '06000' },
-  { name: 'Montpellier', zip: '34000' },
-  { name: 'Rennes', zip: '35000' },
-]
-
-/* Destinations + tarif Sendora au kg. Les valeurs `perKg` sont calées pour que
-   10 kg tombent exactement sur les prix affichés dans PriceMarket.vue - à garder
-   synchronisées si ces chiffres bougent. */
-interface Destination {
-  id: string
-  city: string
-  country: string
-  perKg: number
-}
-const destinations: [Destination, ...Destination[]] = [
-  { id: 'dakar', city: 'Dakar', country: 'Sénégal', perKg: 6.0 },
-  { id: 'abidjan', city: 'Abidjan', country: "Côte d'Ivoire", perKg: 5.8 },
-  { id: 'douala', city: 'Douala', country: 'Cameroun', perKg: 6.5 },
-  { id: 'casablanca', city: 'Casablanca', country: 'Maroc', perKg: 4.0 },
-  { id: 'alger', city: 'Alger', country: 'Algérie', perKg: 4.8 },
-  { id: 'mayotte', city: 'Mamoudzou', country: 'Mayotte', perKg: 6.0 },
-  { id: 'reunion', city: 'Saint-Denis', country: 'La Réunion', perKg: 5.8 },
-  { id: 'comores', city: 'Moroni', country: 'Comores', perKg: 6.5 },
-]
-
-/* Prix plancher : une livraison ne descend jamais sous ce montant. */
 const MIN_PRICE = 15
+const DEBOUNCE_MS = 380
+const PHOTON_URL = 'https://photon.komoot.io/api/'
 
-const departure = ref(departures[0].zip)
-const arrivalId = ref(destinations[0].id)
+// Types
+interface CityOption {
+  label: string // "Paris, France"
+  lat: number
+  lon: number
+}
+
+interface PhotonFeature {
+  geometry: { coordinates: [number, number] } // [lon, lat]
+  properties: { name: string; country?: string; state?: string }
+}
+
+// Weight
 const weight = ref(5)
-
 const setWeight = (v: number) => {
   weight.value = Math.min(MAX_KG, Math.max(MIN_KG, v))
 }
 
-const current = computed<Destination>(
-  () => destinations.find((d) => d.id === arrivalId.value) ?? destinations[0],
-)
+// Departure state
+const departureQuery = ref('')
+const departureCity = ref<CityOption | null>(null)
+const departureResults = ref<CityOption[]>([])
+const departureLoading = ref(false)
+const showDepartureList = ref(false)
+const departureFocused = ref(false)
+let deptTimer = 0
 
-const price = computed(() =>
-  Math.max(MIN_PRICE, Math.round(current.value.perKg * weight.value)),
-)
+// Arrival state
+const arrivalQuery = ref('')
+const arrivalCity = ref<CityOption | null>(null)
+const arrivalResults = ref<CityOption[]>([])
+const arrivalLoading = ref(false)
+const showArrivalList = ref(false)
+const arrivalFocused = ref(false)
+let arrvTimer = 0
+
+// Geocoding via Photon (OSM, gratuit, sans clé)
+async function searchCities(query: string): Promise<CityOption[]> {
+  if (query.trim().length < 2) return []
+  try {
+    const url = new URL(PHOTON_URL)
+    url.searchParams.set('q', query)
+    url.searchParams.set('limit', '6')
+    url.searchParams.set('lang', 'fr')
+    url.searchParams.set('layer', 'city')
+    const res = await fetch(url.toString())
+    if (!res.ok) return []
+    const data: { features: PhotonFeature[] } = await res.json()
+    const seen = new Set<string>()
+    return data.features
+      .map((f) => {
+        const name = f.properties.name
+        const country = f.properties.country ?? ''
+        const label = country ? `${name}, ${country}` : name
+        const [lon, lat] = f.geometry.coordinates
+        return { label, lat, lon }
+      })
+      .filter(({ label }) => {
+        if (!label || seen.has(label)) return false
+        seen.add(label)
+        return true
+      })
+  } catch {
+    return []
+  }
+}
+
+// Departure handlers
+function onDepartureInput() {
+  departureCity.value = null
+  clearTimeout(deptTimer)
+  if (departureQuery.value.trim().length < 2) {
+    departureResults.value = []
+    showDepartureList.value = false
+    departureLoading.value = false
+    return
+  }
+  departureLoading.value = true
+  deptTimer = window.setTimeout(async () => {
+    departureResults.value = await searchCities(departureQuery.value)
+    departureLoading.value = false
+    showDepartureList.value = true
+  }, DEBOUNCE_MS)
+}
+
+function selectDeparture(c: CityOption) {
+  departureCity.value = c
+  departureQuery.value = c.label
+  showDepartureList.value = false
+  departureResults.value = []
+}
+
+// Arrival handlers
+function onArrivalInput() {
+  arrivalCity.value = null
+  clearTimeout(arrvTimer)
+  if (arrivalQuery.value.trim().length < 2) {
+    arrivalResults.value = []
+    showArrivalList.value = false
+    arrivalLoading.value = false
+    return
+  }
+  arrivalLoading.value = true
+  arrvTimer = window.setTimeout(async () => {
+    arrivalResults.value = await searchCities(arrivalQuery.value)
+    arrivalLoading.value = false
+    showArrivalList.value = true
+  }, DEBOUNCE_MS)
+}
+
+function selectArrival(c: CityOption) {
+  arrivalCity.value = c
+  arrivalQuery.value = c.label
+  showArrivalList.value = false
+  arrivalResults.value = []
+}
+
+// Blur : ferme le dropdown en laissant le temps au click de s'enregistrer
+function onBlur(field: 'departure' | 'arrival') {
+  setTimeout(() => {
+    if (field === 'departure') {
+      departureFocused.value = false
+      showDepartureList.value = false
+    } else {
+      arrivalFocused.value = false
+      showArrivalList.value = false
+    }
+  }, 160)
+}
+
+// Haversine (distance en km entre deux coords)
+function haversine(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371
+  const rad = (d: number) => (d * Math.PI) / 180
+  const dLat = rad(lat2 - lat1)
+  const dLon = rad(lon2 - lon1)
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLon / 2) ** 2
+  return R * 2 * Math.asin(Math.sqrt(a))
+}
+
+// Tarif au kg selon la distance
+// Calé sur les vrais prix Sendora : Paris-Dakar ~4500km → 6€/kg
+function perKgFromDistance(km: number): number {
+  if (km < 200) return 1.5
+  if (km < 500) return 2.2
+  if (km < 1200) return 3.5
+  if (km < 3000) return 5.0
+  if (km < 6000) return 6.5
+  return 6.6
+}
+
+// Prix affiché
+const price = computed(() => {
+  if (departureCity.value && arrivalCity.value) {
+    const km = haversine(
+      departureCity.value.lat,
+      departureCity.value.lon,
+      arrivalCity.value.lat,
+      arrivalCity.value.lon,
+    )
+    return Math.max(MIN_PRICE, Math.round(perKgFromDistance(km) * weight.value))
+  }
+  // Fallback : Paris → Dakar ~4500 km pour donner une idée
+  return Math.max(MIN_PRICE, Math.round(perKgFromDistance(4500) * weight.value))
+})
 </script>
 
 <style scoped>
@@ -180,7 +345,7 @@ const price = computed(() =>
   margin: 0 auto;
 }
 
-/* ── Formulaire ─────────────────────────────────────────────── */
+/* Formulaire */
 .est-form {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -193,6 +358,12 @@ const price = computed(() =>
   gap: 0.45rem;
   min-width: 0;
 }
+
+/* Position relative pour que le dropdown se cale sur ce champ */
+.est-field-city {
+  position: relative;
+}
+
 .est-field-weight {
   grid-column: 1 / -1;
 }
@@ -224,7 +395,9 @@ const price = computed(() =>
   flex-shrink: 0;
   color: var(--verdant);
 }
-.est-select {
+
+/* Input texte (remplace l'ancien select) */
+.est-input {
   flex: 1;
   min-width: 0;
   border: 0;
@@ -233,13 +406,76 @@ const price = computed(() =>
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 700;
-  cursor: pointer;
-  appearance: none;
   outline: none;
 }
-.est-select option {
-  color: initial;
+.est-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 500;
 }
+
+/* Spinner de chargement */
+.est-spin {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border: 2px solid rgba(26, 102, 64, 0.2);
+  border-top-color: var(--verdant);
+  border-radius: 50%;
+  animation: est-spin 0.6s linear infinite;
+}
+@keyframes est-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dropdown suggestions */
+.est-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem;
+  background: var(--white, #fff);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-height: 280px;
+  overflow-y: auto;
+}
+.est-dd-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: calc(var(--radius) - 4px);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+.est-dd-item:hover {
+  background: rgba(26, 102, 64, 0.08);
+  color: var(--verdant);
+}
+.est-dd-pin {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+.est-dd-item:hover .est-dd-pin {
+  color: var(--verdant);
+}
+
 .est-arrow {
   display: flex;
   align-items: center;
@@ -301,7 +537,7 @@ const price = computed(() =>
   letter-spacing: -0.01em;
 }
 
-/* ── Résultat ───────────────────────────────────────────────── */
+/* Résultat */
 .est-result {
   display: flex;
   flex-direction: column;
@@ -399,7 +635,8 @@ const price = computed(() =>
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .est-dot {
+  .est-dot,
+  .est-spin {
     animation: none;
   }
 }

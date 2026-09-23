@@ -68,7 +68,7 @@
   --font-body:    'Inter', system-ui, sans-serif;
 }
 
-/* ─── Dark theme ──────────────────────────────────────────────
+/* Dark theme
    "ink" flips to a light foreground; "white"/"cream" become dark
    surfaces. Most components read the semantic tokens below, so
    they adapt automatically. */

@@ -256,7 +256,7 @@ const shotStyle = (screen: PhoneScreen) => ({
   z-index: 1;
 }
 
-/* ── Disposition « row » : 3 téléphones côte à côte, écrans entièrement visibles ── */
+/* Disposition « row » : 3 téléphones côte à côte, écrans entièrement visibles */
 .phones-fan.is-row {
   --phone-w: clamp(128px, 14.5vw, 196px);
   display: flex;
@@ -301,7 +301,7 @@ const shotStyle = (screen: PhoneScreen) => ({
   }
 }
 
-/* ── Device frame ─────────────────────────────────────────────── */
+/* Device frame */
 .phone-frame {
   /* Bezel colour, driven by CSS vars. Default = dark titanium, kept as-is for
      dark mode; light mode overrides these per position (red/white/green). */
@@ -402,7 +402,7 @@ const shotStyle = (screen: PhoneScreen) => ({
   background-image: var(--shot-light);
 }
 
-/* ── Branded placeholder screen ───────────────────────────────── */
+/* Branded placeholder screen */
 .ps {
   --ps-text: #eaf2ed;
   --ps-muted: #85a396;
