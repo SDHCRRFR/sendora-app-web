@@ -75,11 +75,47 @@
       </div>
     </section>
 
-    <section class="stats-strip">
-      <div class="container stats-row">
-        <div class="stat-item" v-for="s in stats" :key="s.label">
-          <span class="stat-val">{{ s.value }}</span>
-          <span class="stat-lbl">{{ s.label }}</span>
+        <section class="earn-section">
+      <div class="container">
+        <div class="earn-banner" data-aos="fade-up" data-aos-duration="1000">
+          <h2 class="earn-title">Rentabilisez vos trajets +250€ ou plus</h2>
+          <p class="earn-text">
+            Vous voyagez déjà ? Faites travailler la place libre de votre valise (et pas l'inverse).
+            Transportez des colis sur votre route et soyez payé dès la livraison.
+          </p>
+          <a href="#download" class="earn-btn" @click.prevent="openApp">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h16M14 6l6 6-6 6" />
+            </svg>
+            Publier vos trajets
+          </a>
+        </div>
+
+        <div class="earn-cols">
+          <div class="earn-col">
+            <div class="earn-icon"><AppIcon name="map-pin" /></div>
+            <h3>Où et quand vous voulez</h3>
+            <p>
+              Publiez votre trajet, en France ou vers la diaspora, et choisissez uniquement les
+              colis qui vous conviennent. Aucun détour imposé.
+            </p>
+          </div>
+          <div class="earn-col">
+            <div class="earn-icon"><AppIcon name="credit-card" /></div>
+            <h3>Vos trajets enfin rentables</h3>
+            <p>
+              Acceptez les missions qui vous plaisent et recevez votre paiement directement via
+              Stripe Connect, sous 2 à 7 jours ouvrés.
+            </p>
+          </div>
+          <div class="earn-col">
+            <div class="earn-icon"><AppIcon name="shield-check" /></div>
+            <h3>Voyagez en toute confiance</h3>
+            <p>
+              Identités vérifiées par KYC, paiement sous séquestre Stripe, notes et avis : vous
+              savez toujours avec qui vous échangez avant de vous engager.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -119,64 +155,6 @@
     </section>
 
     <PriceMarket />
-
-    <!-- <section class="roles-section">
-      <div class="container roles-grid">
-        <div class="role-card role-sender" data-aos="zoom-out-right" data-aos-duration="1600">
-          <div class="role-eyebrow">Pour les expéditeurs</div>
-          <h2>Envoyez malin,<br /><em>payez moins.</em></h2>
-          <p>
-            Publiez votre colis en 2 minutes. Des transporteurs particuliers déjà sur votre route
-            répondent avec leurs tarifs. Vous choisissez, vous payez en sécurité, vous suivez en
-            direct.
-          </p>
-          <ul class="role-checklist">
-            <li>Prix jusqu'à 60 % moins chers qu'un transporteur classique</li>
-            <li>Transporteurs vérifiés par vérification d'identité complète</li>
-            <li>Paiement sous séquestre Stripe - libéré à la livraison</li>
-            <li>Chat direct et suivi en temps réel</li>
-            <li>Aucun frais d'inscription, aucun abonnement</li>
-          </ul>
-          <a href="#download" class="role-action role-action-dark">Publier un colis →</a>
-        </div>
-
-        <div class="role-card role-transporter" data-aos="fade-up" data-aos-duration="1600">
-          <div class="role-eyebrow">Pour les transporteurs</div>
-          <h2>Vos trajets vous<br /><em>rapportent enfin.</em></h2>
-          <p>
-            Vous partez de Paris à Moroni demain ? Des colis vous attendent déjà sur votre route.
-            Acceptez les missions qui vous conviennent et recevez votre paiement directement.
-          </p>
-          <ul class="role-checklist">
-            <li>Revenus complémentaires sans contrainte de planning</li>
-            <li>Missions sur votre trajet habituel - aucun détour imposé</li>
-            <li>Virement rapide via Stripe Connect (2–7 jours ouvrés)</li>
-            <li>Application intuitive, pas de paperasse</li>
-            <li>Communauté vérifiée et assurance en cours d'étude</li>
-          </ul>
-          <a href="#download" class="role-action role-action-light">Devenir transporteur →</a>
-        </div>
-
-        <div class="role-card role-pro" data-aos="zoom-out-left" data-aos-duration="1600">
-          <div class="role-eyebrow">Pour les professionnels</div>
-          <h2>Expédiez en volume,<br /><em>sans la logistique.</em></h2>
-          <p>
-            E-commerçants, TPE et associations : confiez vos envois récurrents à notre réseau de
-            transporteurs vérifiés. Un tableau de bord, une facture, un interlocuteur dédié.
-          </p>
-          <ul class="role-checklist">
-            <li>Tarifs dégressifs selon votre volume d'envois</li>
-            <li>Facturation centralisée et compatible TVA</li>
-            <li>Tableau de bord multi-colis et multi-utilisateurs</li>
-            <li>Intégration API &amp; e-commerce (sur demande)</li>
-            <li>Account manager dédié et support prioritaire</li>
-          </ul>
-          <RouterLink to="/contact" class="role-action role-action-pro"
-            >Bientôt disponible</RouterLink
-          >
-        </div>
-      </div>
-    </section> -->
 
     <PriceEstimator />
 
@@ -408,13 +386,47 @@
 </template>
 
 <script lang="ts" setup>
-import AppIcon from '@/components/AppIcon.vue'
-import BrandLogo from '@/components/BrandLogo.vue'
-import PhoneShowcase, { type PhoneScreen } from '@/components/PhoneShowcase.vue'
-import PriceMarket from '@/components/PriceMarket.vue'
-import PriceEstimator from '@/components/PriceEstimator.vue'
-import { useSeo } from '@/composables/useSeo'
-import { faqPage, howTo, mobileApplication, service } from '@/seo/schema'
+import AppIcon from '../components/AppIcon.vue'
+import BrandLogo from '../components/BrandLogo.vue'
+import PhoneShowcase, { type PhoneScreen } from '../components/PhoneShowcase.vue'
+import PriceMarket from '../components/PriceMarket.vue'
+import PriceEstimator from '../components/PriceEstimator.vue'
+import { useSeo } from '../composables/useSeo'
+import { faqPage, howTo, mobileApplication, service } from '../seo/schema'
+
+const APP_STORE_URL = 'https://apps.apple.com/fr/app/sendora/id6773115334'
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.sendoraapp'
+const APP_SCHEME = 'sendora' // à remplacer par le "scheme" de ton app.json Expo
+
+function openApp() {
+  const ua = navigator.userAgent
+  const isAndroid = /android/i.test(ua)
+  const isIOS =
+    /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+  if (isAndroid) {
+    // Chrome ouvre l'app si installée, sinon redirige vers le Play Store
+    window.location.href = `intent://open#Intent;scheme=${APP_SCHEME};package=com.sendoraapp;S.browser_fallback_url=${encodeURIComponent(PLAY_STORE_URL)};end`
+    return
+  }
+
+  if (isIOS) {
+    let left = false
+    const onHide = () => {
+      if (document.hidden) left = true
+    }
+    document.addEventListener('visibilitychange', onHide)
+    window.location.href = `${APP_SCHEME}://`
+    setTimeout(() => {
+      document.removeEventListener('visibilitychange', onHide)
+      if (!left) window.location.href = APP_STORE_URL
+    }, 1500)
+    return
+  }
+
+  // Desktop : on scroll vers les boutons de téléchargement
+  document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' })
+}
 
 /* Éventail du hero [centre, gauche, droite].
    Pour afficher de vraies captures : déposez les fichiers dans /public/screens/
@@ -589,13 +601,6 @@ const partners = [
 // Repeat the set, then duplicate it so the -50% scroll loops seamlessly.
 const partnerHalf = Array.from({ length: 6 }, () => partners).flat()
 const partnerMarquee = [...partnerHalf, ...partnerHalf]
-
-const stats = [
-  { value: '0 €', label: "Frais d'inscription" },
-  { value: '−60 %', label: 'vs. livraison traditionnelle' },
-  { value: '50 %', label: 'Transporteurs vérifiés KYC' },
-  { value: '24 h', label: 'Délai moyen de réponse' },
-]
 
 const steps = [
   {
@@ -908,34 +913,93 @@ const securityStack = [
   }
 }
 
-.stats-strip {
-  background: var(--band);
-  padding: 2.5rem 0;
-  overflow: hidden;
+/* Earn section */
+.earn-section {
+  padding: 2rem 0 4rem;
 }
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+.earn-banner {
+  background: var(--brand-700);
+  border-radius: 28px;
+  padding: 1.3rem 1rem 1.3rem;
   text-align: center;
 }
-.stat-item {
-  padding: 0.5rem 1rem;
+.earn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand-700);
+  font-weight: 800;
+  font-size: 0.9rem;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 }
-.stat-val {
-  display: block;
+.earn-title {
   font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 0.35rem;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--band-ink);
+  margin-bottom: 1.25rem;
 }
-.stat-lbl {
-  font-size: 0.8rem;
+.earn-text {
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
-  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  color: var(--band-ink);
+}
+
+.earn-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.earn-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding: 0 0.25rem;
+}
+.earn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.earn-icon .app-icon {
+  width: 26px;
+  height: 26px;
+}
+.earn-col h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.earn-col p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+@media (max-width: 860px) {
+  .earn-cols {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .earn-banner {
+    padding: 2.25rem 1.25rem;
+  }
 }
 
 .section-head {
