@@ -20,10 +20,85 @@ export interface Article {
   readingTime: string
   /** Short excerpt for the blog index. */
   excerpt: string
+  /** Contact subject to preselect for help articles. */
+  supportSubject?: string
   sections: ContentSection[]
 }
 
 export const articles: Article[] = [
+  {
+    slug: 'validation-colis',
+    title: 'Validation de colis : comment obtenir et utiliser le code ?',
+    description:
+      'Vous devez valider une livraison sur Sendora ? Découvrez où l’expéditeur trouve le code, quand vous le demander et comment contacter le support si vous êtes bloqué.',
+    date: '2026-11-05',
+    tag: 'Aide',
+    readingTime: '4 min',
+    excerpt:
+      'Colis livré, mais validation bloquée ? Retrouvez les étapes pour obtenir le code auprès de l’expéditeur, confirmer la livraison et demander de l’aide si nécessaire.',
+    supportSubject: 'validation-colis',
+    sections: [
+      {
+        paragraphs: [
+          'Vous avez une livraison à effectuer ou vous arrivez ici depuis la page de validation de l’application ? Pour finaliser la livraison, vous avez besoin du code associé au colis. Ce code est visible du côté de l’expéditeur et il vous le communique une fois le colis livré au destinataire. Voici comment vous organiser et quoi faire si une étape vous bloque.',
+        ],
+      },
+      {
+        heading: '1. À la récupération du colis : le code apparaît chez l’expéditeur',
+        paragraphs: [
+          'À partir du moment où vous récupérez le colis, un code de validation s’affiche dans l’application de l’expéditeur, sur la fiche du colis concerné. C’est donc à l’expéditeur de consulter ce code depuis son compte.',
+          'Dès la prise en charge, mettez-vous d’accord avec l’expéditeur sur la façon de le joindre à l’arrivée. La messagerie de l’application permet de garder une trace de vos échanges. Vous pourrez ainsi lui demander le code au bon moment, sans rester bloqué après la remise du colis.',
+        ],
+      },
+      {
+        heading: '2. Livrez le colis avant de demander le code',
+        paragraphs: [
+          'Effectuez la livraison et remettez le colis au destinataire convenu. Le code sert à confirmer une livraison effectuée : il ne doit pas être utilisé pour valider un colis encore en cours de transport.',
+          'Côté expéditeur, conservez le code jusqu’à ce que la remise au destinataire soit confirmée. Même s’il est visible dès la récupération, communiquez-le au transporteur uniquement une fois le colis livré.',
+        ],
+      },
+      {
+        heading: '3. Contactez l’expéditeur pour recevoir le code',
+        paragraphs: [
+          'Une fois le colis remis, prévenez l’expéditeur et demandez-lui le code affiché sur la fiche de ce colis dans son application Sendora. Si vous transportez plusieurs colis, précisez bien lequel vient d’être livré pour éviter toute confusion.',
+          'L’expéditeur et le destinataire peuvent être deux personnes différentes. Le code est affiché chez l’expéditeur : si le destinataire ne l’a pas, voyez directement avec l’expéditeur pour le recevoir après confirmation de la réception.',
+        ],
+      },
+      {
+        heading: '4. Saisissez le code sur la page de validation',
+        paragraphs: [
+          'Retournez dans l’application Sendora, ouvrez la page de validation du colis concerné et saisissez le code transmis par l’expéditeur. Vérifiez que vous êtes sur le bon colis et recopiez le code exactement tel qu’il vous a été communiqué.',
+          'Lancez la validation, puis vérifiez le résultat affiché dans l’application. Si une erreur apparaît ou si la livraison reste en attente de validation, suivez les conseils ci-dessous et contactez le support si le blocage persiste.',
+        ],
+      },
+      {
+        heading: 'Code introuvable, refusé ou expéditeur injoignable : que faire ?',
+        list: [
+          'L’expéditeur ne trouve pas le code : demandez-lui de vérifier qu’il utilise le compte ayant créé l’envoi et qu’il consulte bien la fiche du colis récupéré.',
+          'Le code est refusé : vérifiez ensemble le colis concerné et le code affiché chez l’expéditeur. Ne saisissez pas de codes au hasard.',
+          'L’expéditeur ne répond pas : laissez-lui un message précisant que la livraison est effectuée et que vous attendez le code. Si vous restez bloqué, contactez le support depuis la page Contact.',
+          'La page ne se charge pas ou une erreur technique apparaît : vérifiez votre connexion, rouvrez l’application et consultez à nouveau le colis. Si le problème continue, notez le message d’erreur pour le transmettre au support.',
+          'Le colis n’a pas été remis ou la réception est contestée : ne validez pas la livraison. Expliquez la situation au support depuis la page Contact.',
+        ],
+      },
+      {
+        heading: 'Toujours bloqué ? Contactez le support Sendora',
+        paragraphs: [
+          'Rendez-vous sur la page Contact et choisissez le sujet « Validation colis ». Le bouton ci-dessous ouvre directement le formulaire avec ce sujet présélectionné. Décrivez ce qui vous empêche de terminer la validation pour que notre équipe puisse comprendre la situation.',
+        ],
+        list: [
+          'La référence du colis, si vous en disposez, et votre rôle : transporteur, expéditeur ou destinataire.',
+          'La date de la livraison et si le colis a bien été remis au destinataire.',
+          'L’étape qui bloque, le message d’erreur exact et les vérifications déjà effectuées.',
+        ],
+      },
+      {
+        paragraphs: [
+          'Ne joignez pas votre code de validation ni votre mot de passe au message. Le code doit être transmis au transporteur concerné uniquement après la livraison.',
+        ],
+      },
+    ],
+  },
   {
     slug: 'envoyer-colis-en-france-regles',
     title: 'Envoyer un colis en France : les règles à connaître',

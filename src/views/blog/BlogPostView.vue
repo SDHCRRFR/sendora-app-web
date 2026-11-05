@@ -27,7 +27,21 @@
         </div>
       </div>
 
-      <div class="post-cta">
+      <div v-if="article.supportSubject" class="post-cta">
+        <h3>Validation bloquée ?</h3>
+        <p>
+          Contactez notre support depuis la page Contact. Le sujet « Validation colis » sera
+          présélectionné dans le formulaire.
+        </p>
+        <RouterLink
+          :to="{ path: '/contact', query: { subject: article.supportSubject } }"
+          class="btn btn-primary"
+        >
+          Contacter le support →
+        </RouterLink>
+      </div>
+
+      <div v-else class="post-cta">
         <h3>Prêt à envoyer votre colis ?</h3>
         <a
           href="https://apps.apple.com/fr/app/sendora/id6773115334"
@@ -188,6 +202,11 @@ if (article.value) {
   font-weight: 700;
   font-size: 1.4rem;
   color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.post-cta p {
+  color: var(--text-secondary);
+  line-height: 1.7;
   margin-bottom: 1.25rem;
 }
 .btn {

@@ -4,11 +4,6 @@
       <div class="hero-noise"></div>
       <div class="container hero-inner">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-          <!-- <div class="hero-eyebrow">
-            <span class="pulse-dot"></span>
-            Application en bêta ouverte · iOS &amp; Android
-          </div> -->
-
           <h1 class="hero-headline">
             Vos colis voyagent<br />
             <em class="hero-italic">avec vos voisins.</em>

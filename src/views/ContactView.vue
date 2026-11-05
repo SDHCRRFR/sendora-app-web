@@ -7,7 +7,7 @@
           <h1 class="contact-title">Une question ?<br /><em>On vous répond.</em></h1>
           <p class="contact-lead">
             L'équipe Sendora est disponible pour toute question liée à l'application, à votre
-            compte, aux paiements ou à la confidentialité de vos données.
+            compte, à la validation d’un colis, aux paiements ou à la confidentialité de vos données.
           </p>
 
           <div class="contact-emails">
@@ -71,12 +71,22 @@
                     type="button"
                     class="subject-tab"
                     :class="{ active: form.subject === s.value }"
+                    :aria-pressed="form.subject === s.value"
                     @click="form.subject = s.value"
                   >
                     <AppIcon :name="s.icon" />
                     {{ s.label }}
                   </button>
                 </div>
+              </div>
+
+              <div v-if="form.subject === 'validation-colis'" class="validation-help">
+                <p>
+                  Indiquez la référence du colis si vous l’avez, votre rôle, la date de livraison et
+                  l’étape qui bloque ou le message d’erreur. Ne partagez ni le code de validation ni
+                  votre mot de passe.
+                </p>
+                <RouterLink to="/blog/validation-colis">Consulter le guide de validation →</RouterLink>
               </div>
 
               <div class="field-row">
@@ -159,14 +169,15 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import AppIcon from '@/components/AppIcon.vue'
 import { useSeo } from '@/composables/useSeo'
 
 useSeo({
-  title: 'Contact : support, paiement et RGPD | Sendora',
+  title: 'Contact : support, validation colis et paiement | Sendora',
   description:
-    "Contactez l'équipe Sendora pour toute question sur l'application, votre compte, les paiements ou la confidentialité de vos données. Réponse rapide garantie.",
+    "Contactez l’équipe Sendora pour une validation de colis bloquée ou toute question sur l’application, votre compte, les paiements ou la confidentialité de vos données.",
   path: '/contact',
 })
 
@@ -174,12 +185,15 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqeowyqo'
 
 const subjects = [
   { value: 'support', icon: 'life-buoy', label: 'Support' },
+  { value: 'validation-colis', icon: 'package', label: 'Validation colis' },
   { value: 'payment', icon: 'credit-card', label: 'Paiement' },
   { value: 'account', icon: 'user', label: 'Mon compte' },
   { value: 'privacy', icon: 'lock', label: 'Confidentialité' },
   { value: 'bug', icon: 'bug', label: 'Bug' },
   { value: 'partnership', icon: 'handshake', label: 'Partenariat' },
 ]
+
+const route = useRoute()
 
 const form = reactive({
   subject: 'support',
@@ -188,6 +202,14 @@ const form = reactive({
   message: '',
   company: '',
 })
+
+watch(
+  () => route.query.subject,
+  (subject) => {
+    form.subject = subjects.find((s) => s.value === subject)?.value ?? 'support'
+  },
+  { immediate: true },
+)
 
 const errors = reactive({ name: '', email: '', message: '' })
 const submitting = ref(false)
@@ -499,6 +521,23 @@ function reset() {
   width: 17px;
   height: 17px;
   flex-shrink: 0;
+}
+
+.validation-help {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--cream-deep);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.validation-help p {
+  margin-bottom: 0.5rem;
+}
+.validation-help a {
+  color: var(--verdant);
+  font-weight: 700;
 }
 
 .form-actions {

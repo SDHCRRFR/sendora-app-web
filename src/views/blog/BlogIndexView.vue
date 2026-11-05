@@ -11,7 +11,7 @@
         <h1>Le blog Sendora</h1>
         <p class="blog-lead">
           Guides pratiques pour envoyer vos colis malin : en France, vers la diaspora, douane, prix,
-          et conseils pour les transporteurs.
+          validation des livraisons et conseils pour les transporteurs.
         </p>
       </div>
     </section>
@@ -56,7 +56,7 @@ function formatDate(iso: string): string {
 useSeo({
   title: 'Blog Sendora : guides envoi de colis, diaspora et transporteurs',
   description:
-    'Conseils et guides pour envoyer vos colis : frais cachés vers la diaspora, douane, prix, devenir transporteur. Le blog de Sendora, le transport collaboratif de colis.',
+    'Conseils et guides pour vos colis : validation de livraison, code expéditeur, douane, prix et transporteurs. Retrouvez l’aide Sendora si votre validation est bloquée.',
   path: '/blog',
   keywords:
     'blog envoi colis, guide envoyer colis diaspora, conseils colis pas cher, douane colis, devenir transporteur',
