@@ -57,12 +57,13 @@
 
           <nav class="nav-links desktop-nav" aria-label="Navigation principale">
             <RouterLink to="/" class="nav-link">Accueil</RouterLink>
+            <RouterLink to="/devenir-transporteur" class="nav-link">Transporter</RouterLink>
+            <RouterLink to="/destinations" class="nav-link">Destinations</RouterLink>
+            <RouterLink to="/securite-et-paiement" class="nav-link">Sécurité</RouterLink>
+            <RouterLink to="/aide" class="nav-link">Aide</RouterLink>
             <RouterLink to="/blog" class="nav-link">Blog</RouterLink>
             <RouterLink to="/contact" class="nav-link">Contact</RouterLink>
-            <RouterLink to="/terms" class="nav-link">CGU</RouterLink>
-            <RouterLink to="/privacy" class="nav-link">Confidentialité</RouterLink>
-            <RouterLink to="/cgu" class="nav-link">Mentions</RouterLink>
-            <a href="#download" class="nav-cta">Télécharger →</a>
+            <RouterLink :to="{ path: '/', hash: '#download' }" class="nav-cta">Télécharger →</RouterLink>
           </nav>
         </div>
       </div>
@@ -73,6 +74,10 @@
       <transition name="mobile-panel-slide">
         <nav v-if="menuOpen" class="mobile-menu" aria-label="Navigation mobile">
           <RouterLink to="/" class="mobile-link" @click="closeMenu">Accueil</RouterLink>
+          <RouterLink to="/devenir-transporteur" class="mobile-link" @click="closeMenu">Transporter</RouterLink>
+          <RouterLink to="/destinations" class="mobile-link" @click="closeMenu">Destinations</RouterLink>
+          <RouterLink to="/securite-et-paiement" class="mobile-link" @click="closeMenu">Sécurité et paiement</RouterLink>
+          <RouterLink to="/aide" class="mobile-link" @click="closeMenu">Centre d’aide</RouterLink>
           <RouterLink to="/blog" class="mobile-link" @click="closeMenu">Blog</RouterLink>
           <RouterLink to="/contact" class="mobile-link" @click="closeMenu">Contact</RouterLink>
           <RouterLink to="/terms" class="mobile-link" @click="closeMenu">CGU</RouterLink>
@@ -82,16 +87,16 @@
       </transition>
     </header>
 
-    <router-view v-slot="{ Component }">
-      <transition name="page" mode="out-in">
-        <component :is="Component" />
-      </transition>
-    </router-view>
+    <router-view />
 
     <footer class="site-footer">
       <div class="container site-footer-inner">
-        <nav class="site-footer-seo" aria-label="Envois populaires">
+        <nav class="site-footer-seo" aria-label="Destinations et ressources">
+          <RouterLink to="/destinations">Toutes les destinations</RouterLink>
+          <RouterLink to="/aide">Centre d’aide</RouterLink>
+          <RouterLink to="/securite-et-paiement">Sécurité et paiement</RouterLink>
           <RouterLink to="/transport-colis-entre-particuliers">Transport entre particuliers</RouterLink>
+          <RouterLink to="/devenir-transporteur">Devenir transporteur</RouterLink>
           <RouterLink to="/envoyer-colis-pas-cher">Colis pas cher</RouterLink>
           <RouterLink to="/envoyer-colis-senegal">Colis au Sénégal</RouterLink>
           <RouterLink to="/envoyer-colis-maroc">Colis au Maroc</RouterLink>
@@ -187,5 +192,16 @@ onBeforeUnmount(() => {
 }
 .site-footer-seo a:hover {
   color: var(--verdant);
+}
+
+/* Keep the full navigation on one line; use the existing menu on narrower screens. */
+.mobile-menu {
+  max-height: calc(100dvh - 96px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+@media (max-width: 1200px) {
+  .desktop-nav { display: none; }
+  .burger { display: inline-flex; }
 }
 </style>

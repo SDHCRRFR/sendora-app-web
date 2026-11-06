@@ -59,6 +59,7 @@
             <div class="form-header">
               <h2>Nous écrire</h2>
               <p>Remplissez le formulaire, on vous répond rapidement.</p>
+              <RouterLink to="/aide" class="contact-help-link">Consulter le centre d’aide →</RouterLink>
             </div>
 
             <div class="form-body">
@@ -294,6 +295,13 @@ function reset() {
 </script>
 
 <style scoped>
+.contact-help-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--verdant);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
 .contact-page {
   padding: 2.5rem 0 5rem;
 }

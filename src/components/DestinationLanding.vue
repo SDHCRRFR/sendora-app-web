@@ -5,6 +5,8 @@
         <nav class="crumbs" aria-label="Fil d'Ariane">
           <RouterLink to="/">Accueil</RouterLink>
           <span aria-hidden="true">›</span>
+          <RouterLink to="/destinations">Destinations</RouterLink>
+          <span aria-hidden="true">›</span>
           <span>Envoyer un colis {{ dest.prep }} {{ dest.country }}</span>
         </nav>
 
@@ -184,6 +186,8 @@
             Envoyer des médicaments →
           </RouterLink>
           <RouterLink to="/blog" class="link-card">Guides & conseils →</RouterLink>
+          <RouterLink to="/destinations" class="link-card">Toutes les destinations →</RouterLink>
+          <RouterLink to="/aide" class="link-card">Centre d’aide →</RouterLink>
         </div>
       </div>
     </section>
@@ -226,6 +230,7 @@ useSeo({
   jsonLd: [
     breadcrumb([
       { name: 'Accueil', path: '/' },
+      { name: 'Destinations', path: '/destinations' },
       { name: `Envoyer un colis ${props.dest.prep} ${props.dest.country}`, path: props.dest.path },
     ]),
     service({

@@ -4,22 +4,31 @@
       <div class="hero-noise"></div>
       <div class="container hero-inner">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-          <h1 class="hero-headline">
-            Vos colis voyagent<br />
-            <em class="hero-italic">avec vos voisins.</em>
-          </h1>
-
-          <p class="hero-body">
-            Sendora connecte les expéditeurs avec des particuliers qui font déjà le trajet. Plus
-            rapide, écologique et moins cher. Le Blablacar du colis.
-          </p>
-
-          <div class="hero-pills">
-            <span class="pill">✓ Vérification KYC</span>
-            <span class="pill">✓ Paiement Stripe escrow</span>
-            <span class="pill">✓ Suivi en direct</span>
+          <div class="hero-audience" role="group" aria-label="Votre utilisation de Sendora">
+            <button
+              v-for="option in audienceOptions"
+              :key="option.value"
+              type="button"
+              :aria-pressed="audience === option.value"
+              @click="audience = option.value"
+            >
+              <AppIcon :name="option.icon" />
+              {{ option.label }}
+            </button>
           </div>
 
+          <h1 class="hero-headline">
+            {{ heroCopy.title }}<br />
+            <em class="hero-italic">{{ heroCopy.emphasis }}</em>
+          </h1>
+
+          <p class="hero-body">{{ heroCopy.body }}</p>
+
+          <div class="hero-pills">
+            <span v-for="pill in heroCopy.pills" :key="pill" class="pill">✓ {{ pill }}</span>
+          </div>
+
+          <p class="hero-download-label">{{ heroCopy.downloadLabel }}</p>
           <div class="hero-cta" id="download">
             <a
               href="https://apps.apple.com/fr/app/sendora/id6773115334"
@@ -54,12 +63,18 @@
           </div>
 
           <p class="hero-fine">Gratuit · Aucun abonnement · Données hébergées en Europe</p>
+          <RouterLink :to="heroCopy.path" class="hero-explore">
+            {{ heroCopy.linkLabel }} <AppIcon name="arrow-right" />
+          </RouterLink>
         </div>
 
         <div data-aos="zoom-in" data-aos-duration="1600" class="hero-visual" aria-hidden="true">
-          <PhoneShowcase :screens="appScreens" />
+          <PhoneShowcase :screens="heroScreens" />
 
-          <div class="rc-chip rc-chip-save"><strong>−60 %</strong> vs transporteur classique</div>
+          <div class="rc-chip rc-chip-save">
+            <strong>{{ audience === 'sender' ? '−60 %' : 'Votre trajet' }}</strong>
+            {{ audience === 'sender' ? 'vs transporteur classique' : 'vos colis, votre choix' }}
+          </div>
           <div class="rc-chip rc-chip-eco"><strong>0 km</strong> en plus · trajet déjà prévu</div>
         </div>
       </div>
@@ -70,7 +85,7 @@
       </div>
     </section>
 
-        <section class="earn-section">
+    <section class="earn-section">
       <div class="container">
         <div class="earn-banner" data-aos="fade-up" data-aos-duration="1000">
           <h2 class="earn-title">Rentabilisez vos trajets +250€ ou plus</h2>
@@ -84,6 +99,9 @@
             </svg>
             Publier vos trajets
           </a>
+          <RouterLink to="/devenir-transporteur" class="earn-more">
+            Découvrir le parcours transporteur →
+          </RouterLink>
         </div>
 
         <div class="earn-cols">
@@ -122,8 +140,9 @@
             <span class="section-tag">Comment ça marche</span>
             <h2 class="section-title">Trois étapes.<br /><em>C'est tout.</em></h2>
             <p class="section-sub">
-              De la publication à la livraison, l'expérience est pensée pour être aussi fluide que
-              possible.
+              {{ audience === 'sender'
+                ? 'De la publication à la livraison, l’expérience est pensée pour être aussi fluide que possible.'
+                : 'De votre premier trajet à la validation du colis, vous gardez la main à chaque étape.' }}
             </p>
           </div>
 
@@ -144,14 +163,14 @@
         </div>
 
         <div class="how-visual" data-aos="zoom-in" data-aos-duration="1400" aria-hidden="true">
-          <PhoneShowcase :screens="stepScreens" layout="row" />
+          <PhoneShowcase :screens="audience === 'sender' ? stepScreens : appScreens" layout="row" />
         </div>
       </div>
     </section>
 
-    <PriceMarket />
+    <PriceMarket v-show="audience === 'sender'" />
 
-    <PriceEstimator />
+    <PriceEstimator v-show="audience === 'sender'" />
 
     <section class="features-section">
       <div class="container">
@@ -296,6 +315,10 @@
             <p>{{ f.a }}</p>
           </details>
         </div>
+        <div class="home-help-links">
+          <RouterLink to="/aide">Consulter le centre d’aide →</RouterLink>
+          <RouterLink to="/securite-et-paiement">Comprendre la sécurité et le paiement →</RouterLink>
+        </div>
       </div>
     </section>
 
@@ -381,6 +404,7 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, ref } from 'vue'
 import AppIcon from '../components/AppIcon.vue'
 import BrandLogo from '../components/BrandLogo.vue'
 import PhoneShowcase, { type PhoneScreen } from '../components/PhoneShowcase.vue'
@@ -388,6 +412,30 @@ import PriceMarket from '../components/PriceMarket.vue'
 import PriceEstimator from '../components/PriceEstimator.vue'
 import { useSeo } from '../composables/useSeo'
 import { faqPage, howTo, mobileApplication, service } from '../seo/schema'
+
+type Audience = 'sender' | 'carrier'
+const audience = ref<Audience>('sender')
+const audienceOptions: { value: Audience; label: string; icon: string }[] = [
+  { value: 'sender', label: 'J’envoie un colis', icon: 'package' },
+  { value: 'carrier', label: 'Je transporte', icon: 'map-pin' },
+]
+const heroCopy = computed(() => audience.value === 'sender' ? {
+  title: 'Vos colis voyagent',
+  emphasis: 'avec vos voisins.',
+  body: 'Sendora connecte les expéditeurs avec des particuliers qui font déjà le trajet. Plus rapide, écologique et moins cher. Le Blablacar du colis.',
+  pills: ['Vérification KYC', 'Paiement Stripe escrow', 'Suivi en direct'],
+  downloadLabel: 'Votre prochain envoi commence dans l’app.',
+  path: '/transport-colis-entre-particuliers',
+  linkLabel: 'Découvrir comment envoyer un colis',
+} : {
+  title: 'Votre trajet.',
+  emphasis: 'Un colis en plus.',
+  body: 'Vous voyagez déjà ? Emportez un colis dans votre direction et partagez les frais de votre trajet. Choisissez les envois qui vous conviennent, en France ou vers la diaspora.',
+  pills: ['Vous choisissez vos colis', 'Identités vérifiées', 'Paiement après livraison'],
+  downloadLabel: 'Publiez votre premier trajet dans l’app.',
+  path: '/devenir-transporteur',
+  linkLabel: 'Découvrir le parcours transporteur',
+})
 
 const APP_STORE_URL = 'https://apps.apple.com/fr/app/sendora/id6773115334'
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.sendoraapp'
@@ -430,7 +478,7 @@ function openApp() {
    Ex. : { image: '/screens/accueil.png', alt: 'Écran d’accueil Sendora' }
    `imageLight` = la même capture en version claire (fichier « -w »), servie
    automatiquement quand le site est en thème light. */
-const appScreens: PhoneScreen[] = [
+const appScreens: [PhoneScreen, PhoneScreen, PhoneScreen] = [
   {
     variant: 'track',
     image: '/screens/hero-centre.png',
@@ -450,6 +498,10 @@ const appScreens: PhoneScreen[] = [
     alt: 'Écran profil Sendora',
   },
 ]
+
+const heroScreens = computed(() => audience.value === 'sender'
+  ? appScreens
+  : [appScreens[0], appScreens[2], appScreens[1]])
 
 // « Comment ça marche » un écran d'étape par téléphone. Ordre [centre, gauche,
 // droite] : gauche = étape 1, centre = étape 2, droite = étape 3 (lecture 1→2→3).
@@ -597,7 +649,7 @@ const partners = [
 const partnerHalf = Array.from({ length: 6 }, () => partners).flat()
 const partnerMarquee = [...partnerHalf, ...partnerHalf]
 
-const steps = [
+const senderSteps = [
   {
     icon: '',
     title: 'Publiez votre annonce',
@@ -614,6 +666,22 @@ const steps = [
     desc: "Le transporteur remet le colis. Vous confirmez la réception dans l'application et le paiement est libéré instantanément. Le transporteur reçoit ses fonds sous 2 à 7 jours ouvrés.",
   },
 ]
+
+const carrierSteps = [
+  {
+    title: 'Publiez votre trajet',
+    desc: 'Indiquez votre départ, votre arrivée et vos dates dans l’application. Complétez votre profil et la vérification d’identité pour commencer à transporter.',
+  },
+  {
+    title: 'Choisissez vos colis',
+    desc: 'Échangez avec l’expéditeur pour convenir du colis, de sa prise en charge et de sa remise au destinataire. Acceptez uniquement ce qui correspond à votre trajet.',
+  },
+  {
+    title: 'Livrez, puis validez avec le code',
+    desc: 'Une fois le colis remis, demandez le code à l’expéditeur et saisissez-le dans l’application. Le paiement est libéré après validation de la livraison.',
+  },
+]
+const steps = computed(() => audience.value === 'sender' ? senderSteps : carrierSteps)
 
 const trust = [
   {
@@ -724,7 +792,7 @@ const securityStack = [
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 1rem;
   padding-bottom: 4rem;
 }
 .hero-eyebrow {
@@ -766,6 +834,61 @@ const securityStack = [
   color: var(--ink);
   margin-bottom: 1.5rem;
 }
+.hero-audience {
+  display: inline-flex;
+  max-width: 100%;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  margin-bottom: 1.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
+}
+.hero-audience button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1rem;
+  border: 0;
+  border-radius: var(--radius-xl);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.hero-audience button[aria-pressed='true'] {
+  background: var(--verdant);
+  color: #fff;
+}
+.hero-audience button:focus-visible,
+.hero-explore:focus-visible {
+  outline: 3px solid var(--verdant);
+  outline-offset: 4px;
+}
+.hero-audience .app-icon,
+.hero-explore .app-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.hero-download-label {
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.hero-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  color: var(--verdant);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
 .hero-italic {
   font-style: italic;
   font-weight: 700;
@@ -797,6 +920,7 @@ const securityStack = [
 }
 .hero-cta {
   display: flex;
+  scroll-margin-top: 100px;
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 1.25rem;
@@ -931,6 +1055,16 @@ const securityStack = [
   transition:
     transform var(--transition),
     box-shadow var(--transition);
+}
+.earn-more {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto 0;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .earn-title {
   font-family: var(--font-display);
@@ -1685,6 +1819,16 @@ const securityStack = [
 .faq-section {
   padding: 6rem 0;
 }
+.home-help-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+  color: var(--verdant);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
 .faq-list {
   max-width: 780px;
   margin: 0 auto;
@@ -1776,6 +1920,15 @@ const securityStack = [
   }
 }
 @media (max-width: 640px) {
+  .hero-audience {
+    width: 100%;
+    max-width: 360px;
+  }
+  .hero-audience button {
+    flex: 1;
+    padding: 0.7rem 0.45rem;
+    font-size: 0.78rem;
+  }
   .features-bento {
     grid-template-columns: 1fr;
   }

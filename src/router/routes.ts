@@ -46,6 +46,11 @@ export const routes: RouteRecordRaw[] = [
 
   // National / keyword landing pages
   {
+    path: '/devenir-transporteur',
+    name: 'devenir-transporteur',
+    component: () => import('@/views/landing/DevenirTransporteurView.vue'),
+  },
+  {
     path: '/transport-colis-entre-particuliers',
     name: 'entre-particuliers',
     component: () => import('@/views/landing/EntreParticuliersView.vue'),
@@ -59,6 +64,23 @@ export const routes: RouteRecordRaw[] = [
     path: '/envoyer-medicaments',
     name: 'medicaments',
     component: () => import('@/views/landing/MedicamentsView.vue'),
+  },
+
+  // Help, trust and destination directory
+  {
+    path: '/aide',
+    name: 'help',
+    component: () => import('@/views/HelpView.vue'),
+  },
+  {
+    path: '/securite-et-paiement',
+    name: 'security',
+    component: () => import('@/views/SecurityView.vue'),
+  },
+  {
+    path: '/destinations',
+    name: 'destinations',
+    component: () => import('@/views/DestinationsView.vue'),
   },
 
   // Blog

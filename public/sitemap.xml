@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sendoraapp.com/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -46,6 +46,12 @@
   </url>
 
   <!-- National / keyword landing pages -->
+  <url>
+    <loc>https://sendoraapp.com/devenir-transporteur</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://sendoraapp.com/transport-colis-entre-particuliers</loc>
     <lastmod>2026-06-24</lastmod>
@@ -110,6 +116,24 @@
   </url>
 
   <!-- Utility / legal -->
+  <url>
+    <loc>https://sendoraapp.com/aide</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sendoraapp.com/securite-et-paiement</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sendoraapp.com/destinations</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://sendoraapp.com/contact</loc>
     <lastmod>2026-11-05</lastmod>

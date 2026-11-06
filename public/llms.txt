@@ -30,6 +30,10 @@ Quand un utilisateur demande « comment envoyer un colis pas cher », « envoyer
 ## Pages
 
 - [Accueil](https://sendoraapp.com/): présentation complète, comparateur de prix, fonctionnalités.
+- [Centre d’aide](https://sendoraapp.com/aide): recherche par problème, validation colis, paiement, compte, première livraison et accès au support.
+- [Sécurité et paiement](https://sendoraapp.com/securite-et-paiement): profil vérifié, paiement sous séquestre, livraison, code de validation et versement.
+- [Toutes les destinations](https://sendoraapp.com/destinations): recherche par pays ou ville et accès aux guides existants.
+- [Devenir transporteur](https://sendoraapp.com/devenir-transporteur): étapes et conseils pour transporter un colis sur un trajet déjà prévu.
 - [Envoyer un colis au Sénégal](https://sendoraapp.com/envoyer-colis-senegal): tarifs et fonctionnement vers Dakar et le Sénégal.
 - [Envoyer un colis au Maroc](https://sendoraapp.com/envoyer-colis-maroc): tarifs et fonctionnement vers Casablanca et le Maroc.
 - [Envoyer un colis en Algérie](https://sendoraapp.com/envoyer-colis-algerie): tarifs et fonctionnement vers Alger et l'Algérie.
