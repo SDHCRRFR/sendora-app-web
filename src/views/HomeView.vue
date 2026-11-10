@@ -644,6 +644,7 @@ useSeo({
 const partners = [
   { name: 'MyShelf', url: 'https://myshelfapp.app', logo: '/partners/myshelf.png' },
   { name: 'DigitalPowers', url: 'https://digitalpowers.fr', logo: '/partners/logo2.png' },
+  { name: 'Noomi', url: 'https://noomiapp.com/', logo: '/partners/noomi.png' },
 ]
 // Repeat the set, then duplicate it so the -50% scroll loops seamlessly.
 const partnerHalf = Array.from({ length: 6 }, () => partners).flat()
